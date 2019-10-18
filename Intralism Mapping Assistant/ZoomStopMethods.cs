@@ -49,7 +49,10 @@ namespace Intralism_Mapping_Assistant
             decimal by = frameTime * (decimal)5d;
 
             // TODO make these "smarter" and more dynamic.
-            decimal range = 500m;
+            // Right now the bruteforcing is too simplistic.
+            // Making the bruteforce smarter can increase performance and provide
+            // more accurate results.
+            decimal range = CustomRangeZSCalc.Enabled ? CustomRangeZSCalc.Value : 500m;
             decimal step = .025m;
 
             decimal currentFED = secondEventDistance - range / 2m;
@@ -85,6 +88,8 @@ namespace Intralism_Mapping_Assistant
 
                 lastCurrentDistance = currentDistance;
             }
+
+            OutputBox.Text = "Calculation Failed!";
         }
 
         private void FindSET()

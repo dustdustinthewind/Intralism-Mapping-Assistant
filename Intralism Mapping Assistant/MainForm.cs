@@ -57,6 +57,17 @@ namespace Intralism_Mapping_Assistant
         private void AdvancedFrameRateCalc_CheckedChanged(object sender, EventArgs e)
         {
             CustomFrameRate.Enabled = AdvancedFrameRateCalc.Checked;
+
+            if (!CustomFrameRate.Enabled)
+                CustomFrameRate.Value = 1000;
+        }
+
+        private void AdvancedCustomRangeCalc_CheckedChanged(object sender, EventArgs e)
+        {
+            CustomRangeZSCalc.Enabled = AdvancedCustomRangeCalc.Checked;
+
+            if (!CustomRangeZSCalc.Enabled)
+                CustomRangeZSCalc.Value = 500;
         }
     }
 }
