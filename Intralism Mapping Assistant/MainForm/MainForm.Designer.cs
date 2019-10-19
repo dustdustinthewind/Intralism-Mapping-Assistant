@@ -59,6 +59,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.EventModifier = new System.Windows.Forms.TabPage();
+            this.EventModifierPanel = new System.Windows.Forms.Panel();
+            this.ZEMContainer = new System.Windows.Forms.SplitContainer();
+            this.DestructiveZEMGroup = new System.Windows.Forms.GroupBox();
+            this.DeleteAllZoomsButton = new System.Windows.Forms.Button();
+            this.DestructiveCheckZEM = new System.Windows.Forms.CheckBox();
+            this.CopyPreviewBox = new System.Windows.Forms.Button();
+            this.ModifyConfigPreviewZEM = new System.Windows.Forms.CheckBox();
+            this.ConfigPreviewZEM = new System.Windows.Forms.Label();
+            this.ConfigPreviewRTBZEM = new System.Windows.Forms.RichTextBox();
+            this.ZoomModifierDescription = new System.Windows.Forms.Label();
             this.AboutTab = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,8 +76,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.CustomFRToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CustomRangeToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.EventModifierPanel = new System.Windows.Forms.Panel();
-            this.ZoomModifierDescription = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LoadButton = new System.Windows.Forms.Button();
+            this.ModifiedTracker = new System.Windows.Forms.Label();
+            this.Overwrite = new System.Windows.Forms.Button();
+            this.SaveFolder = new System.Windows.Forms.Button();
+            this.SaveConfig = new System.Windows.Forms.Button();
+            this.LoadMapButton = new System.Windows.Forms.Button();
+            this.AddressBox = new System.Windows.Forms.TextBox();
+            this.LoadedMap = new System.Windows.Forms.Label();
+            this.SaveConfigTT = new System.Windows.Forms.ToolTip(this.components);
+            this.SaveFolderTT = new System.Windows.Forms.ToolTip(this.components);
+            this.OverwriteTT = new System.Windows.Forms.ToolTip(this.components);
+            this.BrowseForMapFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.ZoomStopTool.SuspendLayout();
             this.ZoomStopTab.SuspendLayout();
             this.ZoomPanel.SuspendLayout();
@@ -82,8 +103,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.FirstEventTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDistanceBox)).BeginInit();
             this.EventModifier.SuspendLayout();
-            this.AboutTab.SuspendLayout();
             this.EventModifierPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMContainer)).BeginInit();
+            this.ZEMContainer.Panel1.SuspendLayout();
+            this.ZEMContainer.Panel2.SuspendLayout();
+            this.ZEMContainer.SuspendLayout();
+            this.DestructiveZEMGroup.SuspendLayout();
+            this.AboutTab.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ZoomStopTool
@@ -94,7 +121,7 @@
             this.ZoomStopTool.Location = new System.Drawing.Point(13, 13);
             this.ZoomStopTool.Name = "ZoomStopTool";
             this.ZoomStopTool.SelectedIndex = 0;
-            this.ZoomStopTool.Size = new System.Drawing.Size(935, 515);
+            this.ZoomStopTool.Size = new System.Drawing.Size(935, 466);
             this.ZoomStopTool.TabIndex = 0;
             // 
             // ZoomStopTab
@@ -103,7 +130,7 @@
             this.ZoomStopTab.Location = new System.Drawing.Point(4, 22);
             this.ZoomStopTab.Name = "ZoomStopTab";
             this.ZoomStopTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ZoomStopTab.Size = new System.Drawing.Size(927, 489);
+            this.ZoomStopTab.Size = new System.Drawing.Size(927, 440);
             this.ZoomStopTab.TabIndex = 0;
             this.ZoomStopTab.Text = "\"Zoom Stop\" effect Calculator";
             // 
@@ -166,6 +193,7 @@
             // AdvancedCustomRangeCalc
             // 
             this.AdvancedCustomRangeCalc.AutoSize = true;
+            this.AdvancedCustomRangeCalc.Cursor = System.Windows.Forms.Cursors.Help;
             this.AdvancedCustomRangeCalc.Location = new System.Drawing.Point(11, 88);
             this.AdvancedCustomRangeCalc.Name = "AdvancedCustomRangeCalc";
             this.AdvancedCustomRangeCalc.Size = new System.Drawing.Size(96, 17);
@@ -207,6 +235,7 @@
             // AdvancedFrameRateCalc
             // 
             this.AdvancedFrameRateCalc.AutoSize = true;
+            this.AdvancedFrameRateCalc.Cursor = System.Windows.Forms.Cursors.Help;
             this.AdvancedFrameRateCalc.Location = new System.Drawing.Point(10, 20);
             this.AdvancedFrameRateCalc.Name = "AdvancedFrameRateCalc";
             this.AdvancedFrameRateCalc.Size = new System.Drawing.Size(119, 17);
@@ -239,6 +268,7 @@
             // 
             // ZoomStopCalculate
             // 
+            this.ZoomStopCalculate.Enabled = false;
             this.ZoomStopCalculate.Location = new System.Drawing.Point(30, 62);
             this.ZoomStopCalculate.Name = "ZoomStopCalculate";
             this.ZoomStopCalculate.Size = new System.Drawing.Size(75, 23);
@@ -475,9 +505,121 @@
             this.EventModifier.Location = new System.Drawing.Point(4, 22);
             this.EventModifier.Name = "EventModifier";
             this.EventModifier.Padding = new System.Windows.Forms.Padding(3);
-            this.EventModifier.Size = new System.Drawing.Size(927, 489);
+            this.EventModifier.Size = new System.Drawing.Size(927, 440);
             this.EventModifier.TabIndex = 2;
             this.EventModifier.Text = "Zoom Event Modifier";
+            // 
+            // EventModifierPanel
+            // 
+            this.EventModifierPanel.Controls.Add(this.ZEMContainer);
+            this.EventModifierPanel.Controls.Add(this.ZoomModifierDescription);
+            this.EventModifierPanel.Location = new System.Drawing.Point(7, 6);
+            this.EventModifierPanel.Name = "EventModifierPanel";
+            this.EventModifierPanel.Size = new System.Drawing.Size(914, 477);
+            this.EventModifierPanel.TabIndex = 0;
+            // 
+            // ZEMContainer
+            // 
+            this.ZEMContainer.IsSplitterFixed = true;
+            this.ZEMContainer.Location = new System.Drawing.Point(7, 23);
+            this.ZEMContainer.Name = "ZEMContainer";
+            // 
+            // ZEMContainer.Panel1
+            // 
+            this.ZEMContainer.Panel1.Controls.Add(this.DestructiveZEMGroup);
+            // 
+            // ZEMContainer.Panel2
+            // 
+            this.ZEMContainer.Panel2.Controls.Add(this.CopyPreviewBox);
+            this.ZEMContainer.Panel2.Controls.Add(this.ModifyConfigPreviewZEM);
+            this.ZEMContainer.Panel2.Controls.Add(this.ConfigPreviewZEM);
+            this.ZEMContainer.Panel2.Controls.Add(this.ConfigPreviewRTBZEM);
+            this.ZEMContainer.Size = new System.Drawing.Size(906, 405);
+            this.ZEMContainer.SplitterDistance = 608;
+            this.ZEMContainer.TabIndex = 1;
+            // 
+            // DestructiveZEMGroup
+            // 
+            this.DestructiveZEMGroup.Controls.Add(this.DeleteAllZoomsButton);
+            this.DestructiveZEMGroup.Controls.Add(this.DestructiveCheckZEM);
+            this.DestructiveZEMGroup.Location = new System.Drawing.Point(3, 255);
+            this.DestructiveZEMGroup.Name = "DestructiveZEMGroup";
+            this.DestructiveZEMGroup.Size = new System.Drawing.Size(602, 137);
+            this.DestructiveZEMGroup.TabIndex = 0;
+            this.DestructiveZEMGroup.TabStop = false;
+            this.DestructiveZEMGroup.Text = "Destructive Options";
+            // 
+            // DeleteAllZoomsButton
+            // 
+            this.DeleteAllZoomsButton.Enabled = false;
+            this.DeleteAllZoomsButton.Location = new System.Drawing.Point(7, 44);
+            this.DeleteAllZoomsButton.Name = "DeleteAllZoomsButton";
+            this.DeleteAllZoomsButton.Size = new System.Drawing.Size(142, 23);
+            this.DeleteAllZoomsButton.TabIndex = 1;
+            this.DeleteAllZoomsButton.Text = "Remove All Zoom Events";
+            this.DeleteAllZoomsButton.UseVisualStyleBackColor = true;
+            this.DeleteAllZoomsButton.Click += new System.EventHandler(this.DeleteAllZooms_Click);
+            // 
+            // DestructiveCheckZEM
+            // 
+            this.DestructiveCheckZEM.AutoSize = true;
+            this.DestructiveCheckZEM.Enabled = false;
+            this.DestructiveCheckZEM.Location = new System.Drawing.Point(7, 20);
+            this.DestructiveCheckZEM.Name = "DestructiveCheckZEM";
+            this.DestructiveCheckZEM.Size = new System.Drawing.Size(489, 17);
+            this.DestructiveCheckZEM.TabIndex = 0;
+            this.DestructiveCheckZEM.Text = "I understand this can seriously fuck up the map if I\'m not careful, lemme use the" +
+    "se options anyway!";
+            this.DestructiveCheckZEM.UseVisualStyleBackColor = true;
+            this.DestructiveCheckZEM.CheckedChanged += new System.EventHandler(this.DestructiveCheckZEM_CheckedChanged);
+            // 
+            // CopyPreviewBox
+            // 
+            this.CopyPreviewBox.Enabled = false;
+            this.CopyPreviewBox.Location = new System.Drawing.Point(214, 373);
+            this.CopyPreviewBox.Name = "CopyPreviewBox";
+            this.CopyPreviewBox.Size = new System.Drawing.Size(75, 23);
+            this.CopyPreviewBox.TabIndex = 3;
+            this.CopyPreviewBox.Text = "Copy All";
+            this.CopyPreviewBox.UseVisualStyleBackColor = true;
+            // 
+            // ModifyConfigPreviewZEM
+            // 
+            this.ModifyConfigPreviewZEM.AutoSize = true;
+            this.ModifyConfigPreviewZEM.Location = new System.Drawing.Point(215, 4);
+            this.ModifyConfigPreviewZEM.Name = "ModifyConfigPreviewZEM";
+            this.ModifyConfigPreviewZEM.Size = new System.Drawing.Size(74, 17);
+            this.ModifyConfigPreviewZEM.TabIndex = 2;
+            this.ModifyConfigPreviewZEM.Text = "Modifiable";
+            this.ModifyConfigPreviewZEM.UseVisualStyleBackColor = true;
+            this.ModifyConfigPreviewZEM.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewZEM_CheckedChanged);
+            // 
+            // ConfigPreviewZEM
+            // 
+            this.ConfigPreviewZEM.AutoSize = true;
+            this.ConfigPreviewZEM.Location = new System.Drawing.Point(3, 5);
+            this.ConfigPreviewZEM.Name = "ConfigPreviewZEM";
+            this.ConfigPreviewZEM.Size = new System.Drawing.Size(78, 13);
+            this.ConfigPreviewZEM.TabIndex = 1;
+            this.ConfigPreviewZEM.Text = "Config Preview";
+            // 
+            // ConfigPreviewRTBZEM
+            // 
+            this.ConfigPreviewRTBZEM.Location = new System.Drawing.Point(4, 21);
+            this.ConfigPreviewRTBZEM.Name = "ConfigPreviewRTBZEM";
+            this.ConfigPreviewRTBZEM.ReadOnly = true;
+            this.ConfigPreviewRTBZEM.Size = new System.Drawing.Size(287, 346);
+            this.ConfigPreviewRTBZEM.TabIndex = 0;
+            this.ConfigPreviewRTBZEM.Text = "No Map Loaded!";
+            // 
+            // ZoomModifierDescription
+            // 
+            this.ZoomModifierDescription.AutoSize = true;
+            this.ZoomModifierDescription.Location = new System.Drawing.Point(4, 4);
+            this.ZoomModifierDescription.Name = "ZoomModifierDescription";
+            this.ZoomModifierDescription.Size = new System.Drawing.Size(297, 13);
+            this.ZoomModifierDescription.TabIndex = 0;
+            this.ZoomModifierDescription.Text = "This tool can modify zoom events in the currently loaded map.";
             // 
             // AboutTab
             // 
@@ -488,7 +630,7 @@
             this.AboutTab.Location = new System.Drawing.Point(4, 22);
             this.AboutTab.Name = "AboutTab";
             this.AboutTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AboutTab.Size = new System.Drawing.Size(927, 489);
+            this.AboutTab.Size = new System.Drawing.Size(927, 440);
             this.AboutTab.TabIndex = 1;
             this.AboutTab.Text = "About";
             // 
@@ -516,9 +658,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(7, 76);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(203, 13);
+            this.label8.Size = new System.Drawing.Size(181, 13);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Copyright (c) 2019 FlyingRabidUnicornPig";
+            this.label8.Text = "Copyright (c) 2019 Nathaniel Beasley";
             // 
             // label7
             // 
@@ -527,30 +669,115 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant 0.0.1";
+            this.label7.Text = "Intralism Mapping Assistant 0.0.2";
             // 
-            // EventModifierPanel
+            // panel1
             // 
-            this.EventModifierPanel.Controls.Add(this.ZoomModifierDescription);
-            this.EventModifierPanel.Location = new System.Drawing.Point(7, 6);
-            this.EventModifierPanel.Name = "EventModifierPanel";
-            this.EventModifierPanel.Size = new System.Drawing.Size(914, 477);
-            this.EventModifierPanel.TabIndex = 0;
+            this.panel1.Controls.Add(this.LoadButton);
+            this.panel1.Controls.Add(this.ModifiedTracker);
+            this.panel1.Controls.Add(this.Overwrite);
+            this.panel1.Controls.Add(this.SaveFolder);
+            this.panel1.Controls.Add(this.SaveConfig);
+            this.panel1.Controls.Add(this.LoadMapButton);
+            this.panel1.Controls.Add(this.AddressBox);
+            this.panel1.Controls.Add(this.LoadedMap);
+            this.panel1.Location = new System.Drawing.Point(13, 485);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(935, 43);
+            this.panel1.TabIndex = 1;
             // 
-            // ZoomModifierDescription
+            // LoadButton
             // 
-            this.ZoomModifierDescription.AutoSize = true;
-            this.ZoomModifierDescription.Location = new System.Drawing.Point(4, 4);
-            this.ZoomModifierDescription.Name = "ZoomModifierDescription";
-            this.ZoomModifierDescription.Size = new System.Drawing.Size(35, 13);
-            this.ZoomModifierDescription.TabIndex = 0;
-            this.ZoomModifierDescription.Text = "label1";
+            this.LoadButton.Location = new System.Drawing.Point(434, 0);
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadButton.TabIndex = 9;
+            this.LoadButton.Text = "Load Map";
+            this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+            // 
+            // ModifiedTracker
+            // 
+            this.ModifiedTracker.AutoSize = true;
+            this.ModifiedTracker.Location = new System.Drawing.Point(1, 30);
+            this.ModifiedTracker.Name = "ModifiedTracker";
+            this.ModifiedTracker.Size = new System.Drawing.Size(128, 13);
+            this.ModifiedTracker.TabIndex = 8;
+            this.ModifiedTracker.Text = "No Map Currently Loaded";
+            // 
+            // Overwrite
+            // 
+            this.Overwrite.Cursor = System.Windows.Forms.Cursors.Help;
+            this.Overwrite.Enabled = false;
+            this.Overwrite.Location = new System.Drawing.Point(845, 12);
+            this.Overwrite.Name = "Overwrite";
+            this.Overwrite.Size = new System.Drawing.Size(77, 23);
+            this.Overwrite.TabIndex = 7;
+            this.Overwrite.Text = "Overwrite";
+            this.OverwriteTT.SetToolTip(this.Overwrite, "Not Yet Implemented.\nOverwrite the currently loaded config.txt with any changes y" +
+        "ou\'ve made.\nWarning: This option can be destructive, be careful!");
+            this.Overwrite.UseVisualStyleBackColor = true;
+            // 
+            // SaveFolder
+            // 
+            this.SaveFolder.Cursor = System.Windows.Forms.Cursors.Help;
+            this.SaveFolder.Enabled = false;
+            this.SaveFolder.Location = new System.Drawing.Point(764, 12);
+            this.SaveFolder.Name = "SaveFolder";
+            this.SaveFolder.Size = new System.Drawing.Size(75, 23);
+            this.SaveFolder.TabIndex = 6;
+            this.SaveFolder.Text = "Save Folder";
+            this.SaveFolderTT.SetToolTip(this.SaveFolder, "Not Yet Implemented.\nSave a copy of the entire map folder to a new location.");
+            this.SaveFolder.UseVisualStyleBackColor = true;
+            // 
+            // SaveConfig
+            // 
+            this.SaveConfig.Cursor = System.Windows.Forms.Cursors.Help;
+            this.SaveConfig.Enabled = false;
+            this.SaveConfig.Location = new System.Drawing.Point(681, 12);
+            this.SaveConfig.Name = "SaveConfig";
+            this.SaveConfig.Size = new System.Drawing.Size(77, 23);
+            this.SaveConfig.TabIndex = 5;
+            this.SaveConfig.Text = "Save Config";
+            this.SaveConfigTT.SetToolTip(this.SaveConfig, "Not Yet Implemented.\nSave a copy of the map\'s config.txt to a new location.");
+            this.SaveConfig.UseVisualStyleBackColor = true;
+            // 
+            // LoadMapButton
+            // 
+            this.LoadMapButton.Location = new System.Drawing.Point(353, 0);
+            this.LoadMapButton.Name = "LoadMapButton";
+            this.LoadMapButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadMapButton.TabIndex = 2;
+            this.LoadMapButton.Text = "Browse";
+            this.LoadMapButton.UseVisualStyleBackColor = true;
+            this.LoadMapButton.Click += new System.EventHandler(this.LoadMapButton_Click);
+            // 
+            // AddressBox
+            // 
+            this.AddressBox.Location = new System.Drawing.Point(87, 2);
+            this.AddressBox.Name = "AddressBox";
+            this.AddressBox.Size = new System.Drawing.Size(260, 20);
+            this.AddressBox.TabIndex = 1;
+            // 
+            // LoadedMap
+            // 
+            this.LoadedMap.AutoSize = true;
+            this.LoadedMap.Location = new System.Drawing.Point(1, 5);
+            this.LoadedMap.Name = "LoadedMap";
+            this.LoadedMap.Size = new System.Drawing.Size(84, 13);
+            this.LoadedMap.TabIndex = 0;
+            this.LoadedMap.Text = "Load Map From:";
+            // 
+            // BrowseForMapFolder
+            // 
+            this.BrowseForMapFolder.Description = "Select the folder of your map.";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 540);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ZoomStopTool);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -574,10 +801,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.FirstEventTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDistanceBox)).EndInit();
             this.EventModifier.ResumeLayout(false);
-            this.AboutTab.ResumeLayout(false);
-            this.AboutTab.PerformLayout();
             this.EventModifierPanel.ResumeLayout(false);
             this.EventModifierPanel.PerformLayout();
+            this.ZEMContainer.Panel1.ResumeLayout(false);
+            this.ZEMContainer.Panel2.ResumeLayout(false);
+            this.ZEMContainer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMContainer)).EndInit();
+            this.ZEMContainer.ResumeLayout(false);
+            this.DestructiveZEMGroup.ResumeLayout(false);
+            this.DestructiveZEMGroup.PerformLayout();
+            this.AboutTab.ResumeLayout(false);
+            this.AboutTab.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -622,5 +858,26 @@
         private System.Windows.Forms.ToolTip CustomRangeToolTip;
         private System.Windows.Forms.Panel EventModifierPanel;
         private System.Windows.Forms.Label ZoomModifierDescription;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label LoadedMap;
+        private System.Windows.Forms.Button LoadMapButton;
+        private System.Windows.Forms.TextBox AddressBox;
+        private System.Windows.Forms.Button SaveFolder;
+        private System.Windows.Forms.Button SaveConfig;
+        private System.Windows.Forms.ToolTip SaveConfigTT;
+        private System.Windows.Forms.Button Overwrite;
+        private System.Windows.Forms.Button LoadButton;
+        private System.Windows.Forms.Label ModifiedTracker;
+        private System.Windows.Forms.ToolTip SaveFolderTT;
+        private System.Windows.Forms.ToolTip OverwriteTT;
+        private System.Windows.Forms.SplitContainer ZEMContainer;
+        private System.Windows.Forms.Label ConfigPreviewZEM;
+        private System.Windows.Forms.RichTextBox ConfigPreviewRTBZEM;
+        private System.Windows.Forms.CheckBox ModifyConfigPreviewZEM;
+        private System.Windows.Forms.GroupBox DestructiveZEMGroup;
+        private System.Windows.Forms.Button DeleteAllZoomsButton;
+        private System.Windows.Forms.CheckBox DestructiveCheckZEM;
+        private System.Windows.Forms.FolderBrowserDialog BrowseForMapFolder;
+        private System.Windows.Forms.Button CopyPreviewBox;
     }
 }

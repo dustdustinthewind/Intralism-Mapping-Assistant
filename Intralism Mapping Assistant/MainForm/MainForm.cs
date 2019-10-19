@@ -1,10 +1,24 @@
-﻿using System;
+﻿using Intralism_Mapping_Assistant.Util;
+using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Intralism_Mapping_Assistant
 {
     public partial class MainForm : Form
     {
+        private string LoadedMapFolderLocation;
+
+        private Map CurrentMap
+        {
+            get
+            {
+                return MakeMapFromPath(LoadedMapFolderLocation + @"\config.txt");
+            }
+        }
+
+        private bool DeleteZoomsButtonActivated = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -15,6 +29,7 @@ namespace Intralism_Mapping_Assistant
             ChangeZoomStopOutputLabel("First Event Distance");
             ReactivateAllZoomStopBoxes();
             FirstEventDistanceBox.Enabled = false;
+            ZoomStopCalculate.Enabled = true;
         }
 
         private void CalcSET_CheckedChanged(object sender, EventArgs e)
@@ -22,6 +37,7 @@ namespace Intralism_Mapping_Assistant
             ChangeZoomStopOutputLabel("Second Event Time");
             ReactivateAllZoomStopBoxes();
             SecondEventTimeBox.Enabled = false;
+            ZoomStopCalculate.Enabled = true;
         }
 
         private void CalcSED_CheckedChanged(object sender, EventArgs e)
@@ -29,6 +45,7 @@ namespace Intralism_Mapping_Assistant
             ChangeZoomStopOutputLabel("Second Event Distance");
             ReactivateAllZoomStopBoxes();
             SecondEventDistanceBox.Enabled = false;
+            ZoomStopCalculate.Enabled = true;
         }
 
         private void ZoomStopCalculate_Click(object sender, EventArgs e)
@@ -68,6 +85,44 @@ namespace Intralism_Mapping_Assistant
 
             if (!CustomRangeZSCalc.Enabled)
                 CustomRangeZSCalc.Value = 500;
+        }
+
+        private void ModifyConfigPreviewZEM_CheckedChanged(object sender, EventArgs e)
+        {
+            ConfigPreviewRTBZEM.ReadOnly = !ModifyConfigPreviewZEM.Checked;
+        }
+
+        private void DestructiveCheckZEM_CheckedChanged(object sender, EventArgs e)
+        {
+            DeleteAllZoomsButton.Enabled = DestructiveCheckZEM.Checked && DeleteZoomsButtonActivated;
+        }
+
+        private void LoadMapButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = BrowseForMapFolder.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+                AddressBox.Text = BrowseForMapFolder.SelectedPath;
+            else if (dialogResult == DialogResult.Cancel)
+                return;
+        }
+
+        private void DeleteAllZooms_Click(object sender, EventArgs e)
+        {
+            DeleteZooms();
+        }
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            if (!IsAddressBoxLegal())
+            {
+                ErrorMessage("Please provide a proper directory address!");
+                return;
+            }
+
+            UpdateAllRTBs();
+            UpdateModifiedTracker();
+            ActivateButtons();
         }
     }
 }
