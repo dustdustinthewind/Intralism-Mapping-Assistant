@@ -582,6 +582,7 @@
             this.CopyPreviewBox.TabIndex = 3;
             this.CopyPreviewBox.Text = "Copy All";
             this.CopyPreviewBox.UseVisualStyleBackColor = true;
+            this.CopyPreviewBox.Click += new System.EventHandler(this.CopyPreviewBox_Click);
             // 
             // ModifyConfigPreviewZEM
             // 

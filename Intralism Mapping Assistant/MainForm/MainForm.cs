@@ -124,5 +124,10 @@ namespace Intralism_Mapping_Assistant
             UpdateModifiedTracker();
             ActivateButtons();
         }
+
+        private void CopyPreviewBox_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(ConfigPreviewRTBZEM.Text);
+        }
     }
 }
