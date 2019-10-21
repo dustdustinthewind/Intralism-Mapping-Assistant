@@ -1,6 +1,6 @@
 using System;
 
-namespace Intralism_Mapping_Utils.Util
+namespace Intralism_Mapping_Assistant.Util
 {
     static public class IMAMath
     {

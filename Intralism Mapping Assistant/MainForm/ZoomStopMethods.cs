@@ -1,14 +1,116 @@
-﻿using Intralism_Mapping_Utils.Util;
+﻿using Intralism_Mapping_Assistant.Util;
+using Newtonsoft.Json;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Intralism_Mapping_Assistant
 {
     partial class MainForm : Form
     {
+        private Point oldLocation = Point.Empty;
+
         private void ChangeZoomStopOutputLabel(string text)
         {
+            // Set to the text
             ZoomStopOutputLabel.Text = text;
+
+            // Move down, since it's default text was 2 lines, now it should be one line.
+            if (oldLocation == Point.Empty)
+                oldLocation = ZoomStopOutputLabel.Location;
+
+            ZoomStopOutputLabel.Location = new Point (oldLocation.X, oldLocation.Y + 12);
+        }
+
+        private void ChangeSelectionZSC()
+        {
+            Event evnt;
+
+            // Turn the text into an Event, to make sure it is an Event
+            try
+            {
+                evnt = (Event)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(ConfigPreviewRTBZSC.SelectedText)), typeof(Event));
+            }
+            catch
+            {
+                ErrorMessage("A Zoom Event wasn't properly selected!\nClick on \"Find Prev Zoom\" or \"Find Next Zoom\" to select a Zoom event.");
+                return;
+            }
+
+            // Determine which part needs to be changed
+            switch (ZoomStopOutputLabel.Text)
+            {
+                case "First Event Time":
+                    ChangeTimeFor(evnt);
+                    break;
+                case "First Event Distance":
+                    ChangeDistanceFor(evnt);
+                    break;
+                case "Second Event Time":
+                    ChangeTimeFor(evnt);
+                    break;
+                case "Second Event Distance":
+                    ChangeDistanceFor(evnt);
+                    break;
+                default:
+                    ErrorMessage("Unknown error. Please try again. If this problem persists please let the developer know about this issue!");
+                    break;
+            }
+
+            // Turn the event into a string and replace the selected text with it.
+            ConfigPreviewRTBZSC.SelectedText = evnt.ToString();
+            // Select and focus on this changed text.
+            SelectPrevZoomEvent(ConfigPreviewRTBZSC);
+        }
+
+        private void ResetSelectionZSC()
+        {
+            Event currentEvent;
+            Map map = MakeMapFromText(ConfigPreviewRTBZSC.Text);
+
+            // If map equals null, then there's the Error Message from earlier displayed, and we don't need to worry about the rest of this method.
+            if (map == null)
+                return;
+
+            // Turn the text into an Event, to make sure it is an Event
+            try
+            {
+                currentEvent = (Event)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(ConfigPreviewRTBZSC.SelectedText)), typeof(Event));
+            }
+            catch
+            {
+                ErrorMessage("A Zoom Event wasn't properly selected!\nClick on \"Find Prev Zoom\" or \"Find Next Zoom\" to select a Zoom event.");
+                return;
+            }
+
+            // If the user has changed the textbox too much, show an error saying we can't easily reset it.
+            if (map.events.Length != CurrentMap.events.Length)
+            {
+                ErrorMessage("You have made too many changes to accurately reset this event!\nYou can use CTRL+Z in the text box to undo your previous actions.");
+                return;
+            }
+
+            // Index of the event
+            int i;
+            for (i = 0; i < map.events.Length; i++)
+            {
+                // If these events match, we know we found the index.
+                if (currentEvent.Equals(map.events[i]))
+                    break;
+            }
+
+            // Double check
+            if (i > map.events.Length - 1)
+            {
+                ErrorMessage("You shouldn't be seeing this message!");
+                return;
+            }
+
+            // Turn this event into its equivalent in the CurrentMap
+            ConfigPreviewRTBZSC.SelectedText = CurrentMap.events[i].ToString();
+            SelectPrevZoomEvent(ConfigPreviewRTBZSC);
         }
 
         private void ReactivateAllZoomStopBoxes()
@@ -27,10 +129,16 @@ namespace Intralism_Mapping_Assistant
 
             SecondEventDistanceBox.Enabled = true;
             SecondEventDistanceBox.Value = 0;
+
+            ModifySelectedZoomZSC.Enabled = true;
+            ResetSelectedZoomZSC.Enabled = true;
+
+            OutputBox.Text = "";
         }
 
         private void FindFET()
         {
+            // Not implemented (yet)
             return;
         }
 

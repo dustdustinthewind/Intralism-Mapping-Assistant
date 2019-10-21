@@ -25,13 +25,7 @@ namespace Intralism_Mapping_Assistant
             // Remove all Zoom Events from our Map object.
             map.events = map.events.Where(val => !IsZoomEvent(val)).ToArray();
 
-            // Write the zoomless config into a StringWriter
-            StringWriter sw = new StringWriter();
-            JsonSerializer js = new JsonSerializer();
-            js.Serialize(sw, map);
-
-            // Change the text box to display the zoomless config.
-            ConfigPreviewRTBZEM.Text = sw.ToString();
+            ConfigPreviewRTBZEM.Text = MakeTextFromMap(map);
         }
     }
 }

@@ -64,6 +64,11 @@ namespace Intralism_Mapping_Assistant.Util
         public double time;
         public string[] data = new string[2];
 
+        public override bool Equals(object compareTo)
+        {
+            return ToString() == compareTo.ToString();
+        }
+
         public string GetTypeString()
         {
             return data[0];
@@ -72,6 +77,21 @@ namespace Intralism_Mapping_Assistant.Util
         public string[] GetEventData()
         {
             return data[1].Split(',');
+        }
+
+        public override string ToString()
+        {
+            string compiledData = "";
+
+            compiledData += "\"" + data[0] + "\"";
+
+            for (int i = 1; i < data.Length; i++)
+            {
+                compiledData += ",\"";
+                compiledData += data[i] + "\"";
+            }
+
+            return "{\"time\":" + time + ",\"data\":[" + compiledData + "]}";
         }
     }
 

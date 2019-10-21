@@ -67,9 +67,7 @@ namespace Intralism_Mapping_Assistant
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
-        }
+            => System.Diagnostics.Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
 
         private void AdvancedFrameRateCalc_CheckedChanged(object sender, EventArgs e)
         {
@@ -88,14 +86,13 @@ namespace Intralism_Mapping_Assistant
         }
 
         private void ModifyConfigPreviewZEM_CheckedChanged(object sender, EventArgs e)
-        {
-            ConfigPreviewRTBZEM.ReadOnly = !ModifyConfigPreviewZEM.Checked;
-        }
+            => ChangeReadOnly(ModifyConfigPreviewZEM, ConfigPreviewRTBZEM);
+
+        private void ModifyConfigPreviewZSC_CheckedChanged(object sender, EventArgs e)
+            => ChangeReadOnly(ModifyConfigPreviewZSC, ConfigPreviewRTBZSC);
 
         private void DestructiveCheckZEM_CheckedChanged(object sender, EventArgs e)
-        {
-            DeleteAllZoomsButton.Enabled = DestructiveCheckZEM.Checked && DeleteZoomsButtonActivated;
-        }
+            => DeleteAllZoomsButton.Enabled = DestructiveCheckZEM.Checked && DeleteZoomsButtonActivated;
 
         private void LoadMapButton_Click(object sender, EventArgs e)
         {
@@ -108,9 +105,7 @@ namespace Intralism_Mapping_Assistant
         }
 
         private void DeleteAllZooms_Click(object sender, EventArgs e)
-        {
-            DeleteZooms();
-        }
+            => DeleteZooms();
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
@@ -126,8 +121,27 @@ namespace Intralism_Mapping_Assistant
         }
 
         private void CopyPreviewBox_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(ConfigPreviewRTBZEM.Text);
-        }
+            => Clipboard.SetText(ConfigPreviewRTBZEM.Text);
+
+        private void CopyPreviewBoxZSC_Click(object sender, EventArgs e)
+            => Clipboard.SetText(ConfigPreviewRTBZSC.Text);
+
+        private void FindPrevZoomZSC_Click(object sender, EventArgs e)
+            => SelectPrevZoomEvent(ConfigPreviewRTBZSC);
+
+        private void FindNextZoomZSC_Click(object sender, EventArgs e)
+            => SelectNextZoomEvent(ConfigPreviewRTBZSC);
+
+        private void FindPrevZoomZEM_Click(object sender, EventArgs e)
+            => SelectPrevZoomEvent(ConfigPreviewRTBZEM);
+
+        private void FindNextZoomZEM_Click(object sender, EventArgs e)
+            => SelectNextZoomEvent(ConfigPreviewRTBZEM);
+
+        private void ModifySelectedZoomZSC_Click(object sender, EventArgs e)
+            => ChangeSelectionZSC();
+
+        private void ResetSelectedZoomZSC_Click(object sender, EventArgs e)
+            => ResetSelectionZSC();
     }
 }

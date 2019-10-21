@@ -20,7 +20,12 @@ namespace Intralism_Mapping_Assistant
 
             try
             {
-                ConfigPreviewRTBZEM.LoadFile(LoadedMapFolderLocation + @"\config.txt", RichTextBoxStreamType.PlainText);
+                string address = LoadedMapFolderLocation + @"\config.txt";
+                RichTextBoxStreamType type = RichTextBoxStreamType.PlainText;
+                string text = File.ReadAllText(address);
+
+                ConfigPreviewRTBZEM.LoadFile(address, type);
+                ConfigPreviewRTBZSC.LoadFile(address, type);
             }
             catch (Exception e)
             {
@@ -32,15 +37,22 @@ namespace Intralism_Mapping_Assistant
         }
 
         private void UpdateModifiedTracker()
-        {
-            ModifiedTracker.Text = CurrentMap.name ?? "No Map Currently Loaded";
-        }
+            => ModifiedTracker.Text = CurrentMap.name ?? "No Map Currently Loaded";
 
         private void ActivateButtons()
         {
             CopyPreviewBox.Enabled = true;
+            CopyPreviewBoxZSC.Enabled = true;
+
             DeleteZoomsButtonActivated = true;
             DestructiveCheckZEM.Enabled = true;
+
+            FindNextZoomZSC.Enabled = true;
+            FindNextZoomZEM.Enabled = true;
+
+            FindPrevZoomZSC.Enabled = true;
+            FindPrevZoomZEM.Enabled = true;
+
             /*SaveConfig.Enabled = true;
             SaveFolder.Enabled = true;
             Overwrite.Enabled = true;*/
@@ -70,14 +82,95 @@ namespace Intralism_Mapping_Assistant
             return map;
         }
 
+        private string MakeTextFromMap(Map map)
+        {
+            // Write the zoomless config into a StringWriter
+            StringWriter sw = new StringWriter();
+            JsonSerializer js = new JsonSerializer();
+            js.Serialize(sw, map);
+
+            // Change the text box to display the zoomless config.
+            return sw.ToString();
+        }
+
         private bool IsAddressBoxLegal()
         {
             return Directory.Exists(AddressBox.Text) && File.Exists(AddressBox.Text + @"\config.txt");
         }
 
         private void ErrorMessage(string text)
+            => MessageBox.Show(text, "You Dingus!");
+
+        private void SelectNextZoomEvent(RichTextBox textBox)
         {
-            MessageBox.Show(text, "You Dingus!");
+            try
+            {
+                // Get the current start position
+                int currentSelectionStart = textBox.SelectionStart + textBox.SelectionLength;
+
+                // Find the next occurence of "SetPlayerDistance"
+                currentSelectionStart = textBox.Text.IndexOf("SetPlayerDistance", currentSelectionStart);
+
+                FocusOnEvent(textBox, currentSelectionStart);
+            }
+            catch
+            {
+                // Select the very last character
+                textBox.Select(textBox.Text.Length - 1, 0);
+                // Then find the last event
+                SelectPrevZoomEvent(textBox);
+            }
         }
+
+        private void SelectPrevZoomEvent(RichTextBox textBox)
+        {
+            try
+            {
+                // Get the current start position
+                int currentSelectionStart = textBox.SelectionStart;
+
+                // Find the last occurence of "SetPlayerDistance"
+                currentSelectionStart = textBox.Text.LastIndexOf("SetPlayerDistance", currentSelectionStart);
+
+                FocusOnEvent(textBox, currentSelectionStart);
+            }
+            catch
+            {
+                // Select the very first character
+                textBox.Select(0, 0);
+                // Then findm the first event
+                SelectNextZoomEvent(textBox);
+            }
+        }
+
+        private void FocusOnEvent(RichTextBox textBox, int currentSelectionStart)
+        {
+            // Find the start of this event
+            currentSelectionStart = textBox.Text.LastIndexOf('{', currentSelectionStart);
+
+            // Find the end of this event
+            int currentSelectionEnd = textBox.Text.IndexOf('}', currentSelectionStart) + 1;
+
+            // Select it
+            textBox.Select(currentSelectionStart, currentSelectionEnd - currentSelectionStart);
+            textBox.Focus();
+        }
+
+        private void ChangeReadOnly(CheckBox readOnly, RichTextBox textBox)
+            => textBox.ReadOnly = !readOnly.Checked;
+
+        private void ChangeDistanceFor(Event evnt)
+        {
+            if (evnt.GetTypeString() != "SetPlayerDistance")
+            {
+                ErrorMessage("Tried to modify a non-zoom event! You shouldn't be seeing this error!");
+                return;
+            }
+
+            evnt.data[1] = OutputBox.Text;
+        }
+
+        private void ChangeTimeFor(Event evnt)
+            => evnt.time = double.Parse(OutputBox.Text);
     }
 }
