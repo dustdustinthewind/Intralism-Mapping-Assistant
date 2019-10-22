@@ -1,10 +1,7 @@
 ﻿using Intralism_Mapping_Assistant.Util;
-using Newtonsoft.Json;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace Intralism_Mapping_Assistant
 {
@@ -26,16 +23,13 @@ namespace Intralism_Mapping_Assistant
 
         private void ChangeSelectionZSC()
         {
-            Event evnt;
+            Event currentEvent = MakeEventFromText(ConfigPreviewRTBZSC.SelectedText);
 
-            // Turn the text into an Event, to make sure it is an Event
-            try
+            if (currentEvent == null)
+                return;
+            else if (currentEvent.GetTypeString() != "SetPlayerDistance")
             {
-                evnt = (Event)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(ConfigPreviewRTBZSC.SelectedText)), typeof(Event));
-            }
-            catch
-            {
-                ErrorMessage("A Zoom Event wasn't properly selected!\nClick on \"Find Prev Zoom\" or \"Find Next Zoom\" to select a Zoom event.");
+                ErrorMessage("The selected event is not a zoom event!");
                 return;
             }
 
@@ -43,16 +37,16 @@ namespace Intralism_Mapping_Assistant
             switch (ZoomStopOutputLabel.Text)
             {
                 case "First Event Time":
-                    ChangeTimeFor(evnt);
+                    ChangeTimeFor(currentEvent);
                     break;
                 case "First Event Distance":
-                    ChangeDistanceFor(evnt);
+                    ChangeDistanceFor(currentEvent);
                     break;
                 case "Second Event Time":
-                    ChangeTimeFor(evnt);
+                    ChangeTimeFor(currentEvent);
                     break;
                 case "Second Event Distance":
-                    ChangeDistanceFor(evnt);
+                    ChangeDistanceFor(currentEvent);
                     break;
                 default:
                     ErrorMessage("Unknown error. Please try again. If this problem persists please let the developer know about this issue!");
@@ -60,35 +54,33 @@ namespace Intralism_Mapping_Assistant
             }
 
             // Turn the event into a string and replace the selected text with it.
-            ConfigPreviewRTBZSC.SelectedText = evnt.ToString();
+            ConfigPreviewRTBZSC.SelectedText = currentEvent.ToString();
             // Select and focus on this changed text.
             SelectPrevZoomEvent(ConfigPreviewRTBZSC);
         }
 
         private void ResetSelectionZSC()
         {
-            Event currentEvent;
             Map map = MakeMapFromText(ConfigPreviewRTBZSC.Text);
 
             // If map equals null, then there's the Error Message from earlier displayed, and we don't need to worry about the rest of this method.
             if (map == null)
                 return;
 
-            // Turn the text into an Event, to make sure it is an Event
-            try
-            {
-                currentEvent = (Event)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(ConfigPreviewRTBZSC.SelectedText)), typeof(Event));
-            }
-            catch
-            {
-                ErrorMessage("A Zoom Event wasn't properly selected!\nClick on \"Find Prev Zoom\" or \"Find Next Zoom\" to select a Zoom event.");
-                return;
-            }
-
             // If the user has changed the textbox too much, show an error saying we can't easily reset it.
             if (map.events.Length != CurrentMap.events.Length)
             {
                 ErrorMessage("You have made too many changes to accurately reset this event!\nYou can use CTRL+Z in the text box to undo your previous actions.");
+                return;
+            }
+
+            Event currentEvent = MakeEventFromText(ConfigPreviewRTBZSC.SelectedText);
+
+            if (currentEvent == null)
+                return;
+            else if (currentEvent.GetTypeString() != "SetPlayerDistance")
+            {
+                ErrorMessage("The selected event is not a zoom event!");
                 return;
             }
 

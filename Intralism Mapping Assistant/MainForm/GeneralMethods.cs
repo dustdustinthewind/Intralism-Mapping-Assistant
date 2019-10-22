@@ -1,6 +1,7 @@
 ﻿using Intralism_Mapping_Assistant.Util;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -8,6 +9,9 @@ namespace Intralism_Mapping_Assistant
 {
     partial class MainForm : Form
     {
+        private void Copy(string text)
+            => Clipboard.SetText(text);
+
         private void UpdateAllRTBs()
         {
             LoadedMapFolderLocation = AddressBox.Text;
@@ -20,12 +24,11 @@ namespace Intralism_Mapping_Assistant
 
             try
             {
-                string address = LoadedMapFolderLocation + @"\config.txt";
-                RichTextBoxStreamType type = RichTextBoxStreamType.PlainText;
-                string text = File.ReadAllText(address);
+                string text = File.ReadAllText(LoadedMapFolderLocation + @"\config.txt");
 
-                ConfigPreviewRTBZEM.LoadFile(address, type);
-                ConfigPreviewRTBZSC.LoadFile(address, type);
+                ConfigPreviewRTBZEM.Text = text;
+                ConfigPreviewRTBZSC.Text = text;
+                SplitConfigPart1.Text = text;
             }
             catch (Exception e)
             {
@@ -39,19 +42,25 @@ namespace Intralism_Mapping_Assistant
         private void UpdateModifiedTracker()
             => ModifiedTracker.Text = CurrentMap.name ?? "No Map Currently Loaded";
 
-        private void ActivateButtons()
+        private void ActivateEverythingElse()
         {
             CopyPreviewBox.Enabled = true;
             CopyPreviewBoxZSC.Enabled = true;
+            CopySCP1.Enabled = true;
+            CopySCP2.Enabled = true;
 
             DeleteZoomsButtonActivated = true;
             DestructiveCheckZEM.Enabled = true;
 
             FindNextZoomZSC.Enabled = true;
             FindNextZoomZEM.Enabled = true;
+            FindNextEventSCP1.Enabled = true;
+            FindNextEventSCP2.Enabled = true;
 
             FindPrevZoomZSC.Enabled = true;
             FindPrevZoomZEM.Enabled = true;
+            FindPrevEventSCP1.Enabled = true;
+            FindPrevEventSCP2.Enabled = true;
 
             /*SaveConfig.Enabled = true;
             SaveFolder.Enabled = true;
@@ -93,6 +102,19 @@ namespace Intralism_Mapping_Assistant
             return sw.ToString();
         }
 
+        private Event MakeEventFromText(string text)
+        {
+            try
+            {
+                return (Event)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(text)), typeof(Event));
+            }
+            catch
+            {
+                ErrorMessage("The Event wasn't properly selected!\nClick on the \"Find Prev\" or \"Find Next\" buttons to select an event.");
+                return null;
+            }
+        }
+
         private bool IsAddressBoxLegal()
         {
             return Directory.Exists(AddressBox.Text) && File.Exists(AddressBox.Text + @"\config.txt");
@@ -101,49 +123,103 @@ namespace Intralism_Mapping_Assistant
         private void ErrorMessage(string text)
             => MessageBox.Show(text, "You Dingus!");
 
-        private void SelectNextZoomEvent(RichTextBox textBox)
+        private void SelectNextEvent(RichTextBox textBox, bool focus = true)
         {
+            if (!textBox.Text.Contains("{\"time\":"))
+            {
+                ErrorMessage("There are no events in this config!");
+                return;
+            }
+
             try
             {
                 // Get the current start position
                 int currentSelectionStart = textBox.SelectionStart + textBox.SelectionLength;
 
-                // Find the next occurence of "SetPlayerDistance"
-                currentSelectionStart = textBox.Text.IndexOf("SetPlayerDistance", currentSelectionStart);
+                // Find the next occurence of "time":
+                currentSelectionStart = textBox.Text.IndexOf("\"time\":", currentSelectionStart);
 
-                FocusOnEvent(textBox, currentSelectionStart);
+                SelectEvent(textBox, currentSelectionStart, focus);
             }
-            catch
+            catch (ArgumentOutOfRangeException)
             {
                 // Select the very last character
                 textBox.Select(textBox.Text.Length - 1, 0);
                 // Then find the last event
-                SelectPrevZoomEvent(textBox);
+                SelectPrevEvent(textBox, focus);
             }
         }
 
-        private void SelectPrevZoomEvent(RichTextBox textBox)
+        private void SelectPrevEvent(RichTextBox textBox, bool focus = true)
         {
+            if (!textBox.Text.Contains("{\"time\":"))
+            {
+                ErrorMessage("There are no events in this config!");
+                return;
+            }
+
             try
             {
                 // Get the current start position
                 int currentSelectionStart = textBox.SelectionStart;
 
-                // Find the last occurence of "SetPlayerDistance"
-                currentSelectionStart = textBox.Text.LastIndexOf("SetPlayerDistance", currentSelectionStart);
+                // Find the last occurence of "time":
+                currentSelectionStart = textBox.Text.LastIndexOf("\"time\":", currentSelectionStart);
 
-                FocusOnEvent(textBox, currentSelectionStart);
+                SelectEvent(textBox, currentSelectionStart, focus);
             }
-            catch
+            catch (ArgumentOutOfRangeException)
             {
                 // Select the very first character
                 textBox.Select(0, 0);
-                // Then findm the first event
-                SelectNextZoomEvent(textBox);
+                // Then find the next event
+                SelectNextEvent(textBox, focus);
             }
         }
 
-        private void FocusOnEvent(RichTextBox textBox, int currentSelectionStart)
+        private void SelectNextZoomEvent(RichTextBox textBox)
+        {
+            Event evnt = new Event();
+
+            while (evnt.GetTypeString() != "SetPlayerDistance")
+            {
+                Event prevEvent = evnt;
+
+                SelectNextEvent(textBox, false);
+                evnt = MakeEventFromText(textBox.SelectedText);
+
+                if (evnt.Equals(prevEvent))
+                {
+                    SelectPrevZoomEvent(textBox);
+                    return;
+                }
+            }
+
+            textBox.Focus();
+        }
+
+        private void SelectPrevZoomEvent(RichTextBox textBox)
+        {
+            Event evnt = new Event();
+
+            while (evnt.GetTypeString() != "SetPlayerDistance")
+            {
+                Event nextEvent = evnt;
+
+                SelectPrevEvent(textBox, false);
+                evnt = MakeEventFromText(textBox.SelectedText);
+
+                if (evnt.Equals(nextEvent))
+                {
+                    SelectNextZoomEvent(textBox);
+                    return;
+                }
+            }
+
+            textBox.Focus();
+        }
+
+        private void SelectEvent(RichTextBox textBox, int currentSelectionStart, bool focus = true)
         {
             // Find the start of this event
             currentSelectionStart = textBox.Text.LastIndexOf('{', currentSelectionStart);
@@ -151,9 +227,13 @@ namespace Intralism_Mapping_Assistant
             // Find the end of this event
             int currentSelectionEnd = textBox.Text.IndexOf('}', currentSelectionStart) + 1;
 
+            int length = currentSelectionEnd - currentSelectionStart;
+
             // Select it
-            textBox.Select(currentSelectionStart, currentSelectionEnd - currentSelectionStart);
-            textBox.Focus();
+            textBox.Select(currentSelectionStart, length);
+
+            if (focus)
+                textBox.Focus();
         }
 
         private void ChangeReadOnly(CheckBox readOnly, RichTextBox textBox)
@@ -163,7 +243,7 @@ namespace Intralism_Mapping_Assistant
         {
             if (evnt.GetTypeString() != "SetPlayerDistance")
             {
-                ErrorMessage("Tried to modify a non-zoom event! You shouldn't be seeing this error!");
+                ErrorMessage("Tried to modify a non-zoom event!\nYou shouldn't be seeing this error!");
                 return;
             }
 

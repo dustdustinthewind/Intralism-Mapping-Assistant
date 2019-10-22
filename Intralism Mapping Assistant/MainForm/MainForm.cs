@@ -70,26 +70,22 @@ namespace Intralism_Mapping_Assistant
             => System.Diagnostics.Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
 
         private void AdvancedFrameRateCalc_CheckedChanged(object sender, EventArgs e)
-        {
-            CustomFrameRate.Enabled = AdvancedFrameRateCalc.Checked;
-
-            if (!CustomFrameRate.Enabled)
-                CustomFrameRate.Value = 1000;
-        }
+            => CustomFrameRate.Enabled = AdvancedFrameRateCalc.Checked;
 
         private void AdvancedCustomRangeCalc_CheckedChanged(object sender, EventArgs e)
-        {
-            CustomRangeZSCalc.Enabled = AdvancedCustomRangeCalc.Checked;
-
-            if (!CustomRangeZSCalc.Enabled)
-                CustomRangeZSCalc.Value = 500;
-        }
+            => CustomRangeZSCalc.Enabled = AdvancedCustomRangeCalc.Checked;
 
         private void ModifyConfigPreviewZEM_CheckedChanged(object sender, EventArgs e)
             => ChangeReadOnly(ModifyConfigPreviewZEM, ConfigPreviewRTBZEM);
 
         private void ModifyConfigPreviewZSC_CheckedChanged(object sender, EventArgs e)
             => ChangeReadOnly(ModifyConfigPreviewZSC, ConfigPreviewRTBZSC);
+
+        private void ModifyConfigPreviewSCP1_CheckedChanged(object sender, EventArgs e)
+            => ChangeReadOnly(ModifyConfigPreviewSCP1, SplitConfigPart1);
+
+        private void ModifyConfigPreviewSCP2_CheckedChanged(object sender, EventArgs e)
+            => ChangeReadOnly(ModifyConfigPreviewSCP2, SplitConfigPart2);
 
         private void DestructiveCheckZEM_CheckedChanged(object sender, EventArgs e)
             => DeleteAllZoomsButton.Enabled = DestructiveCheckZEM.Checked && DeleteZoomsButtonActivated;
@@ -117,14 +113,23 @@ namespace Intralism_Mapping_Assistant
 
             UpdateAllRTBs();
             UpdateModifiedTracker();
-            ActivateButtons();
+            ActivateEverythingElse();
         }
 
         private void CopyPreviewBox_Click(object sender, EventArgs e)
-            => Clipboard.SetText(ConfigPreviewRTBZEM.Text);
+            => Copy(ConfigPreviewRTBZEM.Text);
 
         private void CopyPreviewBoxZSC_Click(object sender, EventArgs e)
-            => Clipboard.SetText(ConfigPreviewRTBZSC.Text);
+            => Copy(ConfigPreviewRTBZSC.Text);
+
+        private void CopySCP1_Click(object sender, EventArgs e)
+            => Copy(SplitConfigPart1.Text);
+
+        private void CopySCP2_Click(object sender, EventArgs e)
+            => Copy(SplitConfigPart2.Text);
+
+        private void CopyAudioOffsetSplit_Click(object sender, EventArgs e)
+            => Copy(AudioOffsetSplitter.Text);
 
         private void FindPrevZoomZSC_Click(object sender, EventArgs e)
             => SelectPrevZoomEvent(ConfigPreviewRTBZSC);
@@ -138,10 +143,31 @@ namespace Intralism_Mapping_Assistant
         private void FindNextZoomZEM_Click(object sender, EventArgs e)
             => SelectNextZoomEvent(ConfigPreviewRTBZEM);
 
+        private void FindPrevEventSCP1_Click(object sender, EventArgs e)
+            => SelectPrevEvent(SplitConfigPart1);
+
+        private void FindNextEventSCP1_Click(object sender, EventArgs e)
+            => SelectNextEvent(SplitConfigPart1);
+
+        private void FindPrevEventSCP2_Click(object sender, EventArgs e)
+            => SelectPrevEvent(SplitConfigPart2);
+
+        private void FindNextEventSCP2_Click(object sender, EventArgs e)
+            => SelectNextEvent(SplitConfigPart2);
+
         private void ModifySelectedZoomZSC_Click(object sender, EventArgs e)
             => ChangeSelectionZSC();
 
         private void ResetSelectedZoomZSC_Click(object sender, EventArgs e)
             => ResetSelectionZSC();
+
+        private void SplitAfterEventButton_Click(object sender, EventArgs e)
+            => SplitAfterSelectedEvent();
+
+        private void SplitAtHalfButton_Click(object sender, EventArgs e)
+            => SplitAtHalf();
+
+        private void SplitAtTimeButton_Click(object sender, EventArgs e)
+            => SplitAtTime((double)SplitTimeSelect.Value);
     }
 }

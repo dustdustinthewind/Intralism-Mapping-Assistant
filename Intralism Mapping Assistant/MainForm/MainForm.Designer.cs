@@ -49,13 +49,39 @@ namespace Intralism_Mapping_Assistant
             this.SaveFolderTT = new System.Windows.Forms.ToolTip(this.components);
             this.OverwriteTT = new System.Windows.Forms.ToolTip(this.components);
             this.BrowseForMapFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.SplitCombinerTab = new System.Windows.Forms.TabPage();
+            this.MapSplitterTab = new System.Windows.Forms.TabPage();
+            this.SplitterSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.CopyAudioOffsetSplit = new System.Windows.Forms.Button();
+            this.AudioOffsetSplitter = new System.Windows.Forms.TextBox();
+            this.AudioSplitBoxLabel = new System.Windows.Forms.Label();
+            this.PSANoAudioSplit = new System.Windows.Forms.Label();
+            this.SplitTimeSelect = new System.Windows.Forms.NumericUpDown();
+            this.SplitAfterEventButton = new System.Windows.Forms.Button();
+            this.SplitAtTimeButton = new System.Windows.Forms.Button();
+            this.SplitAtHalfButton = new System.Windows.Forms.Button();
+            this.SplitterDescription = new System.Windows.Forms.Label();
+            this.SplitPreviews = new System.Windows.Forms.SplitContainer();
+            this.FindNextEventSCP1 = new System.Windows.Forms.Button();
+            this.FindPrevEventSCP1 = new System.Windows.Forms.Button();
+            this.CopySCP1 = new System.Windows.Forms.Button();
+            this.ModifyConfigPreviewSCP1 = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.SplitConfigPart1 = new System.Windows.Forms.RichTextBox();
+            this.FindNextEventSCP2 = new System.Windows.Forms.Button();
+            this.FindPrevEventSCP2 = new System.Windows.Forms.Button();
+            this.CopySCP2 = new System.Windows.Forms.Button();
+            this.ModifyConfigPreviewSCP2 = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.SplitConfigPart2 = new System.Windows.Forms.RichTextBox();
             this.EventModifier = new System.Windows.Forms.TabPage();
             this.EventModifierPanel = new System.Windows.Forms.Panel();
             this.ZEMContainer = new System.Windows.Forms.SplitContainer();
             this.DestructiveZEMGroup = new System.Windows.Forms.GroupBox();
             this.DeleteAllZoomsButton = new System.Windows.Forms.Button();
             this.DestructiveCheckZEM = new System.Windows.Forms.CheckBox();
+            this.FindNextZoomZEM = new System.Windows.Forms.Button();
+            this.FindPrevZoomZEM = new System.Windows.Forms.Button();
             this.CopyPreviewBox = new System.Windows.Forms.Button();
             this.ModifyConfigPreviewZEM = new System.Windows.Forms.CheckBox();
             this.ConfigPreviewZEM = new System.Windows.Forms.Label();
@@ -71,6 +97,8 @@ namespace Intralism_Mapping_Assistant
             this.CustomRangeZSCalc = new System.Windows.Forms.NumericUpDown();
             this.CustomFrameRate = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ResetSelectedZoomZSC = new System.Windows.Forms.Button();
+            this.ModifySelectedZoomZSC = new System.Windows.Forms.Button();
             this.OutputBox = new System.Windows.Forms.TextBox();
             this.ZoomStopCalculate = new System.Windows.Forms.Button();
             this.ZoomStopOutputLabel = new System.Windows.Forms.Label();
@@ -98,13 +126,18 @@ namespace Intralism_Mapping_Assistant
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.FindNextZoomZEM = new System.Windows.Forms.Button();
-            this.FindPrevZoomZEM = new System.Windows.Forms.Button();
-            this.ModifySelectedZoomZSC = new System.Windows.Forms.Button();
-            this.ResetSelectedZoomZSC = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.SplitCombinerTab.SuspendLayout();
+            this.MapSplitterTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterSplitContainer)).BeginInit();
+            this.SplitterSplitContainer.Panel1.SuspendLayout();
+            this.SplitterSplitContainer.Panel2.SuspendLayout();
+            this.SplitterSplitContainer.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitTimeSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitPreviews)).BeginInit();
+            this.SplitPreviews.Panel1.SuspendLayout();
+            this.SplitPreviews.Panel2.SuspendLayout();
+            this.SplitPreviews.SuspendLayout();
             this.EventModifier.SuspendLayout();
             this.EventModifierPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZEMContainer)).BeginInit();
@@ -257,15 +290,290 @@ namespace Intralism_Mapping_Assistant
             // 
             this.BrowseForMapFolder.Description = "Select the folder of your map.";
             // 
-            // SplitCombinerTab
+            // MapSplitterTab
             // 
-            this.SplitCombinerTab.Controls.Add(this.label10);
-            this.SplitCombinerTab.Location = new System.Drawing.Point(4, 22);
-            this.SplitCombinerTab.Name = "SplitCombinerTab";
-            this.SplitCombinerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.SplitCombinerTab.Size = new System.Drawing.Size(927, 440);
-            this.SplitCombinerTab.TabIndex = 3;
-            this.SplitCombinerTab.Text = "Map Splitter/Combiner";
+            this.MapSplitterTab.Controls.Add(this.SplitterSplitContainer);
+            this.MapSplitterTab.Location = new System.Drawing.Point(4, 22);
+            this.MapSplitterTab.Name = "MapSplitterTab";
+            this.MapSplitterTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MapSplitterTab.Size = new System.Drawing.Size(927, 440);
+            this.MapSplitterTab.TabIndex = 3;
+            this.MapSplitterTab.Text = "Map Splitter";
+            // 
+            // SplitterSplitContainer
+            // 
+            this.SplitterSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitterSplitContainer.IsSplitterFixed = true;
+            this.SplitterSplitContainer.Location = new System.Drawing.Point(3, 3);
+            this.SplitterSplitContainer.Name = "SplitterSplitContainer";
+            // 
+            // SplitterSplitContainer.Panel1
+            // 
+            this.SplitterSplitContainer.Panel1.Controls.Add(this.panel2);
+            this.SplitterSplitContainer.Panel1.Controls.Add(this.SplitterDescription);
+            // 
+            // SplitterSplitContainer.Panel2
+            // 
+            this.SplitterSplitContainer.Panel2.Controls.Add(this.SplitPreviews);
+            this.SplitterSplitContainer.Size = new System.Drawing.Size(921, 434);
+            this.SplitterSplitContainer.SplitterDistance = 307;
+            this.SplitterSplitContainer.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.CopyAudioOffsetSplit);
+            this.panel2.Controls.Add(this.AudioOffsetSplitter);
+            this.panel2.Controls.Add(this.AudioSplitBoxLabel);
+            this.panel2.Controls.Add(this.PSANoAudioSplit);
+            this.panel2.Controls.Add(this.SplitTimeSelect);
+            this.panel2.Controls.Add(this.SplitAfterEventButton);
+            this.panel2.Controls.Add(this.SplitAtTimeButton);
+            this.panel2.Controls.Add(this.SplitAtHalfButton);
+            this.panel2.Location = new System.Drawing.Point(7, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(297, 409);
+            this.panel2.TabIndex = 5;
+            // 
+            // CopyAudioOffsetSplit
+            // 
+            this.CopyAudioOffsetSplit.Location = new System.Drawing.Point(109, 163);
+            this.CopyAudioOffsetSplit.Name = "CopyAudioOffsetSplit";
+            this.CopyAudioOffsetSplit.Size = new System.Drawing.Size(75, 23);
+            this.CopyAudioOffsetSplit.TabIndex = 33;
+            this.CopyAudioOffsetSplit.Text = "Copy";
+            this.CopyAudioOffsetSplit.UseVisualStyleBackColor = true;
+            this.CopyAudioOffsetSplit.Click += new System.EventHandler(this.CopyAudioOffsetSplit_Click);
+            // 
+            // AudioOffsetSplitter
+            // 
+            this.AudioOffsetSplitter.Location = new System.Drawing.Point(3, 165);
+            this.AudioOffsetSplitter.Name = "AudioOffsetSplitter";
+            this.AudioOffsetSplitter.ReadOnly = true;
+            this.AudioOffsetSplitter.Size = new System.Drawing.Size(100, 20);
+            this.AudioOffsetSplitter.TabIndex = 7;
+            // 
+            // AudioSplitBoxLabel
+            // 
+            this.AudioSplitBoxLabel.AutoSize = true;
+            this.AudioSplitBoxLabel.Location = new System.Drawing.Point(0, 148);
+            this.AudioSplitBoxLabel.Name = "AudioSplitBoxLabel";
+            this.AudioSplitBoxLabel.Size = new System.Drawing.Size(65, 13);
+            this.AudioSplitBoxLabel.TabIndex = 6;
+            this.AudioSplitBoxLabel.Text = "Audio Offset";
+            // 
+            // PSANoAudioSplit
+            // 
+            this.PSANoAudioSplit.AutoSize = true;
+            this.PSANoAudioSplit.Location = new System.Drawing.Point(3, 101);
+            this.PSANoAudioSplit.Name = "PSANoAudioSplit";
+            this.PSANoAudioSplit.Size = new System.Drawing.Size(225, 39);
+            this.PSANoAudioSplit.TabIndex = 5;
+            this.PSANoAudioSplit.Text = "This tool does not split the audio yet.\nYou can use the below offset to split the" +
+    " audio\nin another program, like Audacity.";
+            // 
+            // SplitTimeSelect
+            // 
+            this.SplitTimeSelect.DecimalPlaces = 5;
+            this.SplitTimeSelect.Location = new System.Drawing.Point(158, 73);
+            this.SplitTimeSelect.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SplitTimeSelect.Name = "SplitTimeSelect";
+            this.SplitTimeSelect.Size = new System.Drawing.Size(120, 20);
+            this.SplitTimeSelect.TabIndex = 4;
+            // 
+            // SplitAfterEventButton
+            // 
+            this.SplitAfterEventButton.Location = new System.Drawing.Point(3, 13);
+            this.SplitAfterEventButton.Name = "SplitAfterEventButton";
+            this.SplitAfterEventButton.Size = new System.Drawing.Size(148, 23);
+            this.SplitAfterEventButton.TabIndex = 0;
+            this.SplitAfterEventButton.Text = "Split After Selected Event";
+            this.SplitAfterEventButton.UseVisualStyleBackColor = true;
+            this.SplitAfterEventButton.Click += new System.EventHandler(this.SplitAfterEventButton_Click);
+            // 
+            // SplitAtTimeButton
+            // 
+            this.SplitAtTimeButton.Location = new System.Drawing.Point(3, 71);
+            this.SplitAtTimeButton.Name = "SplitAtTimeButton";
+            this.SplitAtTimeButton.Size = new System.Drawing.Size(148, 23);
+            this.SplitAtTimeButton.TabIndex = 3;
+            this.SplitAtTimeButton.Text = "Split At Time";
+            this.SplitAtTimeButton.UseVisualStyleBackColor = true;
+            this.SplitAtTimeButton.Click += new System.EventHandler(this.SplitAtTimeButton_Click);
+            // 
+            // SplitAtHalfButton
+            // 
+            this.SplitAtHalfButton.Location = new System.Drawing.Point(3, 42);
+            this.SplitAtHalfButton.Name = "SplitAtHalfButton";
+            this.SplitAtHalfButton.Size = new System.Drawing.Size(148, 23);
+            this.SplitAtHalfButton.TabIndex = 2;
+            this.SplitAtHalfButton.Text = "Split in Half";
+            this.SplitAtHalfButton.UseVisualStyleBackColor = true;
+            this.SplitAtHalfButton.Click += new System.EventHandler(this.SplitAtHalfButton_Click);
+            // 
+            // SplitterDescription
+            // 
+            this.SplitterDescription.AutoSize = true;
+            this.SplitterDescription.Location = new System.Drawing.Point(4, 4);
+            this.SplitterDescription.Name = "SplitterDescription";
+            this.SplitterDescription.Size = new System.Drawing.Size(259, 13);
+            this.SplitterDescription.TabIndex = 4;
+            this.SplitterDescription.Text = "This tool can split a config.txt into two individual maps";
+            // 
+            // SplitPreviews
+            // 
+            this.SplitPreviews.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitPreviews.IsSplitterFixed = true;
+            this.SplitPreviews.Location = new System.Drawing.Point(0, 0);
+            this.SplitPreviews.Name = "SplitPreviews";
+            // 
+            // SplitPreviews.Panel1
+            // 
+            this.SplitPreviews.Panel1.Controls.Add(this.FindNextEventSCP1);
+            this.SplitPreviews.Panel1.Controls.Add(this.FindPrevEventSCP1);
+            this.SplitPreviews.Panel1.Controls.Add(this.CopySCP1);
+            this.SplitPreviews.Panel1.Controls.Add(this.ModifyConfigPreviewSCP1);
+            this.SplitPreviews.Panel1.Controls.Add(this.label11);
+            this.SplitPreviews.Panel1.Controls.Add(this.SplitConfigPart1);
+            // 
+            // SplitPreviews.Panel2
+            // 
+            this.SplitPreviews.Panel2.Controls.Add(this.FindNextEventSCP2);
+            this.SplitPreviews.Panel2.Controls.Add(this.FindPrevEventSCP2);
+            this.SplitPreviews.Panel2.Controls.Add(this.CopySCP2);
+            this.SplitPreviews.Panel2.Controls.Add(this.ModifyConfigPreviewSCP2);
+            this.SplitPreviews.Panel2.Controls.Add(this.label10);
+            this.SplitPreviews.Panel2.Controls.Add(this.SplitConfigPart2);
+            this.SplitPreviews.Size = new System.Drawing.Size(610, 434);
+            this.SplitPreviews.SplitterDistance = 306;
+            this.SplitPreviews.TabIndex = 0;
+            // 
+            // FindNextEventSCP1
+            // 
+            this.FindNextEventSCP1.Location = new System.Drawing.Point(117, 390);
+            this.FindNextEventSCP1.Name = "FindNextEventSCP1";
+            this.FindNextEventSCP1.Size = new System.Drawing.Size(97, 23);
+            this.FindNextEventSCP1.TabIndex = 32;
+            this.FindNextEventSCP1.Text = "Find Next Event";
+            this.FindNextEventSCP1.UseVisualStyleBackColor = true;
+            this.FindNextEventSCP1.Click += new System.EventHandler(this.FindNextEventSCP1_Click);
+            // 
+            // FindPrevEventSCP1
+            // 
+            this.FindPrevEventSCP1.Location = new System.Drawing.Point(12, 390);
+            this.FindPrevEventSCP1.Name = "FindPrevEventSCP1";
+            this.FindPrevEventSCP1.Size = new System.Drawing.Size(97, 23);
+            this.FindPrevEventSCP1.TabIndex = 31;
+            this.FindPrevEventSCP1.Text = "Find Prev Event";
+            this.FindPrevEventSCP1.UseVisualStyleBackColor = true;
+            this.FindPrevEventSCP1.Click += new System.EventHandler(this.FindPrevEventSCP1_Click);
+            // 
+            // CopySCP1
+            // 
+            this.CopySCP1.Enabled = false;
+            this.CopySCP1.Location = new System.Drawing.Point(220, 390);
+            this.CopySCP1.Name = "CopySCP1";
+            this.CopySCP1.Size = new System.Drawing.Size(75, 23);
+            this.CopySCP1.TabIndex = 30;
+            this.CopySCP1.Text = "Copy All";
+            this.CopySCP1.UseVisualStyleBackColor = true;
+            this.CopySCP1.Click += new System.EventHandler(this.CopySCP1_Click);
+            // 
+            // ModifyConfigPreviewSCP1
+            // 
+            this.ModifyConfigPreviewSCP1.AutoSize = true;
+            this.ModifyConfigPreviewSCP1.Location = new System.Drawing.Point(221, 21);
+            this.ModifyConfigPreviewSCP1.Name = "ModifyConfigPreviewSCP1";
+            this.ModifyConfigPreviewSCP1.Size = new System.Drawing.Size(74, 17);
+            this.ModifyConfigPreviewSCP1.TabIndex = 29;
+            this.ModifyConfigPreviewSCP1.Text = "Modifiable";
+            this.ModifyConfigPreviewSCP1.UseVisualStyleBackColor = true;
+            this.ModifyConfigPreviewSCP1.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewSCP1_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 13);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Split Config Part 1";
+            // 
+            // SplitConfigPart1
+            // 
+            this.SplitConfigPart1.DetectUrls = false;
+            this.SplitConfigPart1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SplitConfigPart1.Location = new System.Drawing.Point(10, 38);
+            this.SplitConfigPart1.Name = "SplitConfigPart1";
+            this.SplitConfigPart1.ReadOnly = true;
+            this.SplitConfigPart1.Size = new System.Drawing.Size(287, 346);
+            this.SplitConfigPart1.TabIndex = 27;
+            this.SplitConfigPart1.Text = "No Map Loaded!";
+            // 
+            // FindNextEventSCP2
+            // 
+            this.FindNextEventSCP2.Location = new System.Drawing.Point(114, 390);
+            this.FindNextEventSCP2.Name = "FindNextEventSCP2";
+            this.FindNextEventSCP2.Size = new System.Drawing.Size(97, 23);
+            this.FindNextEventSCP2.TabIndex = 32;
+            this.FindNextEventSCP2.Text = "Find Next Event";
+            this.FindNextEventSCP2.UseVisualStyleBackColor = true;
+            this.FindNextEventSCP2.Click += new System.EventHandler(this.FindNextEventSCP2_Click);
+            // 
+            // FindPrevEventSCP2
+            // 
+            this.FindPrevEventSCP2.Location = new System.Drawing.Point(9, 390);
+            this.FindPrevEventSCP2.Name = "FindPrevEventSCP2";
+            this.FindPrevEventSCP2.Size = new System.Drawing.Size(97, 23);
+            this.FindPrevEventSCP2.TabIndex = 31;
+            this.FindPrevEventSCP2.Text = "Find Prev Event";
+            this.FindPrevEventSCP2.UseVisualStyleBackColor = true;
+            this.FindPrevEventSCP2.Click += new System.EventHandler(this.FindPrevEventSCP2_Click);
+            // 
+            // CopySCP2
+            // 
+            this.CopySCP2.Enabled = false;
+            this.CopySCP2.Location = new System.Drawing.Point(217, 390);
+            this.CopySCP2.Name = "CopySCP2";
+            this.CopySCP2.Size = new System.Drawing.Size(75, 23);
+            this.CopySCP2.TabIndex = 30;
+            this.CopySCP2.Text = "Copy All";
+            this.CopySCP2.UseVisualStyleBackColor = true;
+            this.CopySCP2.Click += new System.EventHandler(this.CopySCP2_Click);
+            // 
+            // ModifyConfigPreviewSCP2
+            // 
+            this.ModifyConfigPreviewSCP2.AutoSize = true;
+            this.ModifyConfigPreviewSCP2.Location = new System.Drawing.Point(218, 21);
+            this.ModifyConfigPreviewSCP2.Name = "ModifyConfigPreviewSCP2";
+            this.ModifyConfigPreviewSCP2.Size = new System.Drawing.Size(74, 17);
+            this.ModifyConfigPreviewSCP2.TabIndex = 29;
+            this.ModifyConfigPreviewSCP2.Text = "Modifiable";
+            this.ModifyConfigPreviewSCP2.UseVisualStyleBackColor = true;
+            this.ModifyConfigPreviewSCP2.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewSCP2_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 13);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Split Config Part 2";
+            // 
+            // SplitConfigPart2
+            // 
+            this.SplitConfigPart2.DetectUrls = false;
+            this.SplitConfigPart2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SplitConfigPart2.Location = new System.Drawing.Point(7, 38);
+            this.SplitConfigPart2.Name = "SplitConfigPart2";
+            this.SplitConfigPart2.ReadOnly = true;
+            this.SplitConfigPart2.Size = new System.Drawing.Size(287, 346);
+            this.SplitConfigPart2.TabIndex = 27;
+            this.SplitConfigPart2.Text = "Map hasn\'t been split yet!";
             // 
             // EventModifier
             // 
@@ -342,6 +650,28 @@ namespace Intralism_Mapping_Assistant
     "se options anyway!";
             this.DestructiveCheckZEM.UseVisualStyleBackColor = true;
             this.DestructiveCheckZEM.CheckedChanged += new System.EventHandler(this.DestructiveCheckZEM_CheckedChanged);
+            // 
+            // FindNextZoomZEM
+            // 
+            this.FindNextZoomZEM.Enabled = false;
+            this.FindNextZoomZEM.Location = new System.Drawing.Point(111, 373);
+            this.FindNextZoomZEM.Name = "FindNextZoomZEM";
+            this.FindNextZoomZEM.Size = new System.Drawing.Size(97, 23);
+            this.FindNextZoomZEM.TabIndex = 26;
+            this.FindNextZoomZEM.Text = "Find Next Zoom";
+            this.FindNextZoomZEM.UseVisualStyleBackColor = true;
+            this.FindNextZoomZEM.Click += new System.EventHandler(this.FindNextZoomZEM_Click);
+            // 
+            // FindPrevZoomZEM
+            // 
+            this.FindPrevZoomZEM.Enabled = false;
+            this.FindPrevZoomZEM.Location = new System.Drawing.Point(6, 373);
+            this.FindPrevZoomZEM.Name = "FindPrevZoomZEM";
+            this.FindPrevZoomZEM.Size = new System.Drawing.Size(97, 23);
+            this.FindPrevZoomZEM.TabIndex = 25;
+            this.FindPrevZoomZEM.Text = "Find Prev Zoom";
+            this.FindPrevZoomZEM.UseVisualStyleBackColor = true;
+            this.FindPrevZoomZEM.Click += new System.EventHandler(this.FindPrevZoomZEM_Click);
             // 
             // CopyPreviewBox
             // 
@@ -549,6 +879,28 @@ namespace Intralism_Mapping_Assistant
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output";
+            // 
+            // ResetSelectedZoomZSC
+            // 
+            this.ResetSelectedZoomZSC.Enabled = false;
+            this.ResetSelectedZoomZSC.Location = new System.Drawing.Point(6, 98);
+            this.ResetSelectedZoomZSC.Name = "ResetSelectedZoomZSC";
+            this.ResetSelectedZoomZSC.Size = new System.Drawing.Size(203, 23);
+            this.ResetSelectedZoomZSC.TabIndex = 24;
+            this.ResetSelectedZoomZSC.Text = "Reset Currently Selected Zoom Event";
+            this.ResetSelectedZoomZSC.UseVisualStyleBackColor = true;
+            this.ResetSelectedZoomZSC.Click += new System.EventHandler(this.ResetSelectedZoomZSC_Click);
+            // 
+            // ModifySelectedZoomZSC
+            // 
+            this.ModifySelectedZoomZSC.Enabled = false;
+            this.ModifySelectedZoomZSC.Location = new System.Drawing.Point(6, 71);
+            this.ModifySelectedZoomZSC.Name = "ModifySelectedZoomZSC";
+            this.ModifySelectedZoomZSC.Size = new System.Drawing.Size(203, 23);
+            this.ModifySelectedZoomZSC.TabIndex = 23;
+            this.ModifySelectedZoomZSC.Text = "Change Currently Selected Zoom Event";
+            this.ModifySelectedZoomZSC.UseVisualStyleBackColor = true;
+            this.ModifySelectedZoomZSC.Click += new System.EventHandler(this.ModifySelectedZoomZSC_Click);
             // 
             // OutputBox
             // 
@@ -817,7 +1169,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.TabControl.Controls.Add(this.ZoomStopTab);
             this.TabControl.Controls.Add(this.EventModifier);
-            this.TabControl.Controls.Add(this.SplitCombinerTab);
+            this.TabControl.Controls.Add(this.MapSplitterTab);
             this.TabControl.Controls.Add(this.AboutTab);
             this.TabControl.Location = new System.Drawing.Point(13, 13);
             this.TabControl.Name = "TabControl";
@@ -870,62 +1222,9 @@ namespace Intralism_Mapping_Assistant
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 13);
+            this.label7.Size = new System.Drawing.Size(167, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant 0.0.3";
-            // 
-            // FindNextZoomZEM
-            // 
-            this.FindNextZoomZEM.Enabled = false;
-            this.FindNextZoomZEM.Location = new System.Drawing.Point(111, 373);
-            this.FindNextZoomZEM.Name = "FindNextZoomZEM";
-            this.FindNextZoomZEM.Size = new System.Drawing.Size(97, 23);
-            this.FindNextZoomZEM.TabIndex = 26;
-            this.FindNextZoomZEM.Text = "Find Next Zoom";
-            this.FindNextZoomZEM.UseVisualStyleBackColor = true;
-            this.FindNextZoomZEM.Click += new System.EventHandler(this.FindNextZoomZEM_Click);
-            // 
-            // FindPrevZoomZEM
-            // 
-            this.FindPrevZoomZEM.Enabled = false;
-            this.FindPrevZoomZEM.Location = new System.Drawing.Point(6, 373);
-            this.FindPrevZoomZEM.Name = "FindPrevZoomZEM";
-            this.FindPrevZoomZEM.Size = new System.Drawing.Size(97, 23);
-            this.FindPrevZoomZEM.TabIndex = 25;
-            this.FindPrevZoomZEM.Text = "Find Prev Zoom";
-            this.FindPrevZoomZEM.UseVisualStyleBackColor = true;
-            this.FindPrevZoomZEM.Click += new System.EventHandler(this.FindPrevZoomZEM_Click);
-            // 
-            // ModifySelectedZoomZSC
-            // 
-            this.ModifySelectedZoomZSC.Enabled = false;
-            this.ModifySelectedZoomZSC.Location = new System.Drawing.Point(6, 71);
-            this.ModifySelectedZoomZSC.Name = "ModifySelectedZoomZSC";
-            this.ModifySelectedZoomZSC.Size = new System.Drawing.Size(203, 23);
-            this.ModifySelectedZoomZSC.TabIndex = 23;
-            this.ModifySelectedZoomZSC.Text = "Change Currently Selected Zoom Event";
-            this.ModifySelectedZoomZSC.UseVisualStyleBackColor = true;
-            this.ModifySelectedZoomZSC.Click += new System.EventHandler(this.ModifySelectedZoomZSC_Click);
-            // 
-            // ResetSelectedZoomZSC
-            // 
-            this.ResetSelectedZoomZSC.Enabled = false;
-            this.ResetSelectedZoomZSC.Location = new System.Drawing.Point(6, 98);
-            this.ResetSelectedZoomZSC.Name = "ResetSelectedZoomZSC";
-            this.ResetSelectedZoomZSC.Size = new System.Drawing.Size(203, 23);
-            this.ResetSelectedZoomZSC.TabIndex = 24;
-            this.ResetSelectedZoomZSC.Text = "Reset Currently Selected Zoom Event";
-            this.ResetSelectedZoomZSC.UseVisualStyleBackColor = true;
-            this.ResetSelectedZoomZSC.Click += new System.EventHandler(this.ResetSelectedZoomZSC_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Work In Progress";
+            this.label7.Text = "Intralism Mapping Assistant v0.0.4";
             // 
             // MainForm
             // 
@@ -940,8 +1239,21 @@ namespace Intralism_Mapping_Assistant
             this.Text = "Intralism Mapping Assistant";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.SplitCombinerTab.ResumeLayout(false);
-            this.SplitCombinerTab.PerformLayout();
+            this.MapSplitterTab.ResumeLayout(false);
+            this.SplitterSplitContainer.Panel1.ResumeLayout(false);
+            this.SplitterSplitContainer.Panel1.PerformLayout();
+            this.SplitterSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterSplitContainer)).EndInit();
+            this.SplitterSplitContainer.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitTimeSelect)).EndInit();
+            this.SplitPreviews.Panel1.ResumeLayout(false);
+            this.SplitPreviews.Panel1.PerformLayout();
+            this.SplitPreviews.Panel2.ResumeLayout(false);
+            this.SplitPreviews.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitPreviews)).EndInit();
+            this.SplitPreviews.ResumeLayout(false);
             this.EventModifier.ResumeLayout(false);
             this.EventModifierPanel.ResumeLayout(false);
             this.EventModifierPanel.PerformLayout();
@@ -991,7 +1303,7 @@ namespace Intralism_Mapping_Assistant
         private System.Windows.Forms.ToolTip SaveFolderTT;
         private System.Windows.Forms.ToolTip OverwriteTT;
         private System.Windows.Forms.FolderBrowserDialog BrowseForMapFolder;
-        private System.Windows.Forms.TabPage SplitCombinerTab;
+        private System.Windows.Forms.TabPage MapSplitterTab;
         private System.Windows.Forms.TabPage EventModifier;
         private System.Windows.Forms.Panel EventModifierPanel;
         private System.Windows.Forms.SplitContainer ZEMContainer;
@@ -1046,6 +1358,29 @@ namespace Intralism_Mapping_Assistant
         private Button FindPrevZoomZEM;
         private Button ModifySelectedZoomZSC;
         private Button ResetSelectedZoomZSC;
+        private SplitContainer SplitterSplitContainer;
+        private SplitContainer SplitPreviews;
+        private Button FindNextEventSCP1;
+        private Button FindPrevEventSCP1;
+        private Button CopySCP1;
+        private CheckBox ModifyConfigPreviewSCP1;
+        private Label label11;
+        private RichTextBox SplitConfigPart1;
+        private Button FindNextEventSCP2;
+        private Button FindPrevEventSCP2;
+        private Button CopySCP2;
+        private CheckBox ModifyConfigPreviewSCP2;
         private Label label10;
+        private RichTextBox SplitConfigPart2;
+        private Button SplitAtTimeButton;
+        private Button SplitAtHalfButton;
+        private Button SplitAfterEventButton;
+        private Panel panel2;
+        private NumericUpDown SplitTimeSelect;
+        private Label SplitterDescription;
+        private Button CopyAudioOffsetSplit;
+        private TextBox AudioOffsetSplitter;
+        private Label AudioSplitBoxLabel;
+        private Label PSANoAudioSplit;
     }
 }
