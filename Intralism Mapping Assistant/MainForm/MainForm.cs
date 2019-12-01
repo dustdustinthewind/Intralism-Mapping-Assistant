@@ -169,5 +169,20 @@ namespace Intralism_Mapping_Assistant
 
         private void SplitAtTimeButton_Click(object sender, EventArgs e)
             => SplitAtTime((double)SplitTimeSelect.Value);
+
+        private void ModifyConfigPreviewHS_CheckedChanged(object sender, EventArgs e)
+            => ChangeReadOnly(ModifyConfigPreviewHS, ConfigPreviewRTBHS);
+
+        private void CopyConfigPreviewHS_Click(object sender, EventArgs e)
+            => Copy(ConfigPreviewRTBHS.Text);
+
+        private void HandOneButton_Click(object sender, EventArgs e)
+            => MakeAllEventsHand(1);
+
+        private void HandTwoButton_Click(object sender, EventArgs e)
+            => MakeAllEventsHand(2);
+
+        private void HandZeroButton_Click(object sender, EventArgs e)
+            => MakeAllEventsHand(0);
     }
 }

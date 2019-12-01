@@ -49,6 +49,12 @@ namespace Intralism_Mapping_Assistant
             this.SaveFolderTT = new System.Windows.Forms.ToolTip(this.components);
             this.OverwriteTT = new System.Windows.Forms.ToolTip(this.components);
             this.BrowseForMapFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AboutTab = new System.Windows.Forms.TabPage();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.MapSplitterTab = new System.Windows.Forms.TabPage();
             this.SplitterSplitContainer = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -121,12 +127,17 @@ namespace Intralism_Mapping_Assistant
             this.FindNextZoomZSC = new System.Windows.Forms.Button();
             this.FindPrevZoomZSC = new System.Windows.Forms.Button();
             this.TabControl = new System.Windows.Forms.TabControl();
-            this.AboutTab = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.HandZeroButton = new System.Windows.Forms.Button();
+            this.HandTwoButton = new System.Windows.Forms.Button();
+            this.HandOneButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CopyConfigPreviewHS = new System.Windows.Forms.Button();
+            this.ModifyConfigPreviewHS = new System.Windows.Forms.CheckBox();
+            this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
+            this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.AboutTab.SuspendLayout();
             this.MapSplitterTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitterSplitContainer)).BeginInit();
             this.SplitterSplitContainer.Panel1.SuspendLayout();
@@ -158,7 +169,6 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.FirstEventTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDistanceBox)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.AboutTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // AdvancedFrameRateCalc
@@ -289,6 +299,73 @@ namespace Intralism_Mapping_Assistant
             // BrowseForMapFolder
             // 
             this.BrowseForMapFolder.Description = "Select the folder of your map.";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.HandZeroButton);
+            this.tabPage1.Controls.Add(this.HandTwoButton);
+            this.tabPage1.Controls.Add(this.HandOneButton);
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.CopyConfigPreviewHS);
+            this.tabPage1.Controls.Add(this.ModifyConfigPreviewHS);
+            this.tabPage1.Controls.Add(this.ConfigPreviewHSLabel);
+            this.tabPage1.Controls.Add(this.ConfigPreviewRTBHS);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(927, 440);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Hand Switcher";
+            // 
+            // AboutTab
+            // 
+            this.AboutTab.Controls.Add(this.linkLabel1);
+            this.AboutTab.Controls.Add(this.label9);
+            this.AboutTab.Controls.Add(this.label8);
+            this.AboutTab.Controls.Add(this.label7);
+            this.AboutTab.Location = new System.Drawing.Point(4, 22);
+            this.AboutTab.Name = "AboutTab";
+            this.AboutTab.Padding = new System.Windows.Forms.Padding(3);
+            this.AboutTab.Size = new System.Drawing.Size(927, 440);
+            this.AboutTab.TabIndex = 4;
+            this.AboutTab.Text = "About";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(7, 102);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(38, 13);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Github";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 13);
+            this.label9.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(181, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Copyright (c) 2019 Nathaniel Beasley";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(167, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Intralism Mapping Assistant v0.0.4";
             // 
             // MapSplitterTab
             // 
@@ -1170,6 +1247,7 @@ namespace Intralism_Mapping_Assistant
             this.TabControl.Controls.Add(this.ZoomStopTab);
             this.TabControl.Controls.Add(this.EventModifier);
             this.TabControl.Controls.Add(this.MapSplitterTab);
+            this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.AboutTab);
             this.TabControl.Location = new System.Drawing.Point(13, 13);
             this.TabControl.Name = "TabControl";
@@ -1177,54 +1255,86 @@ namespace Intralism_Mapping_Assistant
             this.TabControl.Size = new System.Drawing.Size(935, 466);
             this.TabControl.TabIndex = 0;
             // 
-            // AboutTab
+            // HandZeroButton
             // 
-            this.AboutTab.Controls.Add(this.linkLabel1);
-            this.AboutTab.Controls.Add(this.label9);
-            this.AboutTab.Controls.Add(this.label8);
-            this.AboutTab.Controls.Add(this.label7);
-            this.AboutTab.Location = new System.Drawing.Point(4, 22);
-            this.AboutTab.Name = "AboutTab";
-            this.AboutTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AboutTab.Size = new System.Drawing.Size(927, 440);
-            this.AboutTab.TabIndex = 4;
-            this.AboutTab.Text = "About";
+            this.HandZeroButton.Location = new System.Drawing.Point(9, 88);
+            this.HandZeroButton.Name = "HandZeroButton";
+            this.HandZeroButton.Size = new System.Drawing.Size(260, 23);
+            this.HandZeroButton.TabIndex = 38;
+            this.HandZeroButton.Text = "Make All Arcs Default (Left Hand/One Hand mode)";
+            this.HandZeroButton.UseVisualStyleBackColor = true;
+            this.HandZeroButton.Click += new System.EventHandler(this.HandZeroButton_Click);
             // 
-            // linkLabel1
+            // HandTwoButton
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(7, 102);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(38, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Github";
+            this.HandTwoButton.Location = new System.Drawing.Point(9, 59);
+            this.HandTwoButton.Name = "HandTwoButton";
+            this.HandTwoButton.Size = new System.Drawing.Size(202, 23);
+            this.HandTwoButton.TabIndex = 37;
+            this.HandTwoButton.Text = "Make All Arcs Hand Two (Right Side)";
+            this.HandTwoButton.UseVisualStyleBackColor = true;
+            this.HandTwoButton.Click += new System.EventHandler(this.HandTwoButton_Click);
             // 
-            // label9
+            // HandOneButton
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 35);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 13);
-            this.label9.TabIndex = 3;
+            this.HandOneButton.Location = new System.Drawing.Point(9, 30);
+            this.HandOneButton.Name = "HandOneButton";
+            this.HandOneButton.Size = new System.Drawing.Size(202, 23);
+            this.HandOneButton.TabIndex = 36;
+            this.HandOneButton.Text = "Make All Arcs Hand One (Left Side)";
+            this.HandOneButton.UseVisualStyleBackColor = true;
+            this.HandOneButton.Click += new System.EventHandler(this.HandOneButton_Click);
             // 
-            // label8
+            // label12
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 76);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(181, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Copyright (c) 2019 Nathaniel Beasley";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(289, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "This tool switches all arcs in a map to hand one or hand two";
             // 
-            // label7
+            // CopyConfigPreviewHS
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(167, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.0.4";
+            this.CopyConfigPreviewHS.Enabled = false;
+            this.CopyConfigPreviewHS.Location = new System.Drawing.Point(841, 411);
+            this.CopyConfigPreviewHS.Name = "CopyConfigPreviewHS";
+            this.CopyConfigPreviewHS.Size = new System.Drawing.Size(75, 23);
+            this.CopyConfigPreviewHS.TabIndex = 42;
+            this.CopyConfigPreviewHS.Text = "Copy All";
+            this.CopyConfigPreviewHS.UseVisualStyleBackColor = true;
+            this.CopyConfigPreviewHS.Click += new System.EventHandler(this.CopyConfigPreviewHS_Click);
+            // 
+            // ModifyConfigPreviewHS
+            // 
+            this.ModifyConfigPreviewHS.AutoSize = true;
+            this.ModifyConfigPreviewHS.Location = new System.Drawing.Point(842, 13);
+            this.ModifyConfigPreviewHS.Name = "ModifyConfigPreviewHS";
+            this.ModifyConfigPreviewHS.Size = new System.Drawing.Size(74, 17);
+            this.ModifyConfigPreviewHS.TabIndex = 41;
+            this.ModifyConfigPreviewHS.Text = "Modifiable";
+            this.ModifyConfigPreviewHS.UseVisualStyleBackColor = true;
+            this.ModifyConfigPreviewHS.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewHS_CheckedChanged);
+            // 
+            // ConfigPreviewHSLabel
+            // 
+            this.ConfigPreviewHSLabel.AutoSize = true;
+            this.ConfigPreviewHSLabel.Location = new System.Drawing.Point(630, 14);
+            this.ConfigPreviewHSLabel.Name = "ConfigPreviewHSLabel";
+            this.ConfigPreviewHSLabel.Size = new System.Drawing.Size(78, 13);
+            this.ConfigPreviewHSLabel.TabIndex = 40;
+            this.ConfigPreviewHSLabel.Text = "Config Preview";
+            // 
+            // ConfigPreviewRTBHS
+            // 
+            this.ConfigPreviewRTBHS.DetectUrls = false;
+            this.ConfigPreviewRTBHS.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigPreviewRTBHS.Location = new System.Drawing.Point(631, 30);
+            this.ConfigPreviewRTBHS.Name = "ConfigPreviewRTBHS";
+            this.ConfigPreviewRTBHS.ReadOnly = true;
+            this.ConfigPreviewRTBHS.Size = new System.Drawing.Size(287, 375);
+            this.ConfigPreviewRTBHS.TabIndex = 39;
+            this.ConfigPreviewRTBHS.Text = "No Map Loaded!";
             // 
             // MainForm
             // 
@@ -1239,6 +1349,10 @@ namespace Intralism_Mapping_Assistant
             this.Text = "Intralism Mapping Assistant";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.AboutTab.ResumeLayout(false);
+            this.AboutTab.PerformLayout();
             this.MapSplitterTab.ResumeLayout(false);
             this.SplitterSplitContainer.Panel1.ResumeLayout(false);
             this.SplitterSplitContainer.Panel1.PerformLayout();
@@ -1281,8 +1395,6 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.FirstEventTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDistanceBox)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.AboutTab.ResumeLayout(false);
-            this.AboutTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1303,62 +1415,24 @@ namespace Intralism_Mapping_Assistant
         private System.Windows.Forms.ToolTip SaveFolderTT;
         private System.Windows.Forms.ToolTip OverwriteTT;
         private System.Windows.Forms.FolderBrowserDialog BrowseForMapFolder;
-        private System.Windows.Forms.TabPage MapSplitterTab;
-        private System.Windows.Forms.TabPage EventModifier;
-        private System.Windows.Forms.Panel EventModifierPanel;
-        private System.Windows.Forms.SplitContainer ZEMContainer;
-        private System.Windows.Forms.GroupBox DestructiveZEMGroup;
-        private System.Windows.Forms.Button DeleteAllZoomsButton;
-        private System.Windows.Forms.CheckBox DestructiveCheckZEM;
-        private System.Windows.Forms.Button CopyPreviewBox;
-        private System.Windows.Forms.CheckBox ModifyConfigPreviewZEM;
-        private System.Windows.Forms.Label ConfigPreviewZEM;
-        private System.Windows.Forms.RichTextBox ConfigPreviewRTBZEM;
-        private System.Windows.Forms.Label ZoomModifierDescription;
-        private System.Windows.Forms.TabPage ZoomStopTab;
-        private System.Windows.Forms.Panel ZoomPanel;
-        private System.Windows.Forms.GroupBox AdvancedOptions;
-        private System.Windows.Forms.NumericUpDown CustomRangeZSCalc;
-        private System.Windows.Forms.CheckBox AdvancedCustomRangeCalc;
-        private System.Windows.Forms.NumericUpDown CustomFrameRate;
-        private System.Windows.Forms.CheckBox AdvancedFrameRateCalc;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox OutputBox;
-        private System.Windows.Forms.Button ZoomStopCalculate;
-        private System.Windows.Forms.Label ZoomStopOutputLabel;
-        private System.Windows.Forms.RadioButton CalcSED;
-        private System.Windows.Forms.RadioButton CalcSET;
-        private System.Windows.Forms.RadioButton CalcFED;
-        private System.Windows.Forms.RadioButton CalcFET;
-        private System.Windows.Forms.Label ZoomStopDescription;
-        private System.Windows.Forms.GroupBox InputGroup;
-        private System.Windows.Forms.NumericUpDown SecondEventDistanceBox;
-        private System.Windows.Forms.NumericUpDown SecondEventTimeBox;
-        private System.Windows.Forms.NumericUpDown FirstEventDistanceBox;
-        private System.Windows.Forms.NumericUpDown FirstEventTimeBox;
-        private System.Windows.Forms.NumericUpDown StartingDistanceBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabControl TabControl;
-        private System.Windows.Forms.TabPage AboutTab;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button CopyPreviewBoxZSC;
-        private System.Windows.Forms.CheckBox ModifyConfigPreviewZSC;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox ConfigPreviewRTBZSC;
-        private System.Windows.Forms.Button FindNextZoomZSC;
-        private System.Windows.Forms.Button FindPrevZoomZSC;
-        private Button FindNextZoomZEM;
-        private Button FindPrevZoomZEM;
-        private Button ModifySelectedZoomZSC;
-        private Button ResetSelectedZoomZSC;
+        private TabPage tabPage1;
+        private TabPage AboutTab;
+        private LinkLabel linkLabel1;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private TabPage MapSplitterTab;
         private SplitContainer SplitterSplitContainer;
+        private Panel panel2;
+        private Button CopyAudioOffsetSplit;
+        private TextBox AudioOffsetSplitter;
+        private Label AudioSplitBoxLabel;
+        private Label PSANoAudioSplit;
+        private NumericUpDown SplitTimeSelect;
+        private Button SplitAfterEventButton;
+        private Button SplitAtTimeButton;
+        private Button SplitAtHalfButton;
+        private Label SplitterDescription;
         private SplitContainer SplitPreviews;
         private Button FindNextEventSCP1;
         private Button FindPrevEventSCP1;
@@ -1372,15 +1446,62 @@ namespace Intralism_Mapping_Assistant
         private CheckBox ModifyConfigPreviewSCP2;
         private Label label10;
         private RichTextBox SplitConfigPart2;
-        private Button SplitAtTimeButton;
-        private Button SplitAtHalfButton;
-        private Button SplitAfterEventButton;
-        private Panel panel2;
-        private NumericUpDown SplitTimeSelect;
-        private Label SplitterDescription;
-        private Button CopyAudioOffsetSplit;
-        private TextBox AudioOffsetSplitter;
-        private Label AudioSplitBoxLabel;
-        private Label PSANoAudioSplit;
+        private TabPage EventModifier;
+        private Panel EventModifierPanel;
+        private SplitContainer ZEMContainer;
+        private GroupBox DestructiveZEMGroup;
+        private Button DeleteAllZoomsButton;
+        private CheckBox DestructiveCheckZEM;
+        private Button FindNextZoomZEM;
+        private Button FindPrevZoomZEM;
+        private Button CopyPreviewBox;
+        private CheckBox ModifyConfigPreviewZEM;
+        private Label ConfigPreviewZEM;
+        private RichTextBox ConfigPreviewRTBZEM;
+        private Label ZoomModifierDescription;
+        private TabPage ZoomStopTab;
+        private Panel ZoomPanel;
+        private Button CopyPreviewBoxZSC;
+        private CheckBox ModifyConfigPreviewZSC;
+        private Label label1;
+        private RichTextBox ConfigPreviewRTBZSC;
+        private GroupBox AdvancedOptions;
+        private NumericUpDown CustomRangeZSCalc;
+        private CheckBox AdvancedCustomRangeCalc;
+        private NumericUpDown CustomFrameRate;
+        private CheckBox AdvancedFrameRateCalc;
+        private GroupBox groupBox2;
+        private Button ResetSelectedZoomZSC;
+        private Button ModifySelectedZoomZSC;
+        private TextBox OutputBox;
+        private Button ZoomStopCalculate;
+        private Label ZoomStopOutputLabel;
+        private RadioButton CalcSED;
+        private RadioButton CalcSET;
+        private RadioButton CalcFED;
+        private RadioButton CalcFET;
+        private Label ZoomStopDescription;
+        private GroupBox InputGroup;
+        private NumericUpDown SecondEventDistanceBox;
+        private NumericUpDown SecondEventTimeBox;
+        private NumericUpDown FirstEventDistanceBox;
+        private NumericUpDown FirstEventTimeBox;
+        private NumericUpDown StartingDistanceBox;
+        private Label label6;
+        private Label label4;
+        private Label label5;
+        private Label label2;
+        private Label label3;
+        private Button FindNextZoomZSC;
+        private Button FindPrevZoomZSC;
+        private TabControl TabControl;
+        private Button HandZeroButton;
+        private Button HandTwoButton;
+        private Button HandOneButton;
+        private Label label12;
+        private Button CopyConfigPreviewHS;
+        private CheckBox ModifyConfigPreviewHS;
+        private Label ConfigPreviewHSLabel;
+        private RichTextBox ConfigPreviewRTBHS;
     }
 }

@@ -29,6 +29,7 @@ namespace Intralism_Mapping_Assistant
                 ConfigPreviewRTBZEM.Text = text;
                 ConfigPreviewRTBZSC.Text = text;
                 SplitConfigPart1.Text = text;
+                ConfigPreviewRTBHS.Text = text;
             }
             catch (Exception e)
             {
