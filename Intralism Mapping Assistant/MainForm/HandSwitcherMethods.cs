@@ -20,25 +20,10 @@ namespace Intralism_Mapping_Assistant
             if (evnt.GetTypeString() != "SpawnObj")
                 return evnt;
 
-            string[] data = evnt.data;
-
+            evnt.data[1] = evnt.data[1].Replace(",", "").Replace("1", "").Replace("2", "");
+                
             if (hand != 0)
-            {
-                evnt.data = new string[]
-                    {
-                        data[0],
-                        data[1],
-                        hand.ToString(),
-                    };
-            }
-            else
-            {
-                evnt.data = new string[]
-                {
-                    data[0],
-                    data[1],
-                };
-            }
+                evnt.data[1] += "," + hand.ToString();
 
             return evnt;
         }
