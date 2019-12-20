@@ -49,7 +49,15 @@ namespace Intralism_Mapping_Assistant
             this.SaveFolderTT = new System.Windows.Forms.ToolTip(this.components);
             this.OverwriteTT = new System.Windows.Forms.ToolTip(this.components);
             this.BrowseForMapFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.HandSwitchTab = new System.Windows.Forms.TabPage();
+            this.HandZeroButton = new System.Windows.Forms.Button();
+            this.HandTwoButton = new System.Windows.Forms.Button();
+            this.HandOneButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CopyConfigPreviewHS = new System.Windows.Forms.Button();
+            this.ModifyConfigPreviewHS = new System.Windows.Forms.CheckBox();
+            this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
+            this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
             this.AboutTab = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
@@ -127,16 +135,36 @@ namespace Intralism_Mapping_Assistant
             this.FindNextZoomZSC = new System.Windows.Forms.Button();
             this.FindPrevZoomZSC = new System.Windows.Forms.Button();
             this.TabControl = new System.Windows.Forms.TabControl();
-            this.HandZeroButton = new System.Windows.Forms.Button();
-            this.HandTwoButton = new System.Windows.Forms.Button();
-            this.HandOneButton = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.CopyConfigPreviewHS = new System.Windows.Forms.Button();
-            this.ModifyConfigPreviewHS = new System.Windows.Forms.CheckBox();
-            this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
-            this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CopyConfigPreviewESM = new System.Windows.Forms.Button();
+            this.ModifyConfigPreviewESM = new System.Windows.Forms.CheckBox();
+            this.ConfigPreviewLabelESM = new System.Windows.Forms.Label();
+            this.ConfigPreviewESMRTB = new System.Windows.Forms.RichTextBox();
+            this.EnvSpriteID = new System.Windows.Forms.TextBox();
+            this.EnvSpriteIDLabel = new System.Windows.Forms.Label();
+            this.EnvSpriteStartPosX = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.EnvSpriteEndPosX = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.EnvSpriteEndTime = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.EnvSpriteStartTime = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.EventsPerSec = new System.Windows.Forms.NumericUpDown();
+            this.CreateEventsESM = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.EnvSpriteEndPosY = new System.Windows.Forms.NumericUpDown();
+            this.EnvSpriteStartPosY = new System.Windows.Forms.NumericUpDown();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.EnvSpriteEndPosZ = new System.Windows.Forms.NumericUpDown();
+            this.EnvSpriteStartPosZ = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
             this.MapSplitterTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitterSplitContainer)).BeginInit();
@@ -169,6 +197,16 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.FirstEventTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDistanceBox)).BeginInit();
             this.TabControl.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EventsPerSec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosZ)).BeginInit();
             this.SuspendLayout();
             // 
             // AdvancedFrameRateCalc
@@ -300,23 +338,104 @@ namespace Intralism_Mapping_Assistant
             // 
             this.BrowseForMapFolder.Description = "Select the folder of your map.";
             // 
-            // tabPage1
+            // HandSwitchTab
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.HandZeroButton);
-            this.tabPage1.Controls.Add(this.HandTwoButton);
-            this.tabPage1.Controls.Add(this.HandOneButton);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.CopyConfigPreviewHS);
-            this.tabPage1.Controls.Add(this.ModifyConfigPreviewHS);
-            this.tabPage1.Controls.Add(this.ConfigPreviewHSLabel);
-            this.tabPage1.Controls.Add(this.ConfigPreviewRTBHS);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(927, 440);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "Hand Switcher";
+            this.HandSwitchTab.BackColor = System.Drawing.SystemColors.Control;
+            this.HandSwitchTab.Controls.Add(this.HandZeroButton);
+            this.HandSwitchTab.Controls.Add(this.HandTwoButton);
+            this.HandSwitchTab.Controls.Add(this.HandOneButton);
+            this.HandSwitchTab.Controls.Add(this.label12);
+            this.HandSwitchTab.Controls.Add(this.CopyConfigPreviewHS);
+            this.HandSwitchTab.Controls.Add(this.ModifyConfigPreviewHS);
+            this.HandSwitchTab.Controls.Add(this.ConfigPreviewHSLabel);
+            this.HandSwitchTab.Controls.Add(this.ConfigPreviewRTBHS);
+            this.HandSwitchTab.Location = new System.Drawing.Point(4, 22);
+            this.HandSwitchTab.Name = "HandSwitchTab";
+            this.HandSwitchTab.Padding = new System.Windows.Forms.Padding(3);
+            this.HandSwitchTab.Size = new System.Drawing.Size(927, 440);
+            this.HandSwitchTab.TabIndex = 5;
+            this.HandSwitchTab.Text = "Hand Switcher";
+            // 
+            // HandZeroButton
+            // 
+            this.HandZeroButton.Location = new System.Drawing.Point(9, 88);
+            this.HandZeroButton.Name = "HandZeroButton";
+            this.HandZeroButton.Size = new System.Drawing.Size(260, 23);
+            this.HandZeroButton.TabIndex = 38;
+            this.HandZeroButton.Text = "Make All Arcs Default (Left Hand/One Hand mode)";
+            this.HandZeroButton.UseVisualStyleBackColor = true;
+            this.HandZeroButton.Click += new System.EventHandler(this.HandZeroButton_Click);
+            // 
+            // HandTwoButton
+            // 
+            this.HandTwoButton.Location = new System.Drawing.Point(9, 59);
+            this.HandTwoButton.Name = "HandTwoButton";
+            this.HandTwoButton.Size = new System.Drawing.Size(202, 23);
+            this.HandTwoButton.TabIndex = 37;
+            this.HandTwoButton.Text = "Make All Arcs Hand Two (Right Side)";
+            this.HandTwoButton.UseVisualStyleBackColor = true;
+            this.HandTwoButton.Click += new System.EventHandler(this.HandTwoButton_Click);
+            // 
+            // HandOneButton
+            // 
+            this.HandOneButton.Location = new System.Drawing.Point(9, 30);
+            this.HandOneButton.Name = "HandOneButton";
+            this.HandOneButton.Size = new System.Drawing.Size(202, 23);
+            this.HandOneButton.TabIndex = 36;
+            this.HandOneButton.Text = "Make All Arcs Hand One (Left Side)";
+            this.HandOneButton.UseVisualStyleBackColor = true;
+            this.HandOneButton.Click += new System.EventHandler(this.HandOneButton_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(289, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "This tool switches all arcs in a map to hand one or hand two";
+            // 
+            // CopyConfigPreviewHS
+            // 
+            this.CopyConfigPreviewHS.Enabled = false;
+            this.CopyConfigPreviewHS.Location = new System.Drawing.Point(841, 411);
+            this.CopyConfigPreviewHS.Name = "CopyConfigPreviewHS";
+            this.CopyConfigPreviewHS.Size = new System.Drawing.Size(75, 23);
+            this.CopyConfigPreviewHS.TabIndex = 42;
+            this.CopyConfigPreviewHS.Text = "Copy All";
+            this.CopyConfigPreviewHS.UseVisualStyleBackColor = true;
+            this.CopyConfigPreviewHS.Click += new System.EventHandler(this.CopyConfigPreviewHS_Click);
+            // 
+            // ModifyConfigPreviewHS
+            // 
+            this.ModifyConfigPreviewHS.AutoSize = true;
+            this.ModifyConfigPreviewHS.Location = new System.Drawing.Point(842, 13);
+            this.ModifyConfigPreviewHS.Name = "ModifyConfigPreviewHS";
+            this.ModifyConfigPreviewHS.Size = new System.Drawing.Size(74, 17);
+            this.ModifyConfigPreviewHS.TabIndex = 41;
+            this.ModifyConfigPreviewHS.Text = "Modifiable";
+            this.ModifyConfigPreviewHS.UseVisualStyleBackColor = true;
+            this.ModifyConfigPreviewHS.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewHS_CheckedChanged);
+            // 
+            // ConfigPreviewHSLabel
+            // 
+            this.ConfigPreviewHSLabel.AutoSize = true;
+            this.ConfigPreviewHSLabel.Location = new System.Drawing.Point(630, 14);
+            this.ConfigPreviewHSLabel.Name = "ConfigPreviewHSLabel";
+            this.ConfigPreviewHSLabel.Size = new System.Drawing.Size(78, 13);
+            this.ConfigPreviewHSLabel.TabIndex = 40;
+            this.ConfigPreviewHSLabel.Text = "Config Preview";
+            // 
+            // ConfigPreviewRTBHS
+            // 
+            this.ConfigPreviewRTBHS.DetectUrls = false;
+            this.ConfigPreviewRTBHS.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigPreviewRTBHS.Location = new System.Drawing.Point(631, 30);
+            this.ConfigPreviewRTBHS.Name = "ConfigPreviewRTBHS";
+            this.ConfigPreviewRTBHS.ReadOnly = true;
+            this.ConfigPreviewRTBHS.Size = new System.Drawing.Size(287, 375);
+            this.ConfigPreviewRTBHS.TabIndex = 39;
+            this.ConfigPreviewRTBHS.Text = "No Map Loaded!";
             // 
             // AboutTab
             // 
@@ -365,7 +484,7 @@ namespace Intralism_Mapping_Assistant
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.0.4";
+            this.label7.Text = "Intralism Mapping Assistant v0.6.0";
             // 
             // MapSplitterTab
             // 
@@ -1247,7 +1366,8 @@ namespace Intralism_Mapping_Assistant
             this.TabControl.Controls.Add(this.ZoomStopTab);
             this.TabControl.Controls.Add(this.EventModifier);
             this.TabControl.Controls.Add(this.MapSplitterTab);
-            this.TabControl.Controls.Add(this.tabPage1);
+            this.TabControl.Controls.Add(this.HandSwitchTab);
+            this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Controls.Add(this.AboutTab);
             this.TabControl.Location = new System.Drawing.Point(13, 13);
             this.TabControl.Name = "TabControl";
@@ -1255,86 +1375,370 @@ namespace Intralism_Mapping_Assistant
             this.TabControl.Size = new System.Drawing.Size(935, 466);
             this.TabControl.TabIndex = 0;
             // 
-            // HandZeroButton
+            // tabPage2
             // 
-            this.HandZeroButton.Location = new System.Drawing.Point(9, 88);
-            this.HandZeroButton.Name = "HandZeroButton";
-            this.HandZeroButton.Size = new System.Drawing.Size(260, 23);
-            this.HandZeroButton.TabIndex = 38;
-            this.HandZeroButton.Text = "Make All Arcs Default (Left Hand/One Hand mode)";
-            this.HandZeroButton.UseVisualStyleBackColor = true;
-            this.HandZeroButton.Click += new System.EventHandler(this.HandZeroButton_Click);
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.label23);
+            this.tabPage2.Controls.Add(this.EnvSpriteEndPosZ);
+            this.tabPage2.Controls.Add(this.EnvSpriteStartPosZ);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.EnvSpriteEndPosY);
+            this.tabPage2.Controls.Add(this.EnvSpriteStartPosY);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.CreateEventsESM);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.EventsPerSec);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.EnvSpriteEndTime);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.EnvSpriteStartTime);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.EnvSpriteEndPosX);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.EnvSpriteStartPosX);
+            this.tabPage2.Controls.Add(this.EnvSpriteIDLabel);
+            this.tabPage2.Controls.Add(this.EnvSpriteID);
+            this.tabPage2.Controls.Add(this.CopyConfigPreviewESM);
+            this.tabPage2.Controls.Add(this.ModifyConfigPreviewESM);
+            this.tabPage2.Controls.Add(this.ConfigPreviewLabelESM);
+            this.tabPage2.Controls.Add(this.ConfigPreviewESMRTB);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(927, 440);
+            this.tabPage2.TabIndex = 6;
+            this.tabPage2.Text = "EnvSprite Movement";
             // 
-            // HandTwoButton
+            // CopyConfigPreviewESM
             // 
-            this.HandTwoButton.Location = new System.Drawing.Point(9, 59);
-            this.HandTwoButton.Name = "HandTwoButton";
-            this.HandTwoButton.Size = new System.Drawing.Size(202, 23);
-            this.HandTwoButton.TabIndex = 37;
-            this.HandTwoButton.Text = "Make All Arcs Hand Two (Right Side)";
-            this.HandTwoButton.UseVisualStyleBackColor = true;
-            this.HandTwoButton.Click += new System.EventHandler(this.HandTwoButton_Click);
+            this.CopyConfigPreviewESM.Enabled = false;
+            this.CopyConfigPreviewESM.Location = new System.Drawing.Point(841, 410);
+            this.CopyConfigPreviewESM.Name = "CopyConfigPreviewESM";
+            this.CopyConfigPreviewESM.Size = new System.Drawing.Size(75, 23);
+            this.CopyConfigPreviewESM.TabIndex = 46;
+            this.CopyConfigPreviewESM.Text = "Copy All";
+            this.CopyConfigPreviewESM.UseVisualStyleBackColor = true;
+            this.CopyConfigPreviewESM.Click += new System.EventHandler(this.CopyConfigPreviewESM_Click);
             // 
-            // HandOneButton
+            // ModifyConfigPreviewESM
             // 
-            this.HandOneButton.Location = new System.Drawing.Point(9, 30);
-            this.HandOneButton.Name = "HandOneButton";
-            this.HandOneButton.Size = new System.Drawing.Size(202, 23);
-            this.HandOneButton.TabIndex = 36;
-            this.HandOneButton.Text = "Make All Arcs Hand One (Left Side)";
-            this.HandOneButton.UseVisualStyleBackColor = true;
-            this.HandOneButton.Click += new System.EventHandler(this.HandOneButton_Click);
+            this.ModifyConfigPreviewESM.AutoSize = true;
+            this.ModifyConfigPreviewESM.Location = new System.Drawing.Point(842, 12);
+            this.ModifyConfigPreviewESM.Name = "ModifyConfigPreviewESM";
+            this.ModifyConfigPreviewESM.Size = new System.Drawing.Size(74, 17);
+            this.ModifyConfigPreviewESM.TabIndex = 45;
+            this.ModifyConfigPreviewESM.Text = "Modifiable";
+            this.ModifyConfigPreviewESM.UseVisualStyleBackColor = true;
+            this.ModifyConfigPreviewESM.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewESM_CheckedChanged);
             // 
-            // label12
+            // ConfigPreviewLabelESM
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(289, 13);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "This tool switches all arcs in a map to hand one or hand two";
+            this.ConfigPreviewLabelESM.AutoSize = true;
+            this.ConfigPreviewLabelESM.Location = new System.Drawing.Point(630, 13);
+            this.ConfigPreviewLabelESM.Name = "ConfigPreviewLabelESM";
+            this.ConfigPreviewLabelESM.Size = new System.Drawing.Size(45, 13);
+            this.ConfigPreviewLabelESM.TabIndex = 44;
+            this.ConfigPreviewLabelESM.Text = "Preview";
             // 
-            // CopyConfigPreviewHS
+            // ConfigPreviewESMRTB
             // 
-            this.CopyConfigPreviewHS.Enabled = false;
-            this.CopyConfigPreviewHS.Location = new System.Drawing.Point(841, 411);
-            this.CopyConfigPreviewHS.Name = "CopyConfigPreviewHS";
-            this.CopyConfigPreviewHS.Size = new System.Drawing.Size(75, 23);
-            this.CopyConfigPreviewHS.TabIndex = 42;
-            this.CopyConfigPreviewHS.Text = "Copy All";
-            this.CopyConfigPreviewHS.UseVisualStyleBackColor = true;
-            this.CopyConfigPreviewHS.Click += new System.EventHandler(this.CopyConfigPreviewHS_Click);
+            this.ConfigPreviewESMRTB.DetectUrls = false;
+            this.ConfigPreviewESMRTB.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigPreviewESMRTB.Location = new System.Drawing.Point(631, 29);
+            this.ConfigPreviewESMRTB.Name = "ConfigPreviewESMRTB";
+            this.ConfigPreviewESMRTB.ReadOnly = true;
+            this.ConfigPreviewESMRTB.Size = new System.Drawing.Size(287, 375);
+            this.ConfigPreviewESMRTB.TabIndex = 43;
+            this.ConfigPreviewESMRTB.Text = "Choose the settings you want then click \"Create\" when you\'re ready!";
             // 
-            // ModifyConfigPreviewHS
+            // EnvSpriteID
             // 
-            this.ModifyConfigPreviewHS.AutoSize = true;
-            this.ModifyConfigPreviewHS.Location = new System.Drawing.Point(842, 13);
-            this.ModifyConfigPreviewHS.Name = "ModifyConfigPreviewHS";
-            this.ModifyConfigPreviewHS.Size = new System.Drawing.Size(74, 17);
-            this.ModifyConfigPreviewHS.TabIndex = 41;
-            this.ModifyConfigPreviewHS.Text = "Modifiable";
-            this.ModifyConfigPreviewHS.UseVisualStyleBackColor = true;
-            this.ModifyConfigPreviewHS.CheckedChanged += new System.EventHandler(this.ModifyConfigPreviewHS_CheckedChanged);
+            this.EnvSpriteID.Location = new System.Drawing.Point(7, 29);
+            this.EnvSpriteID.Name = "EnvSpriteID";
+            this.EnvSpriteID.Size = new System.Drawing.Size(100, 20);
+            this.EnvSpriteID.TabIndex = 47;
             // 
-            // ConfigPreviewHSLabel
+            // EnvSpriteIDLabel
             // 
-            this.ConfigPreviewHSLabel.AutoSize = true;
-            this.ConfigPreviewHSLabel.Location = new System.Drawing.Point(630, 14);
-            this.ConfigPreviewHSLabel.Name = "ConfigPreviewHSLabel";
-            this.ConfigPreviewHSLabel.Size = new System.Drawing.Size(78, 13);
-            this.ConfigPreviewHSLabel.TabIndex = 40;
-            this.ConfigPreviewHSLabel.Text = "Config Preview";
+            this.EnvSpriteIDLabel.AutoSize = true;
+            this.EnvSpriteIDLabel.Location = new System.Drawing.Point(6, 12);
+            this.EnvSpriteIDLabel.Name = "EnvSpriteIDLabel";
+            this.EnvSpriteIDLabel.Size = new System.Drawing.Size(67, 13);
+            this.EnvSpriteIDLabel.TabIndex = 48;
+            this.EnvSpriteIDLabel.Text = "EnvSprite ID";
             // 
-            // ConfigPreviewRTBHS
+            // EnvSpriteStartPosX
             // 
-            this.ConfigPreviewRTBHS.DetectUrls = false;
-            this.ConfigPreviewRTBHS.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfigPreviewRTBHS.Location = new System.Drawing.Point(631, 30);
-            this.ConfigPreviewRTBHS.Name = "ConfigPreviewRTBHS";
-            this.ConfigPreviewRTBHS.ReadOnly = true;
-            this.ConfigPreviewRTBHS.Size = new System.Drawing.Size(287, 375);
-            this.ConfigPreviewRTBHS.TabIndex = 39;
-            this.ConfigPreviewRTBHS.Text = "No Map Loaded!";
+            this.EnvSpriteStartPosX.DecimalPlaces = 5;
+            this.EnvSpriteStartPosX.Location = new System.Drawing.Point(27, 111);
+            this.EnvSpriteStartPosX.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteStartPosX.Minimum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteStartPosX.Name = "EnvSpriteStartPosX";
+            this.EnvSpriteStartPosX.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteStartPosX.TabIndex = 49;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 95);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(118, 13);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "EnvSpirte Start Position";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 148);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(115, 13);
+            this.label14.TabIndex = 52;
+            this.label14.Text = "EnvSpirte End Position";
+            // 
+            // EnvSpriteEndPosX
+            // 
+            this.EnvSpriteEndPosX.DecimalPlaces = 5;
+            this.EnvSpriteEndPosX.Location = new System.Drawing.Point(26, 164);
+            this.EnvSpriteEndPosX.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteEndPosX.Minimum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteEndPosX.Name = "EnvSpriteEndPosX";
+            this.EnvSpriteEndPosX.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteEndPosX.TabIndex = 51;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 261);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 13);
+            this.label15.TabIndex = 56;
+            this.label15.Text = "EnvSpirte End Time";
+            // 
+            // EnvSpriteEndTime
+            // 
+            this.EnvSpriteEndTime.DecimalPlaces = 5;
+            this.EnvSpriteEndTime.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.EnvSpriteEndTime.Location = new System.Drawing.Point(9, 277);
+            this.EnvSpriteEndTime.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteEndTime.Name = "EnvSpriteEndTime";
+            this.EnvSpriteEndTime.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteEndTime.TabIndex = 55;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(5, 208);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(104, 13);
+            this.label16.TabIndex = 54;
+            this.label16.Text = "EnvSpirte Start Time";
+            // 
+            // EnvSpriteStartTime
+            // 
+            this.EnvSpriteStartTime.DecimalPlaces = 5;
+            this.EnvSpriteStartTime.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.EnvSpriteStartTime.Location = new System.Drawing.Point(8, 224);
+            this.EnvSpriteStartTime.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteStartTime.Name = "EnvSpriteStartTime";
+            this.EnvSpriteStartTime.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteStartTime.TabIndex = 53;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 320);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(99, 13);
+            this.label17.TabIndex = 58;
+            this.label17.Text = "Events Per Second";
+            // 
+            // EventsPerSec
+            // 
+            this.EventsPerSec.Location = new System.Drawing.Point(10, 336);
+            this.EventsPerSec.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.EventsPerSec.Name = "EventsPerSec";
+            this.EventsPerSec.Size = new System.Drawing.Size(98, 20);
+            this.EventsPerSec.TabIndex = 57;
+            this.EventsPerSec.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // CreateEventsESM
+            // 
+            this.CreateEventsESM.Location = new System.Drawing.Point(205, 333);
+            this.CreateEventsESM.Name = "CreateEventsESM";
+            this.CreateEventsESM.Size = new System.Drawing.Size(75, 23);
+            this.CreateEventsESM.TabIndex = 59;
+            this.CreateEventsESM.Text = "Create";
+            this.CreateEventsESM.UseVisualStyleBackColor = true;
+            this.CreateEventsESM.Click += new System.EventHandler(this.CreateEventsESM_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(9, 113);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(12, 13);
+            this.label18.TabIndex = 60;
+            this.label18.Text = "x";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(9, 166);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(12, 13);
+            this.label19.TabIndex = 61;
+            this.label19.Text = "x";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(144, 166);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(12, 13);
+            this.label20.TabIndex = 65;
+            this.label20.Text = "y";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(144, 113);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(12, 13);
+            this.label21.TabIndex = 64;
+            this.label21.Text = "y";
+            // 
+            // EnvSpriteEndPosY
+            // 
+            this.EnvSpriteEndPosY.DecimalPlaces = 5;
+            this.EnvSpriteEndPosY.Location = new System.Drawing.Point(161, 164);
+            this.EnvSpriteEndPosY.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteEndPosY.Minimum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteEndPosY.Name = "EnvSpriteEndPosY";
+            this.EnvSpriteEndPosY.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteEndPosY.TabIndex = 63;
+            // 
+            // EnvSpriteStartPosY
+            // 
+            this.EnvSpriteStartPosY.DecimalPlaces = 5;
+            this.EnvSpriteStartPosY.Location = new System.Drawing.Point(162, 111);
+            this.EnvSpriteStartPosY.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteStartPosY.Minimum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteStartPosY.Name = "EnvSpriteStartPosY";
+            this.EnvSpriteStartPosY.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteStartPosY.TabIndex = 62;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(286, 166);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 13);
+            this.label22.TabIndex = 69;
+            this.label22.Text = "z";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(286, 113);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(12, 13);
+            this.label23.TabIndex = 68;
+            this.label23.Text = "z";
+            // 
+            // EnvSpriteEndPosZ
+            // 
+            this.EnvSpriteEndPosZ.DecimalPlaces = 5;
+            this.EnvSpriteEndPosZ.Location = new System.Drawing.Point(303, 164);
+            this.EnvSpriteEndPosZ.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteEndPosZ.Minimum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteEndPosZ.Name = "EnvSpriteEndPosZ";
+            this.EnvSpriteEndPosZ.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteEndPosZ.TabIndex = 67;
+            // 
+            // EnvSpriteStartPosZ
+            // 
+            this.EnvSpriteStartPosZ.DecimalPlaces = 5;
+            this.EnvSpriteStartPosZ.Location = new System.Drawing.Point(304, 111);
+            this.EnvSpriteStartPosZ.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.EnvSpriteStartPosZ.Minimum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteStartPosZ.Name = "EnvSpriteStartPosZ";
+            this.EnvSpriteStartPosZ.Size = new System.Drawing.Size(98, 20);
+            this.EnvSpriteStartPosZ.TabIndex = 66;
             // 
             // MainForm
             // 
@@ -1349,8 +1753,8 @@ namespace Intralism_Mapping_Assistant
             this.Text = "Intralism Mapping Assistant";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.HandSwitchTab.ResumeLayout(false);
+            this.HandSwitchTab.PerformLayout();
             this.AboutTab.ResumeLayout(false);
             this.AboutTab.PerformLayout();
             this.MapSplitterTab.ResumeLayout(false);
@@ -1395,6 +1799,17 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.FirstEventTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDistanceBox)).EndInit();
             this.TabControl.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EventsPerSec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosZ)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1415,7 +1830,7 @@ namespace Intralism_Mapping_Assistant
         private System.Windows.Forms.ToolTip SaveFolderTT;
         private System.Windows.Forms.ToolTip OverwriteTT;
         private System.Windows.Forms.FolderBrowserDialog BrowseForMapFolder;
-        private TabPage tabPage1;
+        private TabPage HandSwitchTab;
         private TabPage AboutTab;
         private LinkLabel linkLabel1;
         private Label label9;
@@ -1503,5 +1918,33 @@ namespace Intralism_Mapping_Assistant
         private CheckBox ModifyConfigPreviewHS;
         private Label ConfigPreviewHSLabel;
         private RichTextBox ConfigPreviewRTBHS;
+        private TabPage tabPage2;
+        private Button CopyConfigPreviewESM;
+        private CheckBox ModifyConfigPreviewESM;
+        private Label ConfigPreviewLabelESM;
+        private RichTextBox ConfigPreviewESMRTB;
+        private Label label15;
+        private NumericUpDown EnvSpriteEndTime;
+        private Label label16;
+        private NumericUpDown EnvSpriteStartTime;
+        private Label label14;
+        private NumericUpDown EnvSpriteEndPosX;
+        private Label label13;
+        private NumericUpDown EnvSpriteStartPosX;
+        private Label EnvSpriteIDLabel;
+        private TextBox EnvSpriteID;
+        private Button CreateEventsESM;
+        private Label label17;
+        private NumericUpDown EventsPerSec;
+        private Label label22;
+        private Label label23;
+        private NumericUpDown EnvSpriteEndPosZ;
+        private NumericUpDown EnvSpriteStartPosZ;
+        private Label label20;
+        private Label label21;
+        private NumericUpDown EnvSpriteEndPosY;
+        private NumericUpDown EnvSpriteStartPosY;
+        private Label label19;
+        private Label label18;
     }
 }

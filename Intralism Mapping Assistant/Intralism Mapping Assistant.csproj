@@ -69,6 +69,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainForm\EnvSpriteMovementMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm\HandSwitcherMethods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +109,7 @@
     <Compile Include="MainForm\ZoomStopMethods.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Util\MapConfig3.cs" />
     <EmbeddedResource Include="MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

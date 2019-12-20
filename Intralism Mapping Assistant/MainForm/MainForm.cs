@@ -9,13 +9,8 @@ namespace Intralism_Mapping_Assistant
     {
         private string LoadedMapFolderLocation;
 
-        private Map CurrentMap
-        {
-            get
-            {
-                return MakeMapFromPath(LoadedMapFolderLocation + @"\config.txt");
-            }
-        }
+        private Map CurrentMap => MakeMapFromPath(LoadedMapFolderLocation + @"\config.txt");
+        private bool Config3 = false;
 
         private bool DeleteZoomsButtonActivated = false;
 
@@ -184,5 +179,14 @@ namespace Intralism_Mapping_Assistant
 
         private void HandZeroButton_Click(object sender, EventArgs e)
             => MakeAllEventsHand(0);
+
+        private void CreateEventsESM_Click(object sender, EventArgs e)
+            => CreateEnvSpriteMovementEvents();
+
+        private void ModifyConfigPreviewESM_CheckedChanged(object sender, EventArgs e)
+            => ChangeReadOnly(ModifyConfigPreviewESM, ConfigPreviewESMRTB);
+
+        private void CopyConfigPreviewESM_Click(object sender, EventArgs e)
+            => Copy(ConfigPreviewESMRTB.Text);
     }
 }

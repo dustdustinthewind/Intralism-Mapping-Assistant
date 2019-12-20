@@ -30,6 +30,7 @@ namespace Intralism_Mapping_Assistant
                 ConfigPreviewRTBZSC.Text = text;
                 SplitConfigPart1.Text = text;
                 ConfigPreviewRTBHS.Text = text;
+                ConfigPreviewESMRTB.Text = text;
             }
             catch (Exception e)
             {
@@ -49,6 +50,8 @@ namespace Intralism_Mapping_Assistant
             CopyPreviewBoxZSC.Enabled = true;
             CopySCP1.Enabled = true;
             CopySCP2.Enabled = true;
+            CopyConfigPreviewHS.Enabled = true;
+            CopyConfigPreviewESM.Enabled = true;
 
             DeleteZoomsButtonActivated = true;
             DestructiveCheckZEM.Enabled = true;
@@ -77,14 +80,24 @@ namespace Intralism_Mapping_Assistant
         {
             Map map;
 
+            // Try making a map out of our serializer.
             try
             {
-                // Try making a map out of our serializer.
-                map = (Map)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(text)), typeof(Map));
+                // If our config version is 3, use the MapConfig3 format
+                if (text.Substring(17, 18).Equals("3"))
+                {
+                    Config3 = true;
+                    map = (MapConfig3)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(text)), typeof(MapConfig3));
+                }
+                else
+                {
+                    Config3 = false;
+                    map = (Map)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(text)), typeof(Map));
+                }
             }
+            // Throw an error message box if it didn't work.
             catch
             {
-                // Throw an error message box if it didn't work.
                 ErrorMessage("Invalid config.txt format!");
                 return null;
             }
@@ -97,7 +110,11 @@ namespace Intralism_Mapping_Assistant
             // Write the zoomless config into a StringWriter
             StringWriter sw = new StringWriter();
             JsonSerializer js = new JsonSerializer();
-            js.Serialize(sw, map);
+
+            if (Config3)
+                js.Serialize(sw, (MapConfig3)map);
+            else
+                js.Serialize(sw, map);
 
             // Change the text box to display the zoomless config.
             return sw.ToString();
