@@ -9,7 +9,10 @@ namespace Intralism_Mapping_Assistant
     {
         private string LoadedMapFolderLocation;
 
+        // TODO: Make a "LoadedMap" for loading from config and a "CurrentMap" for whatever is
+        // in the currently active TextBox
         private Map CurrentMap => MakeMapFromPath(LoadedMapFolderLocation + @"\config.txt");
+
         private bool Config3 = false;
 
         private bool DeleteZoomsButtonActivated = false;
@@ -188,5 +191,8 @@ namespace Intralism_Mapping_Assistant
 
         private void CopyConfigPreviewESM_Click(object sender, EventArgs e)
             => Copy(ConfigPreviewESMRTB.Text);
+
+        private void InvertHandButton_Click(object sender, EventArgs e)
+            => InvertHandOfAllEvents();
     }
 }

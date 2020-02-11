@@ -25,12 +25,15 @@ namespace Intralism_Mapping_Assistant.Util
         public string iconFile;
         public int environmentType;
         public object[] unlockConditions;
+        public bool hidden;
         public double[] checkpoints;
         public Event[] events;
 
         public Map() { }
 
-        public Map(string textToParse)
+        public Map(string textToParse) => ReadAllText(textToParse);
+
+        protected virtual JsonTextReader ReadAllText(string textToParse)
         {
             JsonTextReader reader = new JsonTextReader(new StringReader(textToParse));
 
@@ -52,10 +55,13 @@ namespace Intralism_Mapping_Assistant.Util
             environmentType = reader.ReadAsInt32() ?? -1;
             reader.Read();
             unlockConditions = (object[])reader.Value;
+            hidden = reader.ReadAsBoolean() ?? false;
             reader.Read();
             checkpoints = (double[])reader.Value;
             reader.Read();
             events = (Event[])reader.Value;
+
+            return reader;
         }
     }
 

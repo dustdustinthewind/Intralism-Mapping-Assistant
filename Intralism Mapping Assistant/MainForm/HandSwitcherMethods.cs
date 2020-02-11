@@ -1,4 +1,5 @@
 ﻿using Intralism_Mapping_Assistant.Util;
+using System;
 using System.Windows.Forms;
 
 namespace Intralism_Mapping_Assistant
@@ -26,6 +27,27 @@ namespace Intralism_Mapping_Assistant
                 evnt.data[1] += "," + hand.ToString();
 
             return evnt;
+        }
+
+        private void InvertHandOfAllEvents()
+        {
+            Map map = CurrentMap;
+
+            for (int i = 0; i < CurrentMap.events.Length; i++)
+                map.events[i] = InvertHandOfEvent(map.events[i]);
+
+            ConfigPreviewRTBHS.Text = MakeTextFromMap(map);
+        }
+
+        private Event InvertHandOfEvent(Event evnt)
+        {
+            if (evnt.GetTypeString() != "SpawnObj")
+                return evnt;
+
+            string hand = evnt.data[1].Substring(evnt.data[1].Length - 1);
+            Console.WriteLine("Test: " + hand);
+
+            return MakeEventHand(evnt, int.Parse(hand));
         }
     }
 }
