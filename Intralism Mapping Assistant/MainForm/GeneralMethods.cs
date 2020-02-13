@@ -84,7 +84,7 @@ namespace Intralism_Mapping_Assistant
             try
             {
                 // If our config version is 3, use the MapConfig3 format
-                if (text.Substring(17, 18).Equals("3"))
+                if (text.Substring(text.IndexOf(":") + 1, 1).Equals("3"))
                 {
                     Config3 = true;
                     map = (MapConfig3)new JsonSerializer().Deserialize(new JsonTextReader(new StringReader(text)), typeof(MapConfig3));
