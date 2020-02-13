@@ -44,10 +44,23 @@ namespace Intralism_Mapping_Assistant
             if (evnt.GetTypeString() != "SpawnObj")
                 return evnt;
 
-            string hand = evnt.data[1].Substring(evnt.data[1].Length - 1);
-            Console.WriteLine("Test: " + hand);
+            int hand = int.Parse(evnt.data[1].Substring(evnt.data[1].Length - 1));
 
-            return MakeEventHand(evnt, int.Parse(hand));
+            switch (hand)
+            {
+                case 0:
+                case 2:
+                    hand = 1;
+                    break;
+                case 1:
+                    hand = 2;
+                    break;
+                default:
+                    hand = 0;
+                    break;
+            }
+
+            return MakeEventHand(evnt, hand);
         }
     }
 }
