@@ -129,6 +129,9 @@ namespace Intralism_Mapping_Assistant
         private void CopyAudioOffsetSplit_Click(object sender, EventArgs e)
             => Copy(AudioOffsetSplitter.Text);
 
+        private void CopyEOC_Click(object sender, EventArgs e)
+            => Copy(ConfigPreviewEOC.Text);
+
         private void FindPrevZoomZSC_Click(object sender, EventArgs e)
             => SelectPrevZoomEvent(ConfigPreviewRTBZSC);
 
@@ -194,5 +197,129 @@ namespace Intralism_Mapping_Assistant
 
         private void InvertHandButton_Click(object sender, EventArgs e)
             => InvertHandOfAllEvents();
+
+        private void ModifyEOC_CheckedChanged(object sender, EventArgs e)
+            => ChangeReadOnly(ModifyEOC, ConfigPreviewEOC);
+
+        private void SunRB_CheckedChanged(object sender, EventArgs e)
+            => ReactivatePropertyBoxes(EnvironmentObjectType.Sun);
+
+        private void SatelliteRB_CheckedChanged(object sender, EventArgs e)
+            => ReactivatePropertyBoxes(EnvironmentObjectType.Satellite);
+
+        private void ParticleEmitterRB_CheckedChanged(object sender, EventArgs e)
+            => ReactivatePropertyBoxes(EnvironmentObjectType.ParticleEmitter);
+
+        private void ColorPickSunMaxLives_Click(object sender, EventArgs e)
+            => FillTextBoxWithSelectedColorCode(MaxLivesColorTB);
+
+        private void ColorPickSunNoLives_Click(object sender, EventArgs e)
+            => FillTextBoxWithSelectedColorCode(NoLivesColorTB);
+
+        private void ColorPickSatellite_Click(object sender, EventArgs e)
+            => FillTextBoxWithSelectedColorCode(SatelliteColorTB);
+
+        private void ColorPickParticleEmitter_Click(object sender, EventArgs e)
+            => FillTextBoxWithSelectedColorCode(ParticleEmitterColorTB);
+
+        private void ParentIDCB_CheckedChanged(object sender, EventArgs e)
+            => ParentIDTB.Enabled = ParentIDCB.Checked;
+
+        private void RemoveTimeCB_CheckedChanged(object sender, EventArgs e)
+            => RemoveTimeNUD.Enabled = RemoveTimeCB.Checked;
+
+        private void PositionCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { PositionXNUD, PositionYNUD, PositionZNUD }, PositionCB.Checked);
+
+        private void RotationCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { RotationXNUD, RotationYNUD, RotationZNUD }, RotationCB.Checked);
+
+        private void ScaleCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { ScaleXNUD, ScaleYNUD, ScaleZNUD }, ScaleCB.Checked);
+
+        private void MaxLivesCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { MaxLivesColorTB, ColorPickSunMaxLives }, MaxLivesCB.Checked);
+
+        private void NoLivesColorCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { NoLivesColorTB, ColorPickSunNoLives }, NoLivesColorCB.Checked);
+
+        private void SunEmissionCB_CheckedChanged(object sender, EventArgs e)
+            => SunEmissionNUD.Enabled = SunEmissionCB.Checked;
+
+        private void SunInputCB_CheckedChanged(object sender, EventArgs e)
+            => SunInputNUD.Enabled = SunInputCB.Checked;
+
+        private void SunLerpSpeedCB_CheckedChanged(object sender, EventArgs e)
+            => SunLerpNUD.Enabled = SunLerpSpeedCB.Checked;
+
+        private void SunSensivityCB_CheckedChanged(object sender, EventArgs e)
+            => SunSensitivityNUD.Enabled = SunSensivityCB.Checked;
+
+        private void SunMinSizeCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus( new Control[] { SunMinSizeXNUD, SunMinSizeYNUD, SunMinSizeZNUD },
+                                    SunMinSizeCB.Checked);
+
+        private void SunMaxSizeCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus( new Control[] { SunMaxSizeXNUD, SunMaxSizeYNUD, SunMaxSizeZNUD },
+                                    SunMaxSizeCB.Checked);
+
+        private void SunDirectionVectorCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus( new Control[] { DirectionVectorXNUD, DirectionVectorYNUD, DirectionVectorZNUD },
+                                    SunDirectionVectorCB.Checked);
+
+        private void SatelliteColorCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { SatelliteColorTB, ColorPickSatellite }, SatelliteColorCB.Checked);
+
+        private void SatelliteEmissionCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteEmissionNUD.Enabled = SatelliteEmissionCB.Checked;
+
+        private void SatelliteTypeCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteInputNUD.Enabled = SatelliteTypeCB.Checked;
+
+        private void SatelliteLerpSpeedCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteLerpSpeedNUD.Enabled = SatelliteLerpSpeedCB.Checked;
+
+        private void SatelliteSensitivityCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteSensitivityNUD.Enabled = SatelliteSensitivityCB.Checked;
+
+        private void SatelliteRotationCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteRotationSpeedNUD.Enabled = SatelliteRotationCB.Checked;
+
+        private void SatelliteRadiusCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteRadiusNUD.Enabled = SatelliteRadiusCB.Checked;
+
+        private void SatelliteTrailFadeTimeCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteTrailTimeNUD.Enabled = SatelliteTrailFadeTimeCB.Checked;
+
+        private void SatellieTrailWidthCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteTrailWidthNUD.Enabled = SatellieTrailWidthCB.Checked;
+
+        private void SatelliteMinimumVertexCB_CheckedChanged(object sender, EventArgs e)
+            => SatelliteMinimumVertexDistanceNUD.Enabled = SatelliteMinimumVertexCB.Checked;
+
+        private void ParticleEmitterColorCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { ParticleEmitterColorTB, ColorPickParticleEmitter }, ParticleEmitterColorCB.Checked);
+
+        private void ParticleEmitterEmissionCB_CheckedChanged(object sender, EventArgs e)
+            => ParticleEmitterEmissionNUD.Enabled = ParticleEmitterEmissionCB.Checked;
+
+        private void ParticleEmitterTypeCB_CheckedChanged(object sender, EventArgs e)
+            => ParticleEmitterInputNUD.Enabled = ParticleEmitterTypeCB.Checked;
+
+        private void ParticleEmitterGravityCB_CheckedChanged(object sender, EventArgs e)
+            => ParticleEmitterGravityNUD.Enabled = ParticleEmitterGravityCB.Checked;
+
+        private void ParticleEmitterSpeedCB_CheckedChanged(object sender, EventArgs e)
+            => ParticleEmitterSpeedNUD.Enabled = ParticleEmitterSpeedCB.Checked;
+
+        private void ParticleEmitterPPBCB_CheckedChanged(object sender, EventArgs e)
+            => ParticleEmitterPPBNUD.Enabled = ParticleEmitterPPBCB.Checked;
+
+        private void ParticleEmitterSizeCB_CheckedChanged(object sender, EventArgs e)
+            => ParticleEmitterSizeNUD.Enabled = ParticleEmitterSizeCB.Checked;
+
+        private void CreateEnvObjButton_Click(object sender, EventArgs e)
+            => ConfigPreviewEOC.Text =
+                ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings());
     }
 }

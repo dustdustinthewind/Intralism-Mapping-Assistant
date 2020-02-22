@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainForm\EnvObjectCreatorMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm\EnvSpriteMovementMethods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +104,7 @@
     <Compile Include="MainForm\GeneralMethods.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Util\EnvironmentObject.cs" />
     <Compile Include="Util\IMAMath.cs" />
     <Compile Include="Util\Map.cs" />
     <Compile Include="MainForm\ZoomEventModifierMethods.cs">

@@ -50,6 +50,7 @@ namespace Intralism_Mapping_Assistant
             this.OverwriteTT = new System.Windows.Forms.ToolTip(this.components);
             this.BrowseForMapFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.HandSwitchTab = new System.Windows.Forms.TabPage();
+            this.InvertHandButton = new System.Windows.Forms.Button();
             this.HandZeroButton = new System.Windows.Forms.Button();
             this.HandTwoButton = new System.Windows.Forms.Button();
             this.HandOneButton = new System.Windows.Forms.Button();
@@ -163,7 +164,110 @@ namespace Intralism_Mapping_Assistant
             this.ModifyConfigPreviewESM = new System.Windows.Forms.CheckBox();
             this.ConfigPreviewLabelESM = new System.Windows.Forms.Label();
             this.ConfigPreviewESMRTB = new System.Windows.Forms.RichTextBox();
-            this.InvertHandButton = new System.Windows.Forms.Button();
+            this.EOCTab = new System.Windows.Forms.TabPage();
+            this.CreateEnvObjButton = new System.Windows.Forms.Button();
+            this.ParentIDCB = new System.Windows.Forms.CheckBox();
+            this.ParentIDTB = new System.Windows.Forms.TextBox();
+            this.RemoveTimeCB = new System.Windows.Forms.CheckBox();
+            this.SpawnTimeCB = new System.Windows.Forms.Label();
+            this.RemoveTimeNUD = new System.Windows.Forms.NumericUpDown();
+            this.SpawnTimeNUD = new System.Windows.Forms.NumericUpDown();
+            this.ScaleZNUD = new System.Windows.Forms.NumericUpDown();
+            this.RotationZNUD = new System.Windows.Forms.NumericUpDown();
+            this.PositionZNUD = new System.Windows.Forms.NumericUpDown();
+            this.ScaleYNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterGroupBox = new System.Windows.Forms.GroupBox();
+            this.ParticleEmitterTypeCB = new System.Windows.Forms.CheckBox();
+            this.ParticleEmitterPPBNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterColorCB = new System.Windows.Forms.CheckBox();
+            this.ParticleEmitterSizeCB = new System.Windows.Forms.CheckBox();
+            this.ParticleEmitterInputNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterPPBCB = new System.Windows.Forms.CheckBox();
+            this.ParticleEmitterEmissionCB = new System.Windows.Forms.CheckBox();
+            this.ParticleEmitterSizeNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterSpeedCB = new System.Windows.Forms.CheckBox();
+            this.ParticleEmitterEmissionNUD = new System.Windows.Forms.NumericUpDown();
+            this.ColorPickParticleEmitter = new System.Windows.Forms.Button();
+            this.ParticleEmitterGravityNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterSpeedNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterColorTB = new System.Windows.Forms.TextBox();
+            this.ParticleEmitterGravityCB = new System.Windows.Forms.CheckBox();
+            this.RotationYNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteGroupBox = new System.Windows.Forms.GroupBox();
+            this.SatelliteMinimumVertexDistanceNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteTrailWidthNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteMinimumVertexCB = new System.Windows.Forms.CheckBox();
+            this.SatellieTrailWidthCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteTrailFadeTimeCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteTrailTimeNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteRotationSpeedNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteRadiusCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteRotationCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteRadiusNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteSensitivityCB = new System.Windows.Forms.CheckBox();
+            this.ColorPickSatellite = new System.Windows.Forms.Button();
+            this.SatelliteSensitivityNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteColorCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteLerpSpeedCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteColorTB = new System.Windows.Forms.TextBox();
+            this.SatelliteLerpSpeedNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteEmissionNUD = new System.Windows.Forms.NumericUpDown();
+            this.SatelliteTypeCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteEmissionCB = new System.Windows.Forms.CheckBox();
+            this.SatelliteInputNUD = new System.Windows.Forms.NumericUpDown();
+            this.PositionYNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunGroupBox = new System.Windows.Forms.GroupBox();
+            this.SunDirectionVectorCB = new System.Windows.Forms.CheckBox();
+            this.DirectionVectorZNUD = new System.Windows.Forms.NumericUpDown();
+            this.DirectionVectorYNUD = new System.Windows.Forms.NumericUpDown();
+            this.DirectionVectorXNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunMaxSizeCB = new System.Windows.Forms.CheckBox();
+            this.SunMaxSizeZNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunMaxSizeYNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunMaxSizeXNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunMinSizeCB = new System.Windows.Forms.CheckBox();
+            this.SunMinSizeZNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunSensivityCB = new System.Windows.Forms.CheckBox();
+            this.SunMinSizeYNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunSensitivityNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunMinSizeXNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunLerpSpeedCB = new System.Windows.Forms.CheckBox();
+            this.SunLerpNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunInputCB = new System.Windows.Forms.CheckBox();
+            this.SunInputNUD = new System.Windows.Forms.NumericUpDown();
+            this.SunEmissionCB = new System.Windows.Forms.CheckBox();
+            this.SunEmissionNUD = new System.Windows.Forms.NumericUpDown();
+            this.ColorPickSunNoLives = new System.Windows.Forms.Button();
+            this.NoLivesColorCB = new System.Windows.Forms.CheckBox();
+            this.NoLivesColorTB = new System.Windows.Forms.TextBox();
+            this.ColorPickSunMaxLives = new System.Windows.Forms.Button();
+            this.MaxLivesCB = new System.Windows.Forms.CheckBox();
+            this.MaxLivesColorTB = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.ScaleCB = new System.Windows.Forms.CheckBox();
+            this.ScaleXNUD = new System.Windows.Forms.NumericUpDown();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.RotationCB = new System.Windows.Forms.CheckBox();
+            this.RotationXNUD = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.PositionCB = new System.Windows.Forms.CheckBox();
+            this.PositionXNUD = new System.Windows.Forms.NumericUpDown();
+            this.ParticleEmitterRB = new System.Windows.Forms.RadioButton();
+            this.SatelliteRB = new System.Windows.Forms.RadioButton();
+            this.SunRB = new System.Windows.Forms.RadioButton();
+            this.label25 = new System.Windows.Forms.Label();
+            this.EnvObjTB = new System.Windows.Forms.TextBox();
+            this.CopyEOC = new System.Windows.Forms.Button();
+            this.ModifyEOC = new System.Windows.Forms.CheckBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
+            this.ColorDialog = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -208,6 +312,49 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).BeginInit();
+            this.EOCTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpawnTimeNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScaleZNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RotationZNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionZNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScaleYNUD)).BeginInit();
+            this.ParticleEmitterGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterPPBNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterInputNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterSizeNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterEmissionNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterGravityNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterSpeedNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RotationYNUD)).BeginInit();
+            this.SatelliteGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteMinimumVertexDistanceNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteTrailWidthNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteTrailTimeNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteRotationSpeedNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteRadiusNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteSensitivityNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteLerpSpeedNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteEmissionNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteInputNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionYNUD)).BeginInit();
+            this.SunGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DirectionVectorZNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DirectionVectorYNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DirectionVectorXNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMaxSizeZNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMaxSizeYNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMaxSizeXNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMinSizeZNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMinSizeYNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunSensitivityNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMinSizeXNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunLerpNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunInputNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunEmissionNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScaleXNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RotationXNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionXNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // AdvancedFrameRateCalc
@@ -358,6 +505,16 @@ namespace Intralism_Mapping_Assistant
             this.HandSwitchTab.TabIndex = 5;
             this.HandSwitchTab.Text = "Hand Switcher";
             // 
+            // InvertHandButton
+            // 
+            this.InvertHandButton.Location = new System.Drawing.Point(9, 117);
+            this.InvertHandButton.Name = "InvertHandButton";
+            this.InvertHandButton.Size = new System.Drawing.Size(202, 23);
+            this.InvertHandButton.TabIndex = 43;
+            this.InvertHandButton.Text = "Invert All Arcs";
+            this.InvertHandButton.UseVisualStyleBackColor = true;
+            this.InvertHandButton.Click += new System.EventHandler(this.InvertHandButton_Click);
+            // 
             // HandZeroButton
             // 
             this.HandZeroButton.Location = new System.Drawing.Point(9, 88);
@@ -477,7 +634,7 @@ namespace Intralism_Mapping_Assistant
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(181, 13);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Copyright (c) 2019 Nathaniel Beasley";
+            this.label8.Text = "Copyright (c) 2020 Nathaniel Beasley";
             // 
             // label7
             // 
@@ -486,7 +643,7 @@ namespace Intralism_Mapping_Assistant
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.6.0";
+            this.label7.Text = "Intralism Mapping Assistant v0.7.0";
             // 
             // MapSplitterTab
             // 
@@ -1370,6 +1527,7 @@ namespace Intralism_Mapping_Assistant
             this.TabControl.Controls.Add(this.MapSplitterTab);
             this.TabControl.Controls.Add(this.HandSwitchTab);
             this.TabControl.Controls.Add(this.tabPage2);
+            this.TabControl.Controls.Add(this.EOCTab);
             this.TabControl.Controls.Add(this.AboutTab);
             this.TabControl.Location = new System.Drawing.Point(13, 13);
             this.TabControl.Name = "TabControl";
@@ -1742,15 +1900,1558 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewESMRTB.TabIndex = 43;
             this.ConfigPreviewESMRTB.Text = "Choose the settings you want then click \"Create\" when you\'re ready!";
             // 
-            // InvertHandButton
+            // EOCTab
             // 
-            this.InvertHandButton.Location = new System.Drawing.Point(9, 117);
-            this.InvertHandButton.Name = "InvertHandButton";
-            this.InvertHandButton.Size = new System.Drawing.Size(202, 23);
-            this.InvertHandButton.TabIndex = 43;
-            this.InvertHandButton.Text = "Invert All Arcs";
-            this.InvertHandButton.UseVisualStyleBackColor = true;
-            this.InvertHandButton.Click += new System.EventHandler(this.InvertHandButton_Click);
+            this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.CreateEnvObjButton);
+            this.EOCTab.Controls.Add(this.ParentIDCB);
+            this.EOCTab.Controls.Add(this.ParentIDTB);
+            this.EOCTab.Controls.Add(this.RemoveTimeCB);
+            this.EOCTab.Controls.Add(this.SpawnTimeCB);
+            this.EOCTab.Controls.Add(this.RemoveTimeNUD);
+            this.EOCTab.Controls.Add(this.SpawnTimeNUD);
+            this.EOCTab.Controls.Add(this.ScaleZNUD);
+            this.EOCTab.Controls.Add(this.RotationZNUD);
+            this.EOCTab.Controls.Add(this.PositionZNUD);
+            this.EOCTab.Controls.Add(this.ScaleYNUD);
+            this.EOCTab.Controls.Add(this.ParticleEmitterGroupBox);
+            this.EOCTab.Controls.Add(this.RotationYNUD);
+            this.EOCTab.Controls.Add(this.SatelliteGroupBox);
+            this.EOCTab.Controls.Add(this.PositionYNUD);
+            this.EOCTab.Controls.Add(this.SunGroupBox);
+            this.EOCTab.Controls.Add(this.label34);
+            this.EOCTab.Controls.Add(this.label35);
+            this.EOCTab.Controls.Add(this.label36);
+            this.EOCTab.Controls.Add(this.ScaleCB);
+            this.EOCTab.Controls.Add(this.ScaleXNUD);
+            this.EOCTab.Controls.Add(this.label30);
+            this.EOCTab.Controls.Add(this.label31);
+            this.EOCTab.Controls.Add(this.label32);
+            this.EOCTab.Controls.Add(this.RotationCB);
+            this.EOCTab.Controls.Add(this.RotationXNUD);
+            this.EOCTab.Controls.Add(this.label29);
+            this.EOCTab.Controls.Add(this.label28);
+            this.EOCTab.Controls.Add(this.label27);
+            this.EOCTab.Controls.Add(this.PositionCB);
+            this.EOCTab.Controls.Add(this.PositionXNUD);
+            this.EOCTab.Controls.Add(this.ParticleEmitterRB);
+            this.EOCTab.Controls.Add(this.SatelliteRB);
+            this.EOCTab.Controls.Add(this.SunRB);
+            this.EOCTab.Controls.Add(this.label25);
+            this.EOCTab.Controls.Add(this.EnvObjTB);
+            this.EOCTab.Controls.Add(this.CopyEOC);
+            this.EOCTab.Controls.Add(this.ModifyEOC);
+            this.EOCTab.Controls.Add(this.label24);
+            this.EOCTab.Controls.Add(this.ConfigPreviewEOC);
+            this.EOCTab.Location = new System.Drawing.Point(4, 22);
+            this.EOCTab.Name = "EOCTab";
+            this.EOCTab.Padding = new System.Windows.Forms.Padding(3);
+            this.EOCTab.Size = new System.Drawing.Size(927, 440);
+            this.EOCTab.TabIndex = 7;
+            this.EOCTab.Text = "Env Object Creator";
+            // 
+            // CreateEnvObjButton
+            // 
+            this.CreateEnvObjButton.Location = new System.Drawing.Point(550, 111);
+            this.CreateEnvObjButton.Name = "CreateEnvObjButton";
+            this.CreateEnvObjButton.Size = new System.Drawing.Size(75, 23);
+            this.CreateEnvObjButton.TabIndex = 91;
+            this.CreateEnvObjButton.Text = "Create";
+            this.CreateEnvObjButton.UseVisualStyleBackColor = true;
+            this.CreateEnvObjButton.Click += new System.EventHandler(this.CreateEnvObjButton_Click);
+            // 
+            // ParentIDCB
+            // 
+            this.ParentIDCB.AutoSize = true;
+            this.ParentIDCB.Location = new System.Drawing.Point(135, 7);
+            this.ParentIDCB.Name = "ParentIDCB";
+            this.ParentIDCB.Size = new System.Drawing.Size(71, 17);
+            this.ParentIDCB.TabIndex = 90;
+            this.ParentIDCB.Text = "Parent ID";
+            this.ParentIDCB.CheckedChanged += new System.EventHandler(this.ParentIDCB_CheckedChanged);
+            // 
+            // ParentIDTB
+            // 
+            this.ParentIDTB.Enabled = false;
+            this.ParentIDTB.Location = new System.Drawing.Point(135, 25);
+            this.ParentIDTB.Name = "ParentIDTB";
+            this.ParentIDTB.Size = new System.Drawing.Size(100, 20);
+            this.ParentIDTB.TabIndex = 89;
+            // 
+            // RemoveTimeCB
+            // 
+            this.RemoveTimeCB.AutoSize = true;
+            this.RemoveTimeCB.Location = new System.Drawing.Point(369, 8);
+            this.RemoveTimeCB.Name = "RemoveTimeCB";
+            this.RemoveTimeCB.Size = new System.Drawing.Size(92, 17);
+            this.RemoveTimeCB.TabIndex = 88;
+            this.RemoveTimeCB.Text = "Remove Time";
+            this.RemoveTimeCB.CheckedChanged += new System.EventHandler(this.RemoveTimeCB_CheckedChanged);
+            // 
+            // SpawnTimeCB
+            // 
+            this.SpawnTimeCB.AutoSize = true;
+            this.SpawnTimeCB.Location = new System.Drawing.Point(269, 9);
+            this.SpawnTimeCB.Name = "SpawnTimeCB";
+            this.SpawnTimeCB.Size = new System.Drawing.Size(66, 13);
+            this.SpawnTimeCB.TabIndex = 87;
+            this.SpawnTimeCB.Text = "Spawn Time";
+            // 
+            // RemoveTimeNUD
+            // 
+            this.RemoveTimeNUD.DecimalPlaces = 5;
+            this.RemoveTimeNUD.Enabled = false;
+            this.RemoveTimeNUD.Location = new System.Drawing.Point(369, 26);
+            this.RemoveTimeNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.RemoveTimeNUD.Name = "RemoveTimeNUD";
+            this.RemoveTimeNUD.Size = new System.Drawing.Size(80, 20);
+            this.RemoveTimeNUD.TabIndex = 86;
+            // 
+            // SpawnTimeNUD
+            // 
+            this.SpawnTimeNUD.DecimalPlaces = 5;
+            this.SpawnTimeNUD.Location = new System.Drawing.Point(272, 26);
+            this.SpawnTimeNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SpawnTimeNUD.Name = "SpawnTimeNUD";
+            this.SpawnTimeNUD.Size = new System.Drawing.Size(80, 20);
+            this.SpawnTimeNUD.TabIndex = 85;
+            // 
+            // ScaleZNUD
+            // 
+            this.ScaleZNUD.Enabled = false;
+            this.ScaleZNUD.Location = new System.Drawing.Point(274, 114);
+            this.ScaleZNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ScaleZNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ScaleZNUD.Name = "ScaleZNUD";
+            this.ScaleZNUD.Size = new System.Drawing.Size(58, 20);
+            this.ScaleZNUD.TabIndex = 84;
+            // 
+            // RotationZNUD
+            // 
+            this.RotationZNUD.Enabled = false;
+            this.RotationZNUD.Location = new System.Drawing.Point(274, 88);
+            this.RotationZNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.RotationZNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.RotationZNUD.Name = "RotationZNUD";
+            this.RotationZNUD.Size = new System.Drawing.Size(58, 20);
+            this.RotationZNUD.TabIndex = 83;
+            // 
+            // PositionZNUD
+            // 
+            this.PositionZNUD.Enabled = false;
+            this.PositionZNUD.Location = new System.Drawing.Point(274, 62);
+            this.PositionZNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.PositionZNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.PositionZNUD.Name = "PositionZNUD";
+            this.PositionZNUD.Size = new System.Drawing.Size(58, 20);
+            this.PositionZNUD.TabIndex = 82;
+            // 
+            // ScaleYNUD
+            // 
+            this.ScaleYNUD.Enabled = false;
+            this.ScaleYNUD.Location = new System.Drawing.Point(185, 113);
+            this.ScaleYNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ScaleYNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ScaleYNUD.Name = "ScaleYNUD";
+            this.ScaleYNUD.Size = new System.Drawing.Size(58, 20);
+            this.ScaleYNUD.TabIndex = 75;
+            // 
+            // ParticleEmitterGroupBox
+            // 
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterTypeCB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterPPBNUD);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterColorCB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterSizeCB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterInputNUD);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterPPBCB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterEmissionCB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterSizeNUD);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterSpeedCB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterEmissionNUD);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ColorPickParticleEmitter);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterGravityNUD);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterSpeedNUD);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterColorTB);
+            this.ParticleEmitterGroupBox.Controls.Add(this.ParticleEmitterGravityCB);
+            this.ParticleEmitterGroupBox.Enabled = false;
+            this.ParticleEmitterGroupBox.Location = new System.Drawing.Point(424, 140);
+            this.ParticleEmitterGroupBox.Name = "ParticleEmitterGroupBox";
+            this.ParticleEmitterGroupBox.Size = new System.Drawing.Size(202, 297);
+            this.ParticleEmitterGroupBox.TabIndex = 81;
+            this.ParticleEmitterGroupBox.TabStop = false;
+            this.ParticleEmitterGroupBox.Text = "Particle Emitter Options";
+            // 
+            // ParticleEmitterTypeCB
+            // 
+            this.ParticleEmitterTypeCB.AutoSize = true;
+            this.ParticleEmitterTypeCB.Location = new System.Drawing.Point(100, 56);
+            this.ParticleEmitterTypeCB.Name = "ParticleEmitterTypeCB";
+            this.ParticleEmitterTypeCB.Size = new System.Drawing.Size(77, 17);
+            this.ParticleEmitterTypeCB.TabIndex = 146;
+            this.ParticleEmitterTypeCB.Text = "Input Type";
+            this.ParticleEmitterTypeCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterTypeCB_CheckedChanged);
+            // 
+            // ParticleEmitterPPBNUD
+            // 
+            this.ParticleEmitterPPBNUD.DecimalPlaces = 2;
+            this.ParticleEmitterPPBNUD.Enabled = false;
+            this.ParticleEmitterPPBNUD.Location = new System.Drawing.Point(10, 161);
+            this.ParticleEmitterPPBNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ParticleEmitterPPBNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ParticleEmitterPPBNUD.Name = "ParticleEmitterPPBNUD";
+            this.ParticleEmitterPPBNUD.Size = new System.Drawing.Size(79, 20);
+            this.ParticleEmitterPPBNUD.TabIndex = 145;
+            // 
+            // ParticleEmitterColorCB
+            // 
+            this.ParticleEmitterColorCB.AutoSize = true;
+            this.ParticleEmitterColorCB.Location = new System.Drawing.Point(6, 17);
+            this.ParticleEmitterColorCB.Name = "ParticleEmitterColorCB";
+            this.ParticleEmitterColorCB.Size = new System.Drawing.Size(123, 17);
+            this.ParticleEmitterColorCB.TabIndex = 130;
+            this.ParticleEmitterColorCB.Text = "Particle Emitter Color";
+            this.ParticleEmitterColorCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterColorCB_CheckedChanged);
+            // 
+            // ParticleEmitterSizeCB
+            // 
+            this.ParticleEmitterSizeCB.AutoSize = true;
+            this.ParticleEmitterSizeCB.Location = new System.Drawing.Point(4, 189);
+            this.ParticleEmitterSizeCB.Name = "ParticleEmitterSizeCB";
+            this.ParticleEmitterSizeCB.Size = new System.Drawing.Size(46, 17);
+            this.ParticleEmitterSizeCB.TabIndex = 144;
+            this.ParticleEmitterSizeCB.Text = "Size";
+            this.ParticleEmitterSizeCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterSizeCB_CheckedChanged);
+            // 
+            // ParticleEmitterInputNUD
+            // 
+            this.ParticleEmitterInputNUD.Enabled = false;
+            this.ParticleEmitterInputNUD.Location = new System.Drawing.Point(102, 73);
+            this.ParticleEmitterInputNUD.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.ParticleEmitterInputNUD.Name = "ParticleEmitterInputNUD";
+            this.ParticleEmitterInputNUD.Size = new System.Drawing.Size(79, 20);
+            this.ParticleEmitterInputNUD.TabIndex = 135;
+            // 
+            // ParticleEmitterPPBCB
+            // 
+            this.ParticleEmitterPPBCB.AutoSize = true;
+            this.ParticleEmitterPPBCB.Location = new System.Drawing.Point(7, 145);
+            this.ParticleEmitterPPBCB.Name = "ParticleEmitterPPBCB";
+            this.ParticleEmitterPPBCB.Size = new System.Drawing.Size(110, 17);
+            this.ParticleEmitterPPBCB.TabIndex = 142;
+            this.ParticleEmitterPPBCB.Text = "Particles Per Beat";
+            this.ParticleEmitterPPBCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterPPBCB_CheckedChanged);
+            // 
+            // ParticleEmitterEmissionCB
+            // 
+            this.ParticleEmitterEmissionCB.AutoSize = true;
+            this.ParticleEmitterEmissionCB.Location = new System.Drawing.Point(6, 57);
+            this.ParticleEmitterEmissionCB.Name = "ParticleEmitterEmissionCB";
+            this.ParticleEmitterEmissionCB.Size = new System.Drawing.Size(100, 17);
+            this.ParticleEmitterEmissionCB.TabIndex = 136;
+            this.ParticleEmitterEmissionCB.Text = "Emission (Glow)";
+            this.ParticleEmitterEmissionCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterEmissionCB_CheckedChanged);
+            // 
+            // ParticleEmitterSizeNUD
+            // 
+            this.ParticleEmitterSizeNUD.DecimalPlaces = 2;
+            this.ParticleEmitterSizeNUD.Enabled = false;
+            this.ParticleEmitterSizeNUD.Location = new System.Drawing.Point(7, 205);
+            this.ParticleEmitterSizeNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ParticleEmitterSizeNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ParticleEmitterSizeNUD.Name = "ParticleEmitterSizeNUD";
+            this.ParticleEmitterSizeNUD.Size = new System.Drawing.Size(79, 20);
+            this.ParticleEmitterSizeNUD.TabIndex = 143;
+            this.ParticleEmitterSizeNUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // ParticleEmitterSpeedCB
+            // 
+            this.ParticleEmitterSpeedCB.AutoSize = true;
+            this.ParticleEmitterSpeedCB.Location = new System.Drawing.Point(99, 101);
+            this.ParticleEmitterSpeedCB.Name = "ParticleEmitterSpeedCB";
+            this.ParticleEmitterSpeedCB.Size = new System.Drawing.Size(57, 17);
+            this.ParticleEmitterSpeedCB.TabIndex = 140;
+            this.ParticleEmitterSpeedCB.Text = "Speed";
+            this.ParticleEmitterSpeedCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterSpeedCB_CheckedChanged);
+            // 
+            // ParticleEmitterEmissionNUD
+            // 
+            this.ParticleEmitterEmissionNUD.DecimalPlaces = 3;
+            this.ParticleEmitterEmissionNUD.Enabled = false;
+            this.ParticleEmitterEmissionNUD.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.ParticleEmitterEmissionNUD.Location = new System.Drawing.Point(9, 73);
+            this.ParticleEmitterEmissionNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ParticleEmitterEmissionNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ParticleEmitterEmissionNUD.Name = "ParticleEmitterEmissionNUD";
+            this.ParticleEmitterEmissionNUD.Size = new System.Drawing.Size(78, 20);
+            this.ParticleEmitterEmissionNUD.TabIndex = 131;
+            this.ParticleEmitterEmissionNUD.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            65536});
+            // 
+            // ColorPickParticleEmitter
+            // 
+            this.ColorPickParticleEmitter.Enabled = false;
+            this.ColorPickParticleEmitter.Location = new System.Drawing.Point(115, 31);
+            this.ColorPickParticleEmitter.Name = "ColorPickParticleEmitter";
+            this.ColorPickParticleEmitter.Size = new System.Drawing.Size(84, 23);
+            this.ColorPickParticleEmitter.TabIndex = 134;
+            this.ColorPickParticleEmitter.Text = "Pick Color";
+            this.ColorPickParticleEmitter.UseVisualStyleBackColor = true;
+            this.ColorPickParticleEmitter.Click += new System.EventHandler(this.ColorPickParticleEmitter_Click);
+            // 
+            // ParticleEmitterGravityNUD
+            // 
+            this.ParticleEmitterGravityNUD.DecimalPlaces = 2;
+            this.ParticleEmitterGravityNUD.Enabled = false;
+            this.ParticleEmitterGravityNUD.Location = new System.Drawing.Point(9, 117);
+            this.ParticleEmitterGravityNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ParticleEmitterGravityNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ParticleEmitterGravityNUD.Name = "ParticleEmitterGravityNUD";
+            this.ParticleEmitterGravityNUD.Size = new System.Drawing.Size(79, 20);
+            this.ParticleEmitterGravityNUD.TabIndex = 137;
+            // 
+            // ParticleEmitterSpeedNUD
+            // 
+            this.ParticleEmitterSpeedNUD.DecimalPlaces = 2;
+            this.ParticleEmitterSpeedNUD.Enabled = false;
+            this.ParticleEmitterSpeedNUD.Location = new System.Drawing.Point(102, 117);
+            this.ParticleEmitterSpeedNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ParticleEmitterSpeedNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ParticleEmitterSpeedNUD.Name = "ParticleEmitterSpeedNUD";
+            this.ParticleEmitterSpeedNUD.Size = new System.Drawing.Size(79, 20);
+            this.ParticleEmitterSpeedNUD.TabIndex = 139;
+            // 
+            // ParticleEmitterColorTB
+            // 
+            this.ParticleEmitterColorTB.Enabled = false;
+            this.ParticleEmitterColorTB.Location = new System.Drawing.Point(9, 33);
+            this.ParticleEmitterColorTB.Name = "ParticleEmitterColorTB";
+            this.ParticleEmitterColorTB.Size = new System.Drawing.Size(100, 20);
+            this.ParticleEmitterColorTB.TabIndex = 132;
+            // 
+            // ParticleEmitterGravityCB
+            // 
+            this.ParticleEmitterGravityCB.AutoSize = true;
+            this.ParticleEmitterGravityCB.Location = new System.Drawing.Point(6, 101);
+            this.ParticleEmitterGravityCB.Name = "ParticleEmitterGravityCB";
+            this.ParticleEmitterGravityCB.Size = new System.Drawing.Size(59, 17);
+            this.ParticleEmitterGravityCB.TabIndex = 138;
+            this.ParticleEmitterGravityCB.Text = "Gravity";
+            this.ParticleEmitterGravityCB.CheckedChanged += new System.EventHandler(this.ParticleEmitterGravityCB_CheckedChanged);
+            // 
+            // RotationYNUD
+            // 
+            this.RotationYNUD.Enabled = false;
+            this.RotationYNUD.Location = new System.Drawing.Point(185, 87);
+            this.RotationYNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.RotationYNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.RotationYNUD.Name = "RotationYNUD";
+            this.RotationYNUD.Size = new System.Drawing.Size(58, 20);
+            this.RotationYNUD.TabIndex = 74;
+            // 
+            // SatelliteGroupBox
+            // 
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteMinimumVertexDistanceNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteTrailWidthNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteMinimumVertexCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatellieTrailWidthCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteTrailFadeTimeCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteTrailTimeNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteRotationSpeedNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteRadiusCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteRotationCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteRadiusNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteSensitivityCB);
+            this.SatelliteGroupBox.Controls.Add(this.ColorPickSatellite);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteSensitivityNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteColorCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteLerpSpeedCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteColorTB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteLerpSpeedNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteEmissionNUD);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteTypeCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteEmissionCB);
+            this.SatelliteGroupBox.Controls.Add(this.SatelliteInputNUD);
+            this.SatelliteGroupBox.Enabled = false;
+            this.SatelliteGroupBox.Location = new System.Drawing.Point(216, 140);
+            this.SatelliteGroupBox.Name = "SatelliteGroupBox";
+            this.SatelliteGroupBox.Size = new System.Drawing.Size(202, 297);
+            this.SatelliteGroupBox.TabIndex = 80;
+            this.SatelliteGroupBox.TabStop = false;
+            this.SatelliteGroupBox.Text = "Satellite Options";
+            // 
+            // SatelliteMinimumVertexDistanceNUD
+            // 
+            this.SatelliteMinimumVertexDistanceNUD.DecimalPlaces = 2;
+            this.SatelliteMinimumVertexDistanceNUD.Enabled = false;
+            this.SatelliteMinimumVertexDistanceNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.SatelliteMinimumVertexDistanceNUD.InterceptArrowKeys = false;
+            this.SatelliteMinimumVertexDistanceNUD.Location = new System.Drawing.Point(7, 246);
+            this.SatelliteMinimumVertexDistanceNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteMinimumVertexDistanceNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteMinimumVertexDistanceNUD.Name = "SatelliteMinimumVertexDistanceNUD";
+            this.SatelliteMinimumVertexDistanceNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteMinimumVertexDistanceNUD.TabIndex = 131;
+            this.SatelliteMinimumVertexDistanceNUD.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteTrailWidthNUD
+            // 
+            this.SatelliteTrailWidthNUD.DecimalPlaces = 2;
+            this.SatelliteTrailWidthNUD.Enabled = false;
+            this.SatelliteTrailWidthNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.SatelliteTrailWidthNUD.InterceptArrowKeys = false;
+            this.SatelliteTrailWidthNUD.Location = new System.Drawing.Point(100, 205);
+            this.SatelliteTrailWidthNUD.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.SatelliteTrailWidthNUD.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteTrailWidthNUD.Name = "SatelliteTrailWidthNUD";
+            this.SatelliteTrailWidthNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteTrailWidthNUD.TabIndex = 130;
+            this.SatelliteTrailWidthNUD.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteMinimumVertexCB
+            // 
+            this.SatelliteMinimumVertexCB.AutoSize = true;
+            this.SatelliteMinimumVertexCB.Location = new System.Drawing.Point(7, 230);
+            this.SatelliteMinimumVertexCB.Name = "SatelliteMinimumVertexCB";
+            this.SatelliteMinimumVertexCB.Size = new System.Drawing.Size(145, 17);
+            this.SatelliteMinimumVertexCB.TabIndex = 129;
+            this.SatelliteMinimumVertexCB.Text = "Minimum Vertex Distance";
+            this.SatelliteMinimumVertexCB.CheckedChanged += new System.EventHandler(this.SatelliteMinimumVertexCB_CheckedChanged);
+            // 
+            // SatellieTrailWidthCB
+            // 
+            this.SatellieTrailWidthCB.AutoSize = true;
+            this.SatellieTrailWidthCB.Location = new System.Drawing.Point(100, 189);
+            this.SatellieTrailWidthCB.Name = "SatellieTrailWidthCB";
+            this.SatellieTrailWidthCB.Size = new System.Drawing.Size(77, 17);
+            this.SatellieTrailWidthCB.TabIndex = 127;
+            this.SatellieTrailWidthCB.Text = "Trail Width";
+            this.SatellieTrailWidthCB.CheckedChanged += new System.EventHandler(this.SatellieTrailWidthCB_CheckedChanged);
+            // 
+            // SatelliteTrailFadeTimeCB
+            // 
+            this.SatelliteTrailFadeTimeCB.AutoSize = true;
+            this.SatelliteTrailFadeTimeCB.Location = new System.Drawing.Point(7, 189);
+            this.SatelliteTrailFadeTimeCB.Name = "SatelliteTrailFadeTimeCB";
+            this.SatelliteTrailFadeTimeCB.Size = new System.Drawing.Size(99, 17);
+            this.SatelliteTrailFadeTimeCB.TabIndex = 125;
+            this.SatelliteTrailFadeTimeCB.Text = "Trail Fade Time";
+            this.SatelliteTrailFadeTimeCB.CheckedChanged += new System.EventHandler(this.SatelliteTrailFadeTimeCB_CheckedChanged);
+            // 
+            // SatelliteTrailTimeNUD
+            // 
+            this.SatelliteTrailTimeNUD.DecimalPlaces = 2;
+            this.SatelliteTrailTimeNUD.Enabled = false;
+            this.SatelliteTrailTimeNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.SatelliteTrailTimeNUD.InterceptArrowKeys = false;
+            this.SatelliteTrailTimeNUD.Location = new System.Drawing.Point(7, 205);
+            this.SatelliteTrailTimeNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteTrailTimeNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteTrailTimeNUD.Name = "SatelliteTrailTimeNUD";
+            this.SatelliteTrailTimeNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteTrailTimeNUD.TabIndex = 124;
+            this.SatelliteTrailTimeNUD.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteRotationSpeedNUD
+            // 
+            this.SatelliteRotationSpeedNUD.DecimalPlaces = 2;
+            this.SatelliteRotationSpeedNUD.Enabled = false;
+            this.SatelliteRotationSpeedNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.SatelliteRotationSpeedNUD.Location = new System.Drawing.Point(7, 161);
+            this.SatelliteRotationSpeedNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteRotationSpeedNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteRotationSpeedNUD.Name = "SatelliteRotationSpeedNUD";
+            this.SatelliteRotationSpeedNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteRotationSpeedNUD.TabIndex = 120;
+            this.SatelliteRotationSpeedNUD.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteRadiusCB
+            // 
+            this.SatelliteRadiusCB.AutoSize = true;
+            this.SatelliteRadiusCB.Location = new System.Drawing.Point(100, 145);
+            this.SatelliteRadiusCB.Name = "SatelliteRadiusCB";
+            this.SatelliteRadiusCB.Size = new System.Drawing.Size(59, 17);
+            this.SatelliteRadiusCB.TabIndex = 123;
+            this.SatelliteRadiusCB.Text = "Radius";
+            this.SatelliteRadiusCB.CheckedChanged += new System.EventHandler(this.SatelliteRadiusCB_CheckedChanged);
+            // 
+            // SatelliteRotationCB
+            // 
+            this.SatelliteRotationCB.AutoSize = true;
+            this.SatelliteRotationCB.Location = new System.Drawing.Point(7, 145);
+            this.SatelliteRotationCB.Name = "SatelliteRotationCB";
+            this.SatelliteRotationCB.Size = new System.Drawing.Size(100, 17);
+            this.SatelliteRotationCB.TabIndex = 121;
+            this.SatelliteRotationCB.Text = "Rotation Speed";
+            this.SatelliteRotationCB.CheckedChanged += new System.EventHandler(this.SatelliteRotationCB_CheckedChanged);
+            // 
+            // SatelliteRadiusNUD
+            // 
+            this.SatelliteRadiusNUD.DecimalPlaces = 2;
+            this.SatelliteRadiusNUD.Enabled = false;
+            this.SatelliteRadiusNUD.Location = new System.Drawing.Point(100, 161);
+            this.SatelliteRadiusNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteRadiusNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteRadiusNUD.Name = "SatelliteRadiusNUD";
+            this.SatelliteRadiusNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteRadiusNUD.TabIndex = 122;
+            this.SatelliteRadiusNUD.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteSensitivityCB
+            // 
+            this.SatelliteSensitivityCB.AutoSize = true;
+            this.SatelliteSensitivityCB.Location = new System.Drawing.Point(99, 101);
+            this.SatelliteSensitivityCB.Name = "SatelliteSensitivityCB";
+            this.SatelliteSensitivityCB.Size = new System.Drawing.Size(73, 17);
+            this.SatelliteSensitivityCB.TabIndex = 119;
+            this.SatelliteSensitivityCB.Text = "Sensitivity";
+            this.SatelliteSensitivityCB.CheckedChanged += new System.EventHandler(this.SatelliteSensitivityCB_CheckedChanged);
+            // 
+            // ColorPickSatellite
+            // 
+            this.ColorPickSatellite.Enabled = false;
+            this.ColorPickSatellite.Location = new System.Drawing.Point(112, 31);
+            this.ColorPickSatellite.Name = "ColorPickSatellite";
+            this.ColorPickSatellite.Size = new System.Drawing.Size(84, 23);
+            this.ColorPickSatellite.TabIndex = 114;
+            this.ColorPickSatellite.Text = "Pick Color";
+            this.ColorPickSatellite.UseVisualStyleBackColor = true;
+            this.ColorPickSatellite.Click += new System.EventHandler(this.ColorPickSatellite_Click);
+            // 
+            // SatelliteSensitivityNUD
+            // 
+            this.SatelliteSensitivityNUD.DecimalPlaces = 2;
+            this.SatelliteSensitivityNUD.Enabled = false;
+            this.SatelliteSensitivityNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.SatelliteSensitivityNUD.Location = new System.Drawing.Point(99, 117);
+            this.SatelliteSensitivityNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteSensitivityNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteSensitivityNUD.Name = "SatelliteSensitivityNUD";
+            this.SatelliteSensitivityNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteSensitivityNUD.TabIndex = 118;
+            this.SatelliteSensitivityNUD.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteColorCB
+            // 
+            this.SatelliteColorCB.AutoSize = true;
+            this.SatelliteColorCB.Location = new System.Drawing.Point(6, 17);
+            this.SatelliteColorCB.Name = "SatelliteColorCB";
+            this.SatelliteColorCB.Size = new System.Drawing.Size(90, 17);
+            this.SatelliteColorCB.TabIndex = 112;
+            this.SatelliteColorCB.Text = "Satellite Color";
+            this.SatelliteColorCB.CheckedChanged += new System.EventHandler(this.SatelliteColorCB_CheckedChanged);
+            // 
+            // SatelliteLerpSpeedCB
+            // 
+            this.SatelliteLerpSpeedCB.AutoSize = true;
+            this.SatelliteLerpSpeedCB.Location = new System.Drawing.Point(6, 101);
+            this.SatelliteLerpSpeedCB.Name = "SatelliteLerpSpeedCB";
+            this.SatelliteLerpSpeedCB.Size = new System.Drawing.Size(81, 17);
+            this.SatelliteLerpSpeedCB.TabIndex = 117;
+            this.SatelliteLerpSpeedCB.Text = "Lerp Speed";
+            this.SatelliteLerpSpeedCB.CheckedChanged += new System.EventHandler(this.SatelliteLerpSpeedCB_CheckedChanged);
+            // 
+            // SatelliteColorTB
+            // 
+            this.SatelliteColorTB.Enabled = false;
+            this.SatelliteColorTB.Location = new System.Drawing.Point(6, 33);
+            this.SatelliteColorTB.Name = "SatelliteColorTB";
+            this.SatelliteColorTB.Size = new System.Drawing.Size(100, 20);
+            this.SatelliteColorTB.TabIndex = 113;
+            // 
+            // SatelliteLerpSpeedNUD
+            // 
+            this.SatelliteLerpSpeedNUD.DecimalPlaces = 3;
+            this.SatelliteLerpSpeedNUD.Enabled = false;
+            this.SatelliteLerpSpeedNUD.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.SatelliteLerpSpeedNUD.Location = new System.Drawing.Point(6, 117);
+            this.SatelliteLerpSpeedNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteLerpSpeedNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteLerpSpeedNUD.Name = "SatelliteLerpSpeedNUD";
+            this.SatelliteLerpSpeedNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteLerpSpeedNUD.TabIndex = 116;
+            this.SatelliteLerpSpeedNUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // SatelliteEmissionNUD
+            // 
+            this.SatelliteEmissionNUD.DecimalPlaces = 3;
+            this.SatelliteEmissionNUD.Enabled = false;
+            this.SatelliteEmissionNUD.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.SatelliteEmissionNUD.Location = new System.Drawing.Point(6, 73);
+            this.SatelliteEmissionNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SatelliteEmissionNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SatelliteEmissionNUD.Name = "SatelliteEmissionNUD";
+            this.SatelliteEmissionNUD.Size = new System.Drawing.Size(78, 20);
+            this.SatelliteEmissionNUD.TabIndex = 112;
+            this.SatelliteEmissionNUD.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            65536});
+            // 
+            // SatelliteTypeCB
+            // 
+            this.SatelliteTypeCB.AutoSize = true;
+            this.SatelliteTypeCB.Location = new System.Drawing.Point(99, 57);
+            this.SatelliteTypeCB.Name = "SatelliteTypeCB";
+            this.SatelliteTypeCB.Size = new System.Drawing.Size(77, 17);
+            this.SatelliteTypeCB.TabIndex = 115;
+            this.SatelliteTypeCB.Text = "Input Type";
+            this.SatelliteTypeCB.CheckedChanged += new System.EventHandler(this.SatelliteTypeCB_CheckedChanged);
+            // 
+            // SatelliteEmissionCB
+            // 
+            this.SatelliteEmissionCB.AutoSize = true;
+            this.SatelliteEmissionCB.Location = new System.Drawing.Point(6, 57);
+            this.SatelliteEmissionCB.Name = "SatelliteEmissionCB";
+            this.SatelliteEmissionCB.Size = new System.Drawing.Size(100, 17);
+            this.SatelliteEmissionCB.TabIndex = 113;
+            this.SatelliteEmissionCB.Text = "Emission (Glow)";
+            this.SatelliteEmissionCB.CheckedChanged += new System.EventHandler(this.SatelliteEmissionCB_CheckedChanged);
+            // 
+            // SatelliteInputNUD
+            // 
+            this.SatelliteInputNUD.Enabled = false;
+            this.SatelliteInputNUD.Location = new System.Drawing.Point(99, 73);
+            this.SatelliteInputNUD.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.SatelliteInputNUD.Name = "SatelliteInputNUD";
+            this.SatelliteInputNUD.Size = new System.Drawing.Size(79, 20);
+            this.SatelliteInputNUD.TabIndex = 114;
+            // 
+            // PositionYNUD
+            // 
+            this.PositionYNUD.Enabled = false;
+            this.PositionYNUD.Location = new System.Drawing.Point(185, 61);
+            this.PositionYNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.PositionYNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.PositionYNUD.Name = "PositionYNUD";
+            this.PositionYNUD.Size = new System.Drawing.Size(58, 20);
+            this.PositionYNUD.TabIndex = 73;
+            // 
+            // SunGroupBox
+            // 
+            this.SunGroupBox.Controls.Add(this.SunDirectionVectorCB);
+            this.SunGroupBox.Controls.Add(this.DirectionVectorZNUD);
+            this.SunGroupBox.Controls.Add(this.DirectionVectorYNUD);
+            this.SunGroupBox.Controls.Add(this.DirectionVectorXNUD);
+            this.SunGroupBox.Controls.Add(this.SunMaxSizeCB);
+            this.SunGroupBox.Controls.Add(this.SunMaxSizeZNUD);
+            this.SunGroupBox.Controls.Add(this.SunMaxSizeYNUD);
+            this.SunGroupBox.Controls.Add(this.SunMaxSizeXNUD);
+            this.SunGroupBox.Controls.Add(this.SunMinSizeCB);
+            this.SunGroupBox.Controls.Add(this.SunMinSizeZNUD);
+            this.SunGroupBox.Controls.Add(this.SunSensivityCB);
+            this.SunGroupBox.Controls.Add(this.SunMinSizeYNUD);
+            this.SunGroupBox.Controls.Add(this.SunSensitivityNUD);
+            this.SunGroupBox.Controls.Add(this.SunMinSizeXNUD);
+            this.SunGroupBox.Controls.Add(this.SunLerpSpeedCB);
+            this.SunGroupBox.Controls.Add(this.SunLerpNUD);
+            this.SunGroupBox.Controls.Add(this.SunInputCB);
+            this.SunGroupBox.Controls.Add(this.SunInputNUD);
+            this.SunGroupBox.Controls.Add(this.SunEmissionCB);
+            this.SunGroupBox.Controls.Add(this.SunEmissionNUD);
+            this.SunGroupBox.Controls.Add(this.ColorPickSunNoLives);
+            this.SunGroupBox.Controls.Add(this.NoLivesColorCB);
+            this.SunGroupBox.Controls.Add(this.NoLivesColorTB);
+            this.SunGroupBox.Controls.Add(this.ColorPickSunMaxLives);
+            this.SunGroupBox.Controls.Add(this.MaxLivesCB);
+            this.SunGroupBox.Controls.Add(this.MaxLivesColorTB);
+            this.SunGroupBox.Enabled = false;
+            this.SunGroupBox.Location = new System.Drawing.Point(8, 138);
+            this.SunGroupBox.Name = "SunGroupBox";
+            this.SunGroupBox.Size = new System.Drawing.Size(202, 299);
+            this.SunGroupBox.TabIndex = 79;
+            this.SunGroupBox.TabStop = false;
+            this.SunGroupBox.Text = "Sun Options";
+            // 
+            // SunDirectionVectorCB
+            // 
+            this.SunDirectionVectorCB.AutoSize = true;
+            this.SunDirectionVectorCB.Location = new System.Drawing.Point(6, 255);
+            this.SunDirectionVectorCB.Name = "SunDirectionVectorCB";
+            this.SunDirectionVectorCB.Size = new System.Drawing.Size(102, 17);
+            this.SunDirectionVectorCB.TabIndex = 111;
+            this.SunDirectionVectorCB.Text = "Direction Vector";
+            this.SunDirectionVectorCB.CheckedChanged += new System.EventHandler(this.SunDirectionVectorCB_CheckedChanged);
+            // 
+            // DirectionVectorZNUD
+            // 
+            this.DirectionVectorZNUD.Enabled = false;
+            this.DirectionVectorZNUD.Location = new System.Drawing.Point(134, 269);
+            this.DirectionVectorZNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.DirectionVectorZNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.DirectionVectorZNUD.Name = "DirectionVectorZNUD";
+            this.DirectionVectorZNUD.Size = new System.Drawing.Size(58, 20);
+            this.DirectionVectorZNUD.TabIndex = 110;
+            // 
+            // DirectionVectorYNUD
+            // 
+            this.DirectionVectorYNUD.Enabled = false;
+            this.DirectionVectorYNUD.Location = new System.Drawing.Point(70, 269);
+            this.DirectionVectorYNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.DirectionVectorYNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.DirectionVectorYNUD.Name = "DirectionVectorYNUD";
+            this.DirectionVectorYNUD.Size = new System.Drawing.Size(58, 20);
+            this.DirectionVectorYNUD.TabIndex = 109;
+            // 
+            // DirectionVectorXNUD
+            // 
+            this.DirectionVectorXNUD.Enabled = false;
+            this.DirectionVectorXNUD.Location = new System.Drawing.Point(6, 269);
+            this.DirectionVectorXNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.DirectionVectorXNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.DirectionVectorXNUD.Name = "DirectionVectorXNUD";
+            this.DirectionVectorXNUD.Size = new System.Drawing.Size(58, 20);
+            this.DirectionVectorXNUD.TabIndex = 108;
+            // 
+            // SunMaxSizeCB
+            // 
+            this.SunMaxSizeCB.AutoSize = true;
+            this.SunMaxSizeCB.Location = new System.Drawing.Point(6, 218);
+            this.SunMaxSizeCB.Name = "SunMaxSizeCB";
+            this.SunMaxSizeCB.Size = new System.Drawing.Size(69, 17);
+            this.SunMaxSizeCB.TabIndex = 107;
+            this.SunMaxSizeCB.Text = "Max Size";
+            this.SunMaxSizeCB.CheckedChanged += new System.EventHandler(this.SunMaxSizeCB_CheckedChanged);
+            // 
+            // SunMaxSizeZNUD
+            // 
+            this.SunMaxSizeZNUD.Enabled = false;
+            this.SunMaxSizeZNUD.Location = new System.Drawing.Point(134, 232);
+            this.SunMaxSizeZNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunMaxSizeZNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunMaxSizeZNUD.Name = "SunMaxSizeZNUD";
+            this.SunMaxSizeZNUD.Size = new System.Drawing.Size(58, 20);
+            this.SunMaxSizeZNUD.TabIndex = 106;
+            // 
+            // SunMaxSizeYNUD
+            // 
+            this.SunMaxSizeYNUD.Enabled = false;
+            this.SunMaxSizeYNUD.Location = new System.Drawing.Point(70, 232);
+            this.SunMaxSizeYNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunMaxSizeYNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunMaxSizeYNUD.Name = "SunMaxSizeYNUD";
+            this.SunMaxSizeYNUD.Size = new System.Drawing.Size(58, 20);
+            this.SunMaxSizeYNUD.TabIndex = 105;
+            // 
+            // SunMaxSizeXNUD
+            // 
+            this.SunMaxSizeXNUD.Enabled = false;
+            this.SunMaxSizeXNUD.Location = new System.Drawing.Point(6, 232);
+            this.SunMaxSizeXNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunMaxSizeXNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunMaxSizeXNUD.Name = "SunMaxSizeXNUD";
+            this.SunMaxSizeXNUD.Size = new System.Drawing.Size(58, 20);
+            this.SunMaxSizeXNUD.TabIndex = 104;
+            // 
+            // SunMinSizeCB
+            // 
+            this.SunMinSizeCB.AutoSize = true;
+            this.SunMinSizeCB.Location = new System.Drawing.Point(6, 180);
+            this.SunMinSizeCB.Name = "SunMinSizeCB";
+            this.SunMinSizeCB.Size = new System.Drawing.Size(66, 17);
+            this.SunMinSizeCB.TabIndex = 103;
+            this.SunMinSizeCB.Text = "Min Size";
+            this.SunMinSizeCB.CheckedChanged += new System.EventHandler(this.SunMinSizeCB_CheckedChanged);
+            // 
+            // SunMinSizeZNUD
+            // 
+            this.SunMinSizeZNUD.Enabled = false;
+            this.SunMinSizeZNUD.Location = new System.Drawing.Point(134, 194);
+            this.SunMinSizeZNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunMinSizeZNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunMinSizeZNUD.Name = "SunMinSizeZNUD";
+            this.SunMinSizeZNUD.Size = new System.Drawing.Size(58, 20);
+            this.SunMinSizeZNUD.TabIndex = 93;
+            // 
+            // SunSensivityCB
+            // 
+            this.SunSensivityCB.AutoSize = true;
+            this.SunSensivityCB.Location = new System.Drawing.Point(99, 141);
+            this.SunSensivityCB.Name = "SunSensivityCB";
+            this.SunSensivityCB.Size = new System.Drawing.Size(73, 17);
+            this.SunSensivityCB.TabIndex = 102;
+            this.SunSensivityCB.Text = "Sensitivity";
+            this.SunSensivityCB.CheckedChanged += new System.EventHandler(this.SunSensivityCB_CheckedChanged);
+            // 
+            // SunMinSizeYNUD
+            // 
+            this.SunMinSizeYNUD.Enabled = false;
+            this.SunMinSizeYNUD.Location = new System.Drawing.Point(70, 194);
+            this.SunMinSizeYNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunMinSizeYNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunMinSizeYNUD.Name = "SunMinSizeYNUD";
+            this.SunMinSizeYNUD.Size = new System.Drawing.Size(58, 20);
+            this.SunMinSizeYNUD.TabIndex = 92;
+            // 
+            // SunSensitivityNUD
+            // 
+            this.SunSensitivityNUD.DecimalPlaces = 2;
+            this.SunSensitivityNUD.Enabled = false;
+            this.SunSensitivityNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.SunSensitivityNUD.Location = new System.Drawing.Point(99, 157);
+            this.SunSensitivityNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunSensitivityNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunSensitivityNUD.Name = "SunSensitivityNUD";
+            this.SunSensitivityNUD.Size = new System.Drawing.Size(79, 20);
+            this.SunSensitivityNUD.TabIndex = 101;
+            this.SunSensitivityNUD.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // SunMinSizeXNUD
+            // 
+            this.SunMinSizeXNUD.Enabled = false;
+            this.SunMinSizeXNUD.Location = new System.Drawing.Point(6, 194);
+            this.SunMinSizeXNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunMinSizeXNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunMinSizeXNUD.Name = "SunMinSizeXNUD";
+            this.SunMinSizeXNUD.Size = new System.Drawing.Size(58, 20);
+            this.SunMinSizeXNUD.TabIndex = 91;
+            // 
+            // SunLerpSpeedCB
+            // 
+            this.SunLerpSpeedCB.AutoSize = true;
+            this.SunLerpSpeedCB.Location = new System.Drawing.Point(6, 141);
+            this.SunLerpSpeedCB.Name = "SunLerpSpeedCB";
+            this.SunLerpSpeedCB.Size = new System.Drawing.Size(81, 17);
+            this.SunLerpSpeedCB.TabIndex = 100;
+            this.SunLerpSpeedCB.Text = "Lerp Speed";
+            this.SunLerpSpeedCB.CheckedChanged += new System.EventHandler(this.SunLerpSpeedCB_CheckedChanged);
+            // 
+            // SunLerpNUD
+            // 
+            this.SunLerpNUD.DecimalPlaces = 3;
+            this.SunLerpNUD.Enabled = false;
+            this.SunLerpNUD.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.SunLerpNUD.Location = new System.Drawing.Point(6, 157);
+            this.SunLerpNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunLerpNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunLerpNUD.Name = "SunLerpNUD";
+            this.SunLerpNUD.Size = new System.Drawing.Size(79, 20);
+            this.SunLerpNUD.TabIndex = 99;
+            this.SunLerpNUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // SunInputCB
+            // 
+            this.SunInputCB.AutoSize = true;
+            this.SunInputCB.Location = new System.Drawing.Point(99, 97);
+            this.SunInputCB.Name = "SunInputCB";
+            this.SunInputCB.Size = new System.Drawing.Size(77, 17);
+            this.SunInputCB.TabIndex = 98;
+            this.SunInputCB.Text = "Input Type";
+            this.SunInputCB.CheckedChanged += new System.EventHandler(this.SunInputCB_CheckedChanged);
+            // 
+            // SunInputNUD
+            // 
+            this.SunInputNUD.Enabled = false;
+            this.SunInputNUD.Location = new System.Drawing.Point(99, 113);
+            this.SunInputNUD.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.SunInputNUD.Name = "SunInputNUD";
+            this.SunInputNUD.Size = new System.Drawing.Size(79, 20);
+            this.SunInputNUD.TabIndex = 97;
+            // 
+            // SunEmissionCB
+            // 
+            this.SunEmissionCB.AutoSize = true;
+            this.SunEmissionCB.Location = new System.Drawing.Point(6, 97);
+            this.SunEmissionCB.Name = "SunEmissionCB";
+            this.SunEmissionCB.Size = new System.Drawing.Size(100, 17);
+            this.SunEmissionCB.TabIndex = 96;
+            this.SunEmissionCB.Text = "Emission (Glow)";
+            this.SunEmissionCB.CheckedChanged += new System.EventHandler(this.SunEmissionCB_CheckedChanged);
+            // 
+            // SunEmissionNUD
+            // 
+            this.SunEmissionNUD.DecimalPlaces = 3;
+            this.SunEmissionNUD.Enabled = false;
+            this.SunEmissionNUD.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.SunEmissionNUD.Location = new System.Drawing.Point(6, 113);
+            this.SunEmissionNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.SunEmissionNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.SunEmissionNUD.Name = "SunEmissionNUD";
+            this.SunEmissionNUD.Size = new System.Drawing.Size(80, 20);
+            this.SunEmissionNUD.TabIndex = 91;
+            this.SunEmissionNUD.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            65536});
+            // 
+            // ColorPickSunNoLives
+            // 
+            this.ColorPickSunNoLives.Enabled = false;
+            this.ColorPickSunNoLives.Location = new System.Drawing.Point(112, 72);
+            this.ColorPickSunNoLives.Name = "ColorPickSunNoLives";
+            this.ColorPickSunNoLives.Size = new System.Drawing.Size(84, 23);
+            this.ColorPickSunNoLives.TabIndex = 95;
+            this.ColorPickSunNoLives.Text = "Pick Color";
+            this.ColorPickSunNoLives.UseVisualStyleBackColor = true;
+            this.ColorPickSunNoLives.Click += new System.EventHandler(this.ColorPickSunNoLives_Click);
+            // 
+            // NoLivesColorCB
+            // 
+            this.NoLivesColorCB.AutoSize = true;
+            this.NoLivesColorCB.Location = new System.Drawing.Point(6, 58);
+            this.NoLivesColorCB.Name = "NoLivesColorCB";
+            this.NoLivesColorCB.Size = new System.Drawing.Size(95, 17);
+            this.NoLivesColorCB.TabIndex = 93;
+            this.NoLivesColorCB.Text = "No Lives Color";
+            this.NoLivesColorCB.CheckedChanged += new System.EventHandler(this.NoLivesColorCB_CheckedChanged);
+            // 
+            // NoLivesColorTB
+            // 
+            this.NoLivesColorTB.Enabled = false;
+            this.NoLivesColorTB.Location = new System.Drawing.Point(6, 74);
+            this.NoLivesColorTB.Name = "NoLivesColorTB";
+            this.NoLivesColorTB.Size = new System.Drawing.Size(100, 20);
+            this.NoLivesColorTB.TabIndex = 94;
+            // 
+            // ColorPickSunMaxLives
+            // 
+            this.ColorPickSunMaxLives.Enabled = false;
+            this.ColorPickSunMaxLives.Location = new System.Drawing.Point(112, 33);
+            this.ColorPickSunMaxLives.Name = "ColorPickSunMaxLives";
+            this.ColorPickSunMaxLives.Size = new System.Drawing.Size(84, 23);
+            this.ColorPickSunMaxLives.TabIndex = 92;
+            this.ColorPickSunMaxLives.Text = "Pick Color";
+            this.ColorPickSunMaxLives.UseVisualStyleBackColor = true;
+            this.ColorPickSunMaxLives.Click += new System.EventHandler(this.ColorPickSunMaxLives_Click);
+            // 
+            // MaxLivesCB
+            // 
+            this.MaxLivesCB.AutoSize = true;
+            this.MaxLivesCB.Location = new System.Drawing.Point(6, 19);
+            this.MaxLivesCB.Name = "MaxLivesCB";
+            this.MaxLivesCB.Size = new System.Drawing.Size(101, 17);
+            this.MaxLivesCB.TabIndex = 91;
+            this.MaxLivesCB.Text = "Max Lives Color";
+            this.MaxLivesCB.CheckedChanged += new System.EventHandler(this.MaxLivesCB_CheckedChanged);
+            // 
+            // MaxLivesColorTB
+            // 
+            this.MaxLivesColorTB.Enabled = false;
+            this.MaxLivesColorTB.Location = new System.Drawing.Point(6, 35);
+            this.MaxLivesColorTB.Name = "MaxLivesColorTB";
+            this.MaxLivesColorTB.Size = new System.Drawing.Size(100, 20);
+            this.MaxLivesColorTB.TabIndex = 91;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(252, 116);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(17, 13);
+            this.label34.TabIndex = 78;
+            this.label34.Text = "Z:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(162, 115);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(17, 13);
+            this.label35.TabIndex = 76;
+            this.label35.Text = "Y:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(68, 115);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(17, 13);
+            this.label36.TabIndex = 74;
+            this.label36.Text = "X:";
+            // 
+            // ScaleCB
+            // 
+            this.ScaleCB.AutoSize = true;
+            this.ScaleCB.Location = new System.Drawing.Point(3, 114);
+            this.ScaleCB.Name = "ScaleCB";
+            this.ScaleCB.Size = new System.Drawing.Size(56, 17);
+            this.ScaleCB.TabIndex = 73;
+            this.ScaleCB.Text = "Scale:";
+            this.ScaleCB.CheckedChanged += new System.EventHandler(this.ScaleCB_CheckedChanged);
+            // 
+            // ScaleXNUD
+            // 
+            this.ScaleXNUD.Enabled = false;
+            this.ScaleXNUD.Location = new System.Drawing.Point(91, 113);
+            this.ScaleXNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.ScaleXNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.ScaleXNUD.Name = "ScaleXNUD";
+            this.ScaleXNUD.Size = new System.Drawing.Size(58, 20);
+            this.ScaleXNUD.TabIndex = 72;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(252, 90);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(17, 13);
+            this.label30.TabIndex = 71;
+            this.label30.Text = "Z:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(162, 89);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(17, 13);
+            this.label31.TabIndex = 69;
+            this.label31.Text = "Y:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(68, 89);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(17, 13);
+            this.label32.TabIndex = 67;
+            this.label32.Text = "X:";
+            // 
+            // RotationCB
+            // 
+            this.RotationCB.AutoSize = true;
+            this.RotationCB.Location = new System.Drawing.Point(3, 88);
+            this.RotationCB.Name = "RotationCB";
+            this.RotationCB.Size = new System.Drawing.Size(69, 17);
+            this.RotationCB.TabIndex = 66;
+            this.RotationCB.Text = "Rotation:";
+            this.RotationCB.CheckedChanged += new System.EventHandler(this.RotationCB_CheckedChanged);
+            // 
+            // RotationXNUD
+            // 
+            this.RotationXNUD.Enabled = false;
+            this.RotationXNUD.Location = new System.Drawing.Point(91, 87);
+            this.RotationXNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.RotationXNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.RotationXNUD.Name = "RotationXNUD";
+            this.RotationXNUD.Size = new System.Drawing.Size(58, 20);
+            this.RotationXNUD.TabIndex = 65;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(252, 64);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 13);
+            this.label29.TabIndex = 64;
+            this.label29.Text = "Z:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(162, 63);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(17, 13);
+            this.label28.TabIndex = 62;
+            this.label28.Text = "Y:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(68, 63);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(17, 13);
+            this.label27.TabIndex = 60;
+            this.label27.Text = "X:";
+            // 
+            // PositionCB
+            // 
+            this.PositionCB.AutoSize = true;
+            this.PositionCB.Location = new System.Drawing.Point(3, 62);
+            this.PositionCB.Name = "PositionCB";
+            this.PositionCB.Size = new System.Drawing.Size(66, 17);
+            this.PositionCB.TabIndex = 59;
+            this.PositionCB.Text = "Position:";
+            this.PositionCB.CheckedChanged += new System.EventHandler(this.PositionCB_CheckedChanged);
+            // 
+            // PositionXNUD
+            // 
+            this.PositionXNUD.Enabled = false;
+            this.PositionXNUD.Location = new System.Drawing.Point(91, 61);
+            this.PositionXNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.PositionXNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.PositionXNUD.Name = "PositionXNUD";
+            this.PositionXNUD.Size = new System.Drawing.Size(58, 20);
+            this.PositionXNUD.TabIndex = 56;
+            // 
+            // ParticleEmitterRB
+            // 
+            this.ParticleEmitterRB.AutoSize = true;
+            this.ParticleEmitterRB.Location = new System.Drawing.Point(349, 104);
+            this.ParticleEmitterRB.Name = "ParticleEmitterRB";
+            this.ParticleEmitterRB.Size = new System.Drawing.Size(93, 17);
+            this.ParticleEmitterRB.TabIndex = 55;
+            this.ParticleEmitterRB.TabStop = true;
+            this.ParticleEmitterRB.Text = "particle emitter";
+            this.ParticleEmitterRB.UseVisualStyleBackColor = true;
+            this.ParticleEmitterRB.CheckedChanged += new System.EventHandler(this.ParticleEmitterRB_CheckedChanged);
+            // 
+            // SatelliteRB
+            // 
+            this.SatelliteRB.AutoSize = true;
+            this.SatelliteRB.Location = new System.Drawing.Point(349, 81);
+            this.SatelliteRB.Name = "SatelliteRB";
+            this.SatelliteRB.Size = new System.Drawing.Size(60, 17);
+            this.SatelliteRB.TabIndex = 54;
+            this.SatelliteRB.TabStop = true;
+            this.SatelliteRB.Text = "satellite";
+            this.SatelliteRB.UseVisualStyleBackColor = true;
+            this.SatelliteRB.CheckedChanged += new System.EventHandler(this.SatelliteRB_CheckedChanged);
+            // 
+            // SunRB
+            // 
+            this.SunRB.AutoSize = true;
+            this.SunRB.Location = new System.Drawing.Point(349, 58);
+            this.SunRB.Name = "SunRB";
+            this.SunRB.Size = new System.Drawing.Size(42, 17);
+            this.SunRB.TabIndex = 53;
+            this.SunRB.TabStop = true;
+            this.SunRB.Text = "sun";
+            this.SunRB.UseVisualStyleBackColor = true;
+            this.SunRB.CheckedChanged += new System.EventHandler(this.SunRB_CheckedChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(5, 8);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(56, 13);
+            this.label25.TabIndex = 52;
+            this.label25.Text = "EnvObj ID";
+            // 
+            // EnvObjTB
+            // 
+            this.EnvObjTB.Location = new System.Drawing.Point(6, 25);
+            this.EnvObjTB.Name = "EnvObjTB";
+            this.EnvObjTB.Size = new System.Drawing.Size(100, 20);
+            this.EnvObjTB.TabIndex = 51;
+            // 
+            // CopyEOC
+            // 
+            this.CopyEOC.Enabled = false;
+            this.CopyEOC.Location = new System.Drawing.Point(841, 407);
+            this.CopyEOC.Name = "CopyEOC";
+            this.CopyEOC.Size = new System.Drawing.Size(75, 23);
+            this.CopyEOC.TabIndex = 50;
+            this.CopyEOC.Text = "Copy All";
+            this.CopyEOC.UseVisualStyleBackColor = true;
+            this.CopyEOC.Click += new System.EventHandler(this.CopyEOC_Click);
+            // 
+            // ModifyEOC
+            // 
+            this.ModifyEOC.AutoSize = true;
+            this.ModifyEOC.Location = new System.Drawing.Point(842, 9);
+            this.ModifyEOC.Name = "ModifyEOC";
+            this.ModifyEOC.Size = new System.Drawing.Size(74, 17);
+            this.ModifyEOC.TabIndex = 49;
+            this.ModifyEOC.Text = "Modifiable";
+            this.ModifyEOC.UseVisualStyleBackColor = true;
+            this.ModifyEOC.CheckedChanged += new System.EventHandler(this.ModifyEOC_CheckedChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(630, 10);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.TabIndex = 48;
+            this.label24.Text = "Preview";
+            // 
+            // ConfigPreviewEOC
+            // 
+            this.ConfigPreviewEOC.DetectUrls = false;
+            this.ConfigPreviewEOC.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigPreviewEOC.Location = new System.Drawing.Point(631, 26);
+            this.ConfigPreviewEOC.Name = "ConfigPreviewEOC";
+            this.ConfigPreviewEOC.ReadOnly = true;
+            this.ConfigPreviewEOC.Size = new System.Drawing.Size(287, 375);
+            this.ConfigPreviewEOC.TabIndex = 47;
+            this.ConfigPreviewEOC.Text = "Choose the settings you want then click \"Create\" when you\'re ready!";
+            // 
+            // ColorDialog
+            // 
+            this.ColorDialog.AnyColor = true;
+            this.ColorDialog.FullOpen = true;
+            this.ColorDialog.ShowHelp = true;
             // 
             // MainForm
             // 
@@ -1822,6 +3523,53 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).EndInit();
+            this.EOCTab.ResumeLayout(false);
+            this.EOCTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpawnTimeNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScaleZNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RotationZNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionZNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScaleYNUD)).EndInit();
+            this.ParticleEmitterGroupBox.ResumeLayout(false);
+            this.ParticleEmitterGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterPPBNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterInputNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterSizeNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterEmissionNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterGravityNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticleEmitterSpeedNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RotationYNUD)).EndInit();
+            this.SatelliteGroupBox.ResumeLayout(false);
+            this.SatelliteGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteMinimumVertexDistanceNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteTrailWidthNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteTrailTimeNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteRotationSpeedNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteRadiusNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteSensitivityNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteLerpSpeedNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteEmissionNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SatelliteInputNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionYNUD)).EndInit();
+            this.SunGroupBox.ResumeLayout(false);
+            this.SunGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DirectionVectorZNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DirectionVectorYNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DirectionVectorXNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMaxSizeZNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMaxSizeYNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMaxSizeXNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMinSizeZNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMinSizeYNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunSensitivityNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunMinSizeXNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunLerpNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunInputNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SunEmissionNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScaleXNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RotationXNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionXNUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1959,5 +3707,109 @@ namespace Intralism_Mapping_Assistant
         private Label label19;
         private Label label18;
         private Button InvertHandButton;
+        private TabPage EOCTab;
+        private Button CopyEOC;
+        private CheckBox ModifyEOC;
+        private Label label24;
+        private RichTextBox ConfigPreviewEOC;
+        private Label label25;
+        private TextBox EnvObjTB;
+        private RadioButton ParticleEmitterRB;
+        private RadioButton SatelliteRB;
+        private RadioButton SunRB;
+        private CheckBox ParentIDCB;
+        private TextBox ParentIDTB;
+        private CheckBox RemoveTimeCB;
+        private Label SpawnTimeCB;
+        private NumericUpDown RemoveTimeNUD;
+        private NumericUpDown SpawnTimeNUD;
+        private NumericUpDown ScaleZNUD;
+        private NumericUpDown RotationZNUD;
+        private NumericUpDown ScaleYNUD;
+        private GroupBox ParticleEmitterGroupBox;
+        private NumericUpDown RotationYNUD;
+        private GroupBox SatelliteGroupBox;
+        private NumericUpDown PositionYNUD;
+        private GroupBox SunGroupBox;
+        private Label label34;
+        private Label label35;
+        private Label label36;
+        private CheckBox ScaleCB;
+        private NumericUpDown ScaleXNUD;
+        private Label label30;
+        private Label label31;
+        private Label label32;
+        private CheckBox RotationCB;
+        private NumericUpDown RotationXNUD;
+        private Label label29;
+        private Label label28;
+        private Label label27;
+        private CheckBox PositionCB;
+        private NumericUpDown PositionXNUD;
+        private ColorDialog ColorDialog;
+        private CheckBox MaxLivesCB;
+        private TextBox MaxLivesColorTB;
+        private Button ColorPickSunNoLives;
+        private CheckBox NoLivesColorCB;
+        private TextBox NoLivesColorTB;
+        private Button ColorPickSunMaxLives;
+        private NumericUpDown SunEmissionNUD;
+        private CheckBox SunEmissionCB;
+        private CheckBox SunInputCB;
+        private NumericUpDown SunInputNUD;
+        private CheckBox SunLerpSpeedCB;
+        private NumericUpDown SunLerpNUD;
+        private CheckBox SunMaxSizeCB;
+        private NumericUpDown SunMaxSizeZNUD;
+        private NumericUpDown SunMaxSizeYNUD;
+        private NumericUpDown SunMaxSizeXNUD;
+        private CheckBox SunMinSizeCB;
+        private NumericUpDown SunMinSizeZNUD;
+        private CheckBox SunSensivityCB;
+        private NumericUpDown SunMinSizeYNUD;
+        private NumericUpDown SunSensitivityNUD;
+        private NumericUpDown SunMinSizeXNUD;
+        private Button CreateEnvObjButton;
+        private CheckBox SunDirectionVectorCB;
+        private NumericUpDown DirectionVectorZNUD;
+        private NumericUpDown DirectionVectorYNUD;
+        private NumericUpDown DirectionVectorXNUD;
+        private NumericUpDown ParticleEmitterPPBNUD;
+        private CheckBox ParticleEmitterColorCB;
+        private CheckBox ParticleEmitterSizeCB;
+        private NumericUpDown ParticleEmitterInputNUD;
+        private CheckBox ParticleEmitterPPBCB;
+        private CheckBox ParticleEmitterEmissionCB;
+        private NumericUpDown ParticleEmitterSizeNUD;
+        private CheckBox ParticleEmitterSpeedCB;
+        private NumericUpDown ParticleEmitterEmissionNUD;
+        private Button ColorPickParticleEmitter;
+        private NumericUpDown ParticleEmitterGravityNUD;
+        private NumericUpDown ParticleEmitterSpeedNUD;
+        private TextBox ParticleEmitterColorTB;
+        private CheckBox ParticleEmitterGravityCB;
+        private NumericUpDown SatelliteMinimumVertexDistanceNUD;
+        private NumericUpDown SatelliteTrailWidthNUD;
+        private CheckBox SatelliteMinimumVertexCB;
+        private CheckBox SatellieTrailWidthCB;
+        private CheckBox SatelliteTrailFadeTimeCB;
+        private NumericUpDown SatelliteTrailTimeNUD;
+        private NumericUpDown SatelliteRotationSpeedNUD;
+        private CheckBox SatelliteRadiusCB;
+        private CheckBox SatelliteRotationCB;
+        private NumericUpDown SatelliteRadiusNUD;
+        private CheckBox SatelliteSensitivityCB;
+        private Button ColorPickSatellite;
+        private NumericUpDown SatelliteSensitivityNUD;
+        private CheckBox SatelliteColorCB;
+        private CheckBox SatelliteLerpSpeedCB;
+        private TextBox SatelliteColorTB;
+        private NumericUpDown SatelliteLerpSpeedNUD;
+        private NumericUpDown SatelliteEmissionNUD;
+        private CheckBox SatelliteTypeCB;
+        private CheckBox SatelliteEmissionCB;
+        private NumericUpDown SatelliteInputNUD;
+        private CheckBox ParticleEmitterTypeCB;
+        private NumericUpDown PositionZNUD;
     }
 }
