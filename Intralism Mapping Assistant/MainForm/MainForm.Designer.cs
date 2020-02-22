@@ -2026,6 +2026,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // ScaleZNUD
             // 
+            this.ScaleZNUD.DecimalPlaces = 2;
             this.ScaleZNUD.Enabled = false;
             this.ScaleZNUD.Location = new System.Drawing.Point(274, 114);
             this.ScaleZNUD.Maximum = new decimal(new int[] {
@@ -2044,6 +2045,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // RotationZNUD
             // 
+            this.RotationZNUD.DecimalPlaces = 2;
             this.RotationZNUD.Enabled = false;
             this.RotationZNUD.Location = new System.Drawing.Point(274, 88);
             this.RotationZNUD.Maximum = new decimal(new int[] {
@@ -2062,6 +2064,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // PositionZNUD
             // 
+            this.PositionZNUD.DecimalPlaces = 2;
             this.PositionZNUD.Enabled = false;
             this.PositionZNUD.Location = new System.Drawing.Point(274, 62);
             this.PositionZNUD.Maximum = new decimal(new int[] {
@@ -2080,6 +2083,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // ScaleYNUD
             // 
+            this.ScaleYNUD.DecimalPlaces = 2;
             this.ScaleYNUD.Enabled = false;
             this.ScaleYNUD.Location = new System.Drawing.Point(185, 113);
             this.ScaleYNUD.Maximum = new decimal(new int[] {
@@ -2335,6 +2339,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // RotationYNUD
             // 
+            this.RotationYNUD.DecimalPlaces = 2;
             this.RotationYNUD.Enabled = false;
             this.RotationYNUD.Location = new System.Drawing.Point(185, 87);
             this.RotationYNUD.Maximum = new decimal(new int[] {
@@ -2746,6 +2751,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // PositionYNUD
             // 
+            this.PositionYNUD.DecimalPlaces = 2;
             this.PositionYNUD.Enabled = false;
             this.PositionYNUD.Location = new System.Drawing.Point(185, 61);
             this.PositionYNUD.Maximum = new decimal(new int[] {
@@ -2810,6 +2816,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // DirectionVectorZNUD
             // 
+            this.DirectionVectorZNUD.DecimalPlaces = 2;
             this.DirectionVectorZNUD.Enabled = false;
             this.DirectionVectorZNUD.Location = new System.Drawing.Point(134, 269);
             this.DirectionVectorZNUD.Maximum = new decimal(new int[] {
@@ -2828,6 +2835,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // DirectionVectorYNUD
             // 
+            this.DirectionVectorYNUD.DecimalPlaces = 2;
             this.DirectionVectorYNUD.Enabled = false;
             this.DirectionVectorYNUD.Location = new System.Drawing.Point(70, 269);
             this.DirectionVectorYNUD.Maximum = new decimal(new int[] {
@@ -2846,6 +2854,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // DirectionVectorXNUD
             // 
+            this.DirectionVectorXNUD.DecimalPlaces = 2;
             this.DirectionVectorXNUD.Enabled = false;
             this.DirectionVectorXNUD.Location = new System.Drawing.Point(6, 269);
             this.DirectionVectorXNUD.Maximum = new decimal(new int[] {
@@ -2874,6 +2883,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunMaxSizeZNUD
             // 
+            this.SunMaxSizeZNUD.DecimalPlaces = 2;
             this.SunMaxSizeZNUD.Enabled = false;
             this.SunMaxSizeZNUD.Location = new System.Drawing.Point(134, 232);
             this.SunMaxSizeZNUD.Maximum = new decimal(new int[] {
@@ -2892,6 +2902,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunMaxSizeYNUD
             // 
+            this.SunMaxSizeYNUD.DecimalPlaces = 2;
             this.SunMaxSizeYNUD.Enabled = false;
             this.SunMaxSizeYNUD.Location = new System.Drawing.Point(70, 232);
             this.SunMaxSizeYNUD.Maximum = new decimal(new int[] {
@@ -2910,6 +2921,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunMaxSizeXNUD
             // 
+            this.SunMaxSizeXNUD.DecimalPlaces = 2;
             this.SunMaxSizeXNUD.Enabled = false;
             this.SunMaxSizeXNUD.Location = new System.Drawing.Point(6, 232);
             this.SunMaxSizeXNUD.Maximum = new decimal(new int[] {
@@ -2938,6 +2950,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunMinSizeZNUD
             // 
+            this.SunMinSizeZNUD.DecimalPlaces = 2;
             this.SunMinSizeZNUD.Enabled = false;
             this.SunMinSizeZNUD.Location = new System.Drawing.Point(134, 194);
             this.SunMinSizeZNUD.Maximum = new decimal(new int[] {
@@ -2966,6 +2979,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunMinSizeYNUD
             // 
+            this.SunMinSizeYNUD.DecimalPlaces = 2;
             this.SunMinSizeYNUD.Enabled = false;
             this.SunMinSizeYNUD.Location = new System.Drawing.Point(70, 194);
             this.SunMinSizeYNUD.Maximum = new decimal(new int[] {
@@ -3013,6 +3027,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunMinSizeXNUD
             // 
+            this.SunMinSizeXNUD.DecimalPlaces = 2;
             this.SunMinSizeXNUD.Enabled = false;
             this.SunMinSizeXNUD.Location = new System.Drawing.Point(6, 194);
             this.SunMinSizeXNUD.Maximum = new decimal(new int[] {
@@ -3227,6 +3242,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // ScaleXNUD
             // 
+            this.ScaleXNUD.DecimalPlaces = 2;
             this.ScaleXNUD.Enabled = false;
             this.ScaleXNUD.Location = new System.Drawing.Point(91, 113);
             this.ScaleXNUD.Maximum = new decimal(new int[] {
@@ -3282,6 +3298,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // RotationXNUD
             // 
+            this.RotationXNUD.DecimalPlaces = 2;
             this.RotationXNUD.Enabled = false;
             this.RotationXNUD.Location = new System.Drawing.Point(91, 87);
             this.RotationXNUD.Maximum = new decimal(new int[] {
@@ -3337,6 +3354,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // PositionXNUD
             // 
+            this.PositionXNUD.DecimalPlaces = 2;
             this.PositionXNUD.Enabled = false;
             this.PositionXNUD.Location = new System.Drawing.Point(91, 61);
             this.PositionXNUD.Maximum = new decimal(new int[] {
