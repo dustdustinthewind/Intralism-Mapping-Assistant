@@ -323,10 +323,12 @@ namespace Intralism_Mapping_Assistant
             => ParticleEmitterSizeNUD.Enabled = ParticleEmitterSizeCB.Checked;
 
         private void CreateEnvObjButton_Click(object sender, EventArgs e)
-            => ConfigPreviewEOC.Text =
-                ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings());
+            => CreateEnvObjects();
 
         private void button1_Click(object sender, EventArgs e)
             => DeleteNonZooms();
+
+        private void MakeMultipleCopiesCB_CheckedChanged(object sender, EventArgs e)
+            => MakeMultipleCopiesNUD.Enabled = MakeMultipleCopiesCB.Checked;
     }
 }

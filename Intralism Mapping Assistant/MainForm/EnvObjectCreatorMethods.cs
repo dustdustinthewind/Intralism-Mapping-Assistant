@@ -7,6 +7,25 @@ namespace Intralism_Mapping_Assistant
 {
     partial class MainForm : Form
     {
+        private bool calledErrorAlready = false;
+
+        private string defaultTextBoxMessage = "Choose the settings you want then click \"Create\" when you're ready!";
+
+        private void CreateEnvObjects()
+        {
+            ConfigPreviewEOC.Text = "";
+
+            if (MakeMultipleCopiesNUD.Value > 0)
+                for (int i = 0; i < MakeMultipleCopiesNUD.Value && !calledErrorAlready; i++)
+                    ConfigPreviewEOC.Text +=
+                       ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(i + 1));
+            else
+                ConfigPreviewEOC.Text +=
+                   ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(0));
+
+            calledErrorAlready = false;
+        }
+
         private string ChangeEnvObjToString(EnvironmentObject envObj)
         {
             try
@@ -20,36 +39,40 @@ namespace Intralism_Mapping_Assistant
                     case EnvironmentObjectType.ParticleEmitter:
                         return ((ParticleEmitter)envObj).ToString();
                     default:
-                        return "Choose the settings you want then click \"Create\" when you're ready!";
+                        return defaultTextBoxMessage;
                 }
             }
             catch
             {
-                ErrorMessage("There was an issue during the creation process! Make sure all your values are formatted correctly.");
-                return "Choose the settings you want then click \"Create\" when you're ready!";
+                if (!calledErrorAlready)
+                    ErrorMessage("There was an issue during the creation process! Make sure all your values are formatted correctly.");
+
+                calledErrorAlready = true;
+
+                return defaultTextBoxMessage;
             }
         }
 
-        private EnvironmentObject CreateEnvironmentObjectWithCurrentSettings()
+        private EnvironmentObject CreateEnvironmentObjectWithCurrentSettings(int i)
         {
             if (string.IsNullOrEmpty(EnvObjTB.Text)) return null;
 
             if (SunRB.Checked)
-                return CreateSunWithCurrentSettings();
+                return CreateSunWithCurrentSettings(i);
             else if (SatelliteRB.Checked)
-                return CreateSatelliteWithCurrentSettings();
+                return CreateSatelliteWithCurrentSettings(i);
             else if (ParticleEmitterRB.Checked)
-                return CreateParticleEmitterWithCurrentSettings();
-            else
+                return CreateParticleEmitterWithCurrentSettings(i);
+            else if (!calledErrorAlready)
                 ErrorMessage("Select \"Sun\", \"Satellite\", or \"Particle Emitter\"!");
 
             return null;
         }
 
-        private Sun CreateSunWithCurrentSettings()
+        private Sun CreateSunWithCurrentSettings(int copy = 0)
         => new Sun()
         {
-            ID = EnvObjTB.Text,
+            ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
             ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
             SpawnTime = (double?)SpawnTimeNUD.Value,
@@ -72,10 +95,10 @@ namespace Intralism_Mapping_Assistant
             DirectionVector = SunDirectionVectorCB.Checked ? (Vector3?)new Vector3((float)DirectionVectorXNUD.Value, (float)DirectionVectorYNUD.Value, (float)DirectionVectorZNUD.Value) : null,
         };
 
-        private Satellite CreateSatelliteWithCurrentSettings()
+        private Satellite CreateSatelliteWithCurrentSettings(int copy = 0)
         => new Satellite()
         {
-            ID = EnvObjTB.Text,
+            ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
             ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
             SpawnTime = (double?)SpawnTimeNUD.Value,
@@ -99,10 +122,10 @@ namespace Intralism_Mapping_Assistant
             MinimumVertexDistance = SatelliteMinimumVertexCB.Checked ? (double?)SatelliteMinimumVertexDistanceNUD.Value : null,
         };
 
-        private ParticleEmitter CreateParticleEmitterWithCurrentSettings()
+        private ParticleEmitter CreateParticleEmitterWithCurrentSettings(int copy = 0)
         => new ParticleEmitter()
         {
-            ID = EnvObjTB.Text,
+            ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
             ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
             SpawnTime = (double?)SpawnTimeNUD.Value,

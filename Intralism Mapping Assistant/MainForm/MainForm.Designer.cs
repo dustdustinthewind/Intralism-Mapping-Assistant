@@ -269,6 +269,8 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.MakeMultipleCopiesCB = new System.Windows.Forms.CheckBox();
+            this.MakeMultipleCopiesNUD = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -356,6 +358,7 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.ScaleXNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RotationXNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionXNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // AdvancedFrameRateCalc
@@ -1905,6 +1908,8 @@ namespace Intralism_Mapping_Assistant
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.MakeMultipleCopiesCB);
+            this.EOCTab.Controls.Add(this.MakeMultipleCopiesNUD);
             this.EOCTab.Controls.Add(this.CreateEnvObjButton);
             this.EOCTab.Controls.Add(this.ParentIDCB);
             this.EOCTab.Controls.Add(this.ParentIDTB);
@@ -3484,6 +3489,29 @@ namespace Intralism_Mapping_Assistant
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // MakeMultipleCopiesCB
+            // 
+            this.MakeMultipleCopiesCB.AutoSize = true;
+            this.MakeMultipleCopiesCB.Location = new System.Drawing.Point(464, 95);
+            this.MakeMultipleCopiesCB.Name = "MakeMultipleCopiesCB";
+            this.MakeMultipleCopiesCB.Size = new System.Drawing.Size(98, 17);
+            this.MakeMultipleCopiesCB.TabIndex = 93;
+            this.MakeMultipleCopiesCB.Text = "Make X Copies";
+            this.MakeMultipleCopiesCB.CheckedChanged += new System.EventHandler(this.MakeMultipleCopiesCB_CheckedChanged);
+            // 
+            // MakeMultipleCopiesNUD
+            // 
+            this.MakeMultipleCopiesNUD.Enabled = false;
+            this.MakeMultipleCopiesNUD.Location = new System.Drawing.Point(464, 113);
+            this.MakeMultipleCopiesNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.MakeMultipleCopiesNUD.Name = "MakeMultipleCopiesNUD";
+            this.MakeMultipleCopiesNUD.Size = new System.Drawing.Size(80, 20);
+            this.MakeMultipleCopiesNUD.TabIndex = 92;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3601,6 +3629,7 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.ScaleXNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RotationXNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionXNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3843,5 +3872,7 @@ namespace Intralism_Mapping_Assistant
         private CheckBox ParticleEmitterTypeCB;
         private NumericUpDown PositionZNUD;
         private Button button1;
+        private CheckBox MakeMultipleCopiesCB;
+        private NumericUpDown MakeMultipleCopiesNUD;
     }
 }
