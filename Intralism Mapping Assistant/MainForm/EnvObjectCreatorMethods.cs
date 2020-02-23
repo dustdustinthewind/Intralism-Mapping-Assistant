@@ -72,6 +72,8 @@ namespace Intralism_Mapping_Assistant
         private Sun CreateSunWithCurrentSettings(int copy = 0)
         => new Sun()
         {
+            IsNew = CreateNewObjectsCB.Checked,
+
             ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
             ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
@@ -98,6 +100,8 @@ namespace Intralism_Mapping_Assistant
         private Satellite CreateSatelliteWithCurrentSettings(int copy = 0)
         => new Satellite()
         {
+            IsNew = CreateNewObjectsCB.Checked,
+
             ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
             ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
@@ -125,6 +129,8 @@ namespace Intralism_Mapping_Assistant
         private ParticleEmitter CreateParticleEmitterWithCurrentSettings(int copy = 0)
         => new ParticleEmitter()
         {
+            IsNew = CreateNewObjectsCB.Checked,
+
             ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
             ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 

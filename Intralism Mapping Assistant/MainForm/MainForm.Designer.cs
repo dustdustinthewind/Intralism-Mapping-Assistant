@@ -93,6 +93,7 @@ namespace Intralism_Mapping_Assistant
             this.EventModifierPanel = new System.Windows.Forms.Panel();
             this.ZEMContainer = new System.Windows.Forms.SplitContainer();
             this.DestructiveZEMGroup = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.DeleteAllZoomsButton = new System.Windows.Forms.Button();
             this.DestructiveCheckZEM = new System.Windows.Forms.CheckBox();
             this.FindNextZoomZEM = new System.Windows.Forms.Button();
@@ -165,6 +166,8 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewLabelESM = new System.Windows.Forms.Label();
             this.ConfigPreviewESMRTB = new System.Windows.Forms.RichTextBox();
             this.EOCTab = new System.Windows.Forms.TabPage();
+            this.MakeMultipleCopiesCB = new System.Windows.Forms.CheckBox();
+            this.MakeMultipleCopiesNUD = new System.Windows.Forms.NumericUpDown();
             this.CreateEnvObjButton = new System.Windows.Forms.Button();
             this.ParentIDCB = new System.Windows.Forms.CheckBox();
             this.ParentIDTB = new System.Windows.Forms.TextBox();
@@ -268,9 +271,7 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.MakeMultipleCopiesCB = new System.Windows.Forms.CheckBox();
-            this.MakeMultipleCopiesNUD = new System.Windows.Forms.NumericUpDown();
+            this.CreateNewObjectsCB = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -316,6 +317,7 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).BeginInit();
             this.EOCTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpawnTimeNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScaleZNUD)).BeginInit();
@@ -358,7 +360,6 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.ScaleXNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RotationXNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionXNUD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // AdvancedFrameRateCalc
@@ -986,6 +987,17 @@ namespace Intralism_Mapping_Assistant
             this.DestructiveZEMGroup.TabIndex = 0;
             this.DestructiveZEMGroup.TabStop = false;
             this.DestructiveZEMGroup.Text = "Destructive Options";
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(155, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Remove All Non-Zoom Events";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DeleteAllZoomsButton
             // 
@@ -1908,6 +1920,7 @@ namespace Intralism_Mapping_Assistant
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.CreateNewObjectsCB);
             this.EOCTab.Controls.Add(this.MakeMultipleCopiesCB);
             this.EOCTab.Controls.Add(this.MakeMultipleCopiesNUD);
             this.EOCTab.Controls.Add(this.CreateEnvObjButton);
@@ -1957,6 +1970,29 @@ namespace Intralism_Mapping_Assistant
             this.EOCTab.TabIndex = 7;
             this.EOCTab.Text = "Env Object Creator";
             // 
+            // MakeMultipleCopiesCB
+            // 
+            this.MakeMultipleCopiesCB.AutoSize = true;
+            this.MakeMultipleCopiesCB.Location = new System.Drawing.Point(464, 95);
+            this.MakeMultipleCopiesCB.Name = "MakeMultipleCopiesCB";
+            this.MakeMultipleCopiesCB.Size = new System.Drawing.Size(98, 17);
+            this.MakeMultipleCopiesCB.TabIndex = 93;
+            this.MakeMultipleCopiesCB.Text = "Make X Copies";
+            this.MakeMultipleCopiesCB.CheckedChanged += new System.EventHandler(this.MakeMultipleCopiesCB_CheckedChanged);
+            // 
+            // MakeMultipleCopiesNUD
+            // 
+            this.MakeMultipleCopiesNUD.Enabled = false;
+            this.MakeMultipleCopiesNUD.Location = new System.Drawing.Point(464, 113);
+            this.MakeMultipleCopiesNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.MakeMultipleCopiesNUD.Name = "MakeMultipleCopiesNUD";
+            this.MakeMultipleCopiesNUD.Size = new System.Drawing.Size(80, 20);
+            this.MakeMultipleCopiesNUD.TabIndex = 92;
+            // 
             // CreateEnvObjButton
             // 
             this.CreateEnvObjButton.Location = new System.Drawing.Point(550, 111);
@@ -2000,9 +2036,9 @@ namespace Intralism_Mapping_Assistant
             this.SpawnTimeCB.AutoSize = true;
             this.SpawnTimeCB.Location = new System.Drawing.Point(269, 9);
             this.SpawnTimeCB.Name = "SpawnTimeCB";
-            this.SpawnTimeCB.Size = new System.Drawing.Size(66, 13);
+            this.SpawnTimeCB.Size = new System.Drawing.Size(61, 13);
             this.SpawnTimeCB.TabIndex = 87;
-            this.SpawnTimeCB.Text = "Spawn Time";
+            this.SpawnTimeCB.Text = "Event Time";
             // 
             // RemoveTimeNUD
             // 
@@ -3478,39 +3514,16 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
             // 
-            // button1
+            // CreateNewObjectsCB
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(155, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Remove All Non-Zoom Events";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // MakeMultipleCopiesCB
-            // 
-            this.MakeMultipleCopiesCB.AutoSize = true;
-            this.MakeMultipleCopiesCB.Location = new System.Drawing.Point(464, 95);
-            this.MakeMultipleCopiesCB.Name = "MakeMultipleCopiesCB";
-            this.MakeMultipleCopiesCB.Size = new System.Drawing.Size(98, 17);
-            this.MakeMultipleCopiesCB.TabIndex = 93;
-            this.MakeMultipleCopiesCB.Text = "Make X Copies";
-            this.MakeMultipleCopiesCB.CheckedChanged += new System.EventHandler(this.MakeMultipleCopiesCB_CheckedChanged);
-            // 
-            // MakeMultipleCopiesNUD
-            // 
-            this.MakeMultipleCopiesNUD.Enabled = false;
-            this.MakeMultipleCopiesNUD.Location = new System.Drawing.Point(464, 113);
-            this.MakeMultipleCopiesNUD.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.MakeMultipleCopiesNUD.Name = "MakeMultipleCopiesNUD";
-            this.MakeMultipleCopiesNUD.Size = new System.Drawing.Size(80, 20);
-            this.MakeMultipleCopiesNUD.TabIndex = 92;
+            this.CreateNewObjectsCB.AutoSize = true;
+            this.CreateNewObjectsCB.Checked = true;
+            this.CreateNewObjectsCB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CreateNewObjectsCB.Location = new System.Drawing.Point(464, 72);
+            this.CreateNewObjectsCB.Name = "CreateNewObjectsCB";
+            this.CreateNewObjectsCB.Size = new System.Drawing.Size(127, 17);
+            this.CreateNewObjectsCB.TabIndex = 94;
+            this.CreateNewObjectsCB.Text = "Create New Object(s)";
             // 
             // MainForm
             // 
@@ -3584,6 +3597,7 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).EndInit();
             this.EOCTab.ResumeLayout(false);
             this.EOCTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpawnTimeNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScaleZNUD)).EndInit();
@@ -3629,7 +3643,6 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.ScaleXNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RotationXNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionXNUD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3874,5 +3887,6 @@ namespace Intralism_Mapping_Assistant
         private Button button1;
         private CheckBox MakeMultipleCopiesCB;
         private NumericUpDown MakeMultipleCopiesNUD;
+        private CheckBox CreateNewObjectsCB;
     }
 }

@@ -11,6 +11,8 @@ namespace Intralism_Mapping_Assistant.Util
 {
     public class EnvironmentObject
     {
+        public bool IsNew = true;
+
         public const double TIME_BETWEEN_EVENTS = 0.001;
 
         public string ID;
@@ -45,7 +47,7 @@ namespace Intralism_Mapping_Assistant.Util
         public double? Speed = null;
 
         public override string ToString()
-            => CreateAddEvent() + CreateParentEvent() +  CreatePositionEvent() + CreateRotationEvent()
+            => (IsNew ? CreateAddEvent() : AdjustTime()) + CreateParentEvent() +  CreatePositionEvent() + CreateRotationEvent()
                 + CreateScaleEvent();
 
         private string CreateAddEvent()
@@ -101,6 +103,8 @@ namespace Intralism_Mapping_Assistant.Util
                     data = new string[] { eventName, eventData }
                 }.ToString() + ","
                 : "";
+
+        protected string AdjustTime() => CreateEvent("", "");
     }
 
     public class Sun : EnvironmentObject
