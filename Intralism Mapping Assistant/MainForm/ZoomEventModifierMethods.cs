@@ -27,5 +27,19 @@ namespace Intralism_Mapping_Assistant
 
             ConfigPreviewRTBZEM.Text = MakeTextFromMap(map);
         }
+
+        private void DeleteNonZooms()
+        {
+            string textToParse = ConfigPreviewRTBZEM.Text;
+
+            Map map = MakeMapFromText(textToParse);
+
+            if (map == null) { return; }
+
+            // Remove all non-zoom events from our map object
+            map.events = map.events.Where(val => IsZoomEvent(val)).ToArray();
+
+            ConfigPreviewRTBZEM.Text = MakeTextFromMap(map);
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace Intralism_Mapping_Assistant
         private bool Config3 = false;
 
         private bool DeleteZoomsButtonActivated = false;
+        private bool DeleteNonZoomsButtonActivated = false;
 
         public MainForm()
         {
@@ -86,7 +87,10 @@ namespace Intralism_Mapping_Assistant
             => ChangeReadOnly(ModifyConfigPreviewSCP2, SplitConfigPart2);
 
         private void DestructiveCheckZEM_CheckedChanged(object sender, EventArgs e)
-            => DeleteAllZoomsButton.Enabled = DestructiveCheckZEM.Checked && DeleteZoomsButtonActivated;
+        {
+            DeleteAllZoomsButton.Enabled = DestructiveCheckZEM.Checked && DeleteZoomsButtonActivated;
+            button1.Enabled = DestructiveCheckZEM.Checked && DeleteNonZoomsButtonActivated;
+        }
 
         private void LoadMapButton_Click(object sender, EventArgs e)
         {
@@ -321,5 +325,8 @@ namespace Intralism_Mapping_Assistant
         private void CreateEnvObjButton_Click(object sender, EventArgs e)
             => ConfigPreviewEOC.Text =
                 ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings());
+
+        private void button1_Click(object sender, EventArgs e)
+            => DeleteNonZooms();
     }
 }

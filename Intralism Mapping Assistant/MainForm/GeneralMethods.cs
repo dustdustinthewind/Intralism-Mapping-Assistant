@@ -54,6 +54,7 @@ namespace Intralism_Mapping_Assistant
             CopyConfigPreviewESM.Enabled = true;
 
             DeleteZoomsButtonActivated = true;
+            DeleteNonZoomsButtonActivated = true;
             DestructiveCheckZEM.Enabled = true;
 
             FindNextZoomZSC.Enabled = true;

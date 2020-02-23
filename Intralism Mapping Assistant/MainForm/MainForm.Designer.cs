@@ -268,6 +268,7 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -973,6 +974,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // DestructiveZEMGroup
             // 
+            this.DestructiveZEMGroup.Controls.Add(this.button1);
             this.DestructiveZEMGroup.Controls.Add(this.DeleteAllZoomsButton);
             this.DestructiveZEMGroup.Controls.Add(this.DestructiveCheckZEM);
             this.DestructiveZEMGroup.Location = new System.Drawing.Point(3, 307);
@@ -3471,6 +3473,17 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(155, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Remove All Non-Zoom Events";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3829,5 +3842,6 @@ namespace Intralism_Mapping_Assistant
         private NumericUpDown SatelliteInputNUD;
         private CheckBox ParticleEmitterTypeCB;
         private NumericUpDown PositionZNUD;
+        private Button button1;
     }
 }
