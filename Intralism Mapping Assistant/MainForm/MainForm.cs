@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Intralism_Mapping_Assistant
 {
@@ -66,7 +67,7 @@ namespace Intralism_Mapping_Assistant
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => System.Diagnostics.Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
+            => Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
 
         private void AdvancedFrameRateCalc_CheckedChanged(object sender, EventArgs e)
             => CustomFrameRate.Enabled = AdvancedFrameRateCalc.Checked;
@@ -330,5 +331,29 @@ namespace Intralism_Mapping_Assistant
 
         private void MakeMultipleCopiesCB_CheckedChanged(object sender, EventArgs e)
             => MakeMultipleCopiesNUD.Enabled = MakeMultipleCopiesCB.Checked;
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://ko-fi.com/flyingrabidunicornpig");
+
+        private void EndTimeCBESA_CheckedChanged(object sender, EventArgs e)
+            => LoopAmountCBESA.Checked = !EndTimeCBESA.Checked;
+
+        private void LoopAmountCBESA_CheckedChanged(object sender, EventArgs e)
+            => EndTimeCBESA.Checked = !LoopAmountCBESA.Checked;
+
+        private void FrameTimeCBESA_CheckedChanged(object sender, EventArgs e)
+            => FramesPerSecondCBESA.Checked = !FrameTimeCBESA.Checked;
+
+        private void FramesPerSecondCBESA_CheckedChanged(object sender, EventArgs e)
+            => FrameTimeCBESA.Checked = !FramesPerSecondCBESA.Checked;
+
+        private void CreateButtonESA_Click(object sender, EventArgs e)
+            => CreateAnimationESA();
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+            => PreviewRTBESA.Enabled = checkBox1.Checked;
+
+        private void button2_Click(object sender, EventArgs e)
+            => Copy(PreviewRTBESA.Text);
     }
 }

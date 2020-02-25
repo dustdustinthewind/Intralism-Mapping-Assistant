@@ -165,7 +165,28 @@ namespace Intralism_Mapping_Assistant
             this.ModifyConfigPreviewESM = new System.Windows.Forms.CheckBox();
             this.ConfigPreviewLabelESM = new System.Windows.Forms.Label();
             this.ConfigPreviewESMRTB = new System.Windows.Forms.RichTextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.FramesPerSecondCBESA = new System.Windows.Forms.CheckBox();
+            this.FramesPerSecondNUDESA = new System.Windows.Forms.NumericUpDown();
+            this.label39 = new System.Windows.Forms.Label();
+            this.FrameTimeCBESA = new System.Windows.Forms.CheckBox();
+            this.TimePerFrameNUDESA = new System.Windows.Forms.NumericUpDown();
+            this.LoopAmountCBESA = new System.Windows.Forms.CheckBox();
+            this.LoopAmountNUDESA = new System.Windows.Forms.NumericUpDown();
+            this.label38 = new System.Windows.Forms.Label();
+            this.EndTimeCBESA = new System.Windows.Forms.CheckBox();
+            this.EndTimeNUDESA = new System.Windows.Forms.NumericUpDown();
+            this.label37 = new System.Windows.Forms.Label();
+            this.StartTimeNUDESA = new System.Windows.Forms.NumericUpDown();
+            this.FramesESARTB = new System.Windows.Forms.RichTextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.SpriteIDESATB = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.PreviewRTBESA = new System.Windows.Forms.RichTextBox();
             this.EOCTab = new System.Windows.Forms.TabPage();
+            this.CreateNewObjectsCB = new System.Windows.Forms.CheckBox();
             this.MakeMultipleCopiesCB = new System.Windows.Forms.CheckBox();
             this.MakeMultipleCopiesNUD = new System.Windows.Forms.NumericUpDown();
             this.CreateEnvObjButton = new System.Windows.Forms.Button();
@@ -271,7 +292,9 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.CreateNewObjectsCB = new System.Windows.Forms.CheckBox();
+            this.CreateButtonESA = new System.Windows.Forms.Button();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label40 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -316,6 +339,12 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FramesPerSecondNUDESA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimePerFrameNUDESA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopAmountNUDESA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndTimeNUDESA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartTimeNUDESA)).BeginInit();
             this.EOCTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).BeginInit();
@@ -603,6 +632,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // AboutTab
             // 
+            this.AboutTab.Controls.Add(this.linkLabel2);
             this.AboutTab.Controls.Add(this.linkLabel1);
             this.AboutTab.Controls.Add(this.label9);
             this.AboutTab.Controls.Add(this.label8);
@@ -648,7 +678,7 @@ namespace Intralism_Mapping_Assistant
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.7.0";
+            this.label7.Text = "Intralism Mapping Assistant v0.8.0";
             // 
             // MapSplitterTab
             // 
@@ -1544,6 +1574,7 @@ namespace Intralism_Mapping_Assistant
             this.TabControl.Controls.Add(this.MapSplitterTab);
             this.TabControl.Controls.Add(this.HandSwitchTab);
             this.TabControl.Controls.Add(this.tabPage2);
+            this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.EOCTab);
             this.TabControl.Controls.Add(this.AboutTab);
             this.TabControl.Location = new System.Drawing.Point(13, 13);
@@ -1917,6 +1948,241 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewESMRTB.TabIndex = 43;
             this.ConfigPreviewESMRTB.Text = "Choose the settings you want then click \"Create\" when you\'re ready!";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.label40);
+            this.tabPage1.Controls.Add(this.CreateButtonESA);
+            this.tabPage1.Controls.Add(this.FramesPerSecondCBESA);
+            this.tabPage1.Controls.Add(this.FramesPerSecondNUDESA);
+            this.tabPage1.Controls.Add(this.label39);
+            this.tabPage1.Controls.Add(this.FrameTimeCBESA);
+            this.tabPage1.Controls.Add(this.TimePerFrameNUDESA);
+            this.tabPage1.Controls.Add(this.LoopAmountCBESA);
+            this.tabPage1.Controls.Add(this.LoopAmountNUDESA);
+            this.tabPage1.Controls.Add(this.label38);
+            this.tabPage1.Controls.Add(this.EndTimeCBESA);
+            this.tabPage1.Controls.Add(this.EndTimeNUDESA);
+            this.tabPage1.Controls.Add(this.label37);
+            this.tabPage1.Controls.Add(this.StartTimeNUDESA);
+            this.tabPage1.Controls.Add(this.FramesESARTB);
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Controls.Add(this.SpriteIDESATB);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.label33);
+            this.tabPage1.Controls.Add(this.PreviewRTBESA);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(927, 440);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "EnvSprite Animator";
+            // 
+            // FramesPerSecondCBESA
+            // 
+            this.FramesPerSecondCBESA.AutoSize = true;
+            this.FramesPerSecondCBESA.Location = new System.Drawing.Point(425, 68);
+            this.FramesPerSecondCBESA.Name = "FramesPerSecondCBESA";
+            this.FramesPerSecondCBESA.Size = new System.Drawing.Size(119, 17);
+            this.FramesPerSecondCBESA.TabIndex = 100;
+            this.FramesPerSecondCBESA.Text = "Frames Per Second";
+            this.FramesPerSecondCBESA.UseVisualStyleBackColor = true;
+            this.FramesPerSecondCBESA.CheckedChanged += new System.EventHandler(this.FramesPerSecondCBESA_CheckedChanged);
+            // 
+            // FramesPerSecondNUDESA
+            // 
+            this.FramesPerSecondNUDESA.DecimalPlaces = 3;
+            this.FramesPerSecondNUDESA.Location = new System.Drawing.Point(425, 89);
+            this.FramesPerSecondNUDESA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.FramesPerSecondNUDESA.Name = "FramesPerSecondNUDESA";
+            this.FramesPerSecondNUDESA.Size = new System.Drawing.Size(80, 20);
+            this.FramesPerSecondNUDESA.TabIndex = 99;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(386, 88);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(23, 13);
+            this.label39.TabIndex = 98;
+            this.label39.Text = "OR";
+            // 
+            // FrameTimeCBESA
+            // 
+            this.FrameTimeCBESA.AutoSize = true;
+            this.FrameTimeCBESA.Location = new System.Drawing.Point(291, 68);
+            this.FrameTimeCBESA.Name = "FrameTimeCBESA";
+            this.FrameTimeCBESA.Size = new System.Drawing.Size(100, 17);
+            this.FrameTimeCBESA.TabIndex = 97;
+            this.FrameTimeCBESA.Text = "Time Per Frame";
+            this.FrameTimeCBESA.UseVisualStyleBackColor = true;
+            this.FrameTimeCBESA.CheckedChanged += new System.EventHandler(this.FrameTimeCBESA_CheckedChanged);
+            // 
+            // TimePerFrameNUDESA
+            // 
+            this.TimePerFrameNUDESA.DecimalPlaces = 3;
+            this.TimePerFrameNUDESA.Location = new System.Drawing.Point(291, 89);
+            this.TimePerFrameNUDESA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.TimePerFrameNUDESA.Name = "TimePerFrameNUDESA";
+            this.TimePerFrameNUDESA.Size = new System.Drawing.Size(80, 20);
+            this.TimePerFrameNUDESA.TabIndex = 96;
+            // 
+            // LoopAmountCBESA
+            // 
+            this.LoopAmountCBESA.AutoSize = true;
+            this.LoopAmountCBESA.Location = new System.Drawing.Point(425, 7);
+            this.LoopAmountCBESA.Name = "LoopAmountCBESA";
+            this.LoopAmountCBESA.Size = new System.Drawing.Size(91, 17);
+            this.LoopAmountCBESA.TabIndex = 95;
+            this.LoopAmountCBESA.Text = "Loop X Times";
+            this.LoopAmountCBESA.UseVisualStyleBackColor = true;
+            this.LoopAmountCBESA.CheckedChanged += new System.EventHandler(this.LoopAmountCBESA_CheckedChanged);
+            // 
+            // LoopAmountNUDESA
+            // 
+            this.LoopAmountNUDESA.Location = new System.Drawing.Point(425, 28);
+            this.LoopAmountNUDESA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.LoopAmountNUDESA.Name = "LoopAmountNUDESA";
+            this.LoopAmountNUDESA.Size = new System.Drawing.Size(80, 20);
+            this.LoopAmountNUDESA.TabIndex = 94;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(386, 27);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(23, 13);
+            this.label38.TabIndex = 93;
+            this.label38.Text = "OR";
+            // 
+            // EndTimeCBESA
+            // 
+            this.EndTimeCBESA.AutoSize = true;
+            this.EndTimeCBESA.Location = new System.Drawing.Point(291, 7);
+            this.EndTimeCBESA.Name = "EndTimeCBESA";
+            this.EndTimeCBESA.Size = new System.Drawing.Size(71, 17);
+            this.EndTimeCBESA.TabIndex = 92;
+            this.EndTimeCBESA.Text = "End Time";
+            this.EndTimeCBESA.UseVisualStyleBackColor = true;
+            this.EndTimeCBESA.CheckedChanged += new System.EventHandler(this.EndTimeCBESA_CheckedChanged);
+            // 
+            // EndTimeNUDESA
+            // 
+            this.EndTimeNUDESA.DecimalPlaces = 5;
+            this.EndTimeNUDESA.Location = new System.Drawing.Point(291, 28);
+            this.EndTimeNUDESA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.EndTimeNUDESA.Name = "EndTimeNUDESA";
+            this.EndTimeNUDESA.Size = new System.Drawing.Size(80, 20);
+            this.EndTimeNUDESA.TabIndex = 90;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(111, 10);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(55, 13);
+            this.label37.TabIndex = 89;
+            this.label37.Text = "Start Time";
+            // 
+            // StartTimeNUDESA
+            // 
+            this.StartTimeNUDESA.DecimalPlaces = 5;
+            this.StartTimeNUDESA.Location = new System.Drawing.Point(114, 27);
+            this.StartTimeNUDESA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.StartTimeNUDESA.Name = "StartTimeNUDESA";
+            this.StartTimeNUDESA.Size = new System.Drawing.Size(80, 20);
+            this.StartTimeNUDESA.TabIndex = 88;
+            // 
+            // FramesESARTB
+            // 
+            this.FramesESARTB.DetectUrls = false;
+            this.FramesESARTB.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FramesESARTB.Location = new System.Drawing.Point(10, 75);
+            this.FramesESARTB.Name = "FramesESARTB";
+            this.FramesESARTB.Size = new System.Drawing.Size(263, 356);
+            this.FramesESARTB.TabIndex = 55;
+            this.FramesESARTB.Text = "Type each image resource\'s name here, separate with commas \",\" (i.e. \"Frame1,Fram" +
+    "e2,Frame3\")";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(7, 10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(67, 13);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "EnvSprite ID";
+            // 
+            // SpriteIDESATB
+            // 
+            this.SpriteIDESATB.Location = new System.Drawing.Point(8, 27);
+            this.SpriteIDESATB.Name = "SpriteIDESATB";
+            this.SpriteIDESATB.Size = new System.Drawing.Size(100, 20);
+            this.SpriteIDESATB.TabIndex = 53;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(842, 408);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "Copy All";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(843, 10);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(74, 17);
+            this.checkBox1.TabIndex = 51;
+            this.checkBox1.Text = "Modifiable";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(631, 11);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(45, 13);
+            this.label33.TabIndex = 50;
+            this.label33.Text = "Preview";
+            // 
+            // PreviewRTBESA
+            // 
+            this.PreviewRTBESA.DetectUrls = false;
+            this.PreviewRTBESA.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreviewRTBESA.Location = new System.Drawing.Point(632, 27);
+            this.PreviewRTBESA.Name = "PreviewRTBESA";
+            this.PreviewRTBESA.ReadOnly = true;
+            this.PreviewRTBESA.Size = new System.Drawing.Size(287, 375);
+            this.PreviewRTBESA.TabIndex = 49;
+            this.PreviewRTBESA.Text = "Choose the settings you want then click \"Create\" when you\'re ready!";
+            // 
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
@@ -1969,6 +2235,17 @@ namespace Intralism_Mapping_Assistant
             this.EOCTab.Size = new System.Drawing.Size(927, 440);
             this.EOCTab.TabIndex = 7;
             this.EOCTab.Text = "Env Object Creator";
+            // 
+            // CreateNewObjectsCB
+            // 
+            this.CreateNewObjectsCB.AutoSize = true;
+            this.CreateNewObjectsCB.Checked = true;
+            this.CreateNewObjectsCB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CreateNewObjectsCB.Location = new System.Drawing.Point(464, 72);
+            this.CreateNewObjectsCB.Name = "CreateNewObjectsCB";
+            this.CreateNewObjectsCB.Size = new System.Drawing.Size(127, 17);
+            this.CreateNewObjectsCB.TabIndex = 94;
+            this.CreateNewObjectsCB.Text = "Create New Object(s)";
             // 
             // MakeMultipleCopiesCB
             // 
@@ -3514,16 +3791,35 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
             // 
-            // CreateNewObjectsCB
+            // CreateButtonESA
             // 
-            this.CreateNewObjectsCB.AutoSize = true;
-            this.CreateNewObjectsCB.Checked = true;
-            this.CreateNewObjectsCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CreateNewObjectsCB.Location = new System.Drawing.Point(464, 72);
-            this.CreateNewObjectsCB.Name = "CreateNewObjectsCB";
-            this.CreateNewObjectsCB.Size = new System.Drawing.Size(127, 17);
-            this.CreateNewObjectsCB.TabIndex = 94;
-            this.CreateNewObjectsCB.Text = "Create New Object(s)";
+            this.CreateButtonESA.Location = new System.Drawing.Point(291, 408);
+            this.CreateButtonESA.Name = "CreateButtonESA";
+            this.CreateButtonESA.Size = new System.Drawing.Size(75, 23);
+            this.CreateButtonESA.TabIndex = 101;
+            this.CreateButtonESA.Text = "Create";
+            this.CreateButtonESA.UseVisualStyleBackColor = true;
+            this.CreateButtonESA.Click += new System.EventHandler(this.CreateButtonESA_Click);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(51, 102);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(87, 13);
+            this.linkLabel2.TabIndex = 5;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Buy me a coffee!";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(7, 59);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(90, 13);
+            this.label40.TabIndex = 102;
+            this.label40.Text = "Image Resources";
             // 
             // MainForm
             // 
@@ -3595,6 +3891,13 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteEndPosX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteStartPosX)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FramesPerSecondNUDESA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimePerFrameNUDESA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopAmountNUDESA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndTimeNUDESA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartTimeNUDESA)).EndInit();
             this.EOCTab.ResumeLayout(false);
             this.EOCTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).EndInit();
@@ -3888,5 +4191,28 @@ namespace Intralism_Mapping_Assistant
         private CheckBox MakeMultipleCopiesCB;
         private NumericUpDown MakeMultipleCopiesNUD;
         private CheckBox CreateNewObjectsCB;
+        private TabPage tabPage1;
+        private CheckBox EndTimeCBESA;
+        private NumericUpDown EndTimeNUDESA;
+        private Label label37;
+        private NumericUpDown StartTimeNUDESA;
+        private RichTextBox FramesESARTB;
+        private Label label26;
+        private TextBox SpriteIDESATB;
+        private Button button2;
+        private CheckBox checkBox1;
+        private Label label33;
+        private RichTextBox PreviewRTBESA;
+        private CheckBox LoopAmountCBESA;
+        private NumericUpDown LoopAmountNUDESA;
+        private Label label38;
+        private CheckBox FramesPerSecondCBESA;
+        private NumericUpDown FramesPerSecondNUDESA;
+        private Label label39;
+        private CheckBox FrameTimeCBESA;
+        private NumericUpDown TimePerFrameNUDESA;
+        private LinkLabel linkLabel2;
+        private Button CreateButtonESA;
+        private Label label40;
     }
 }
