@@ -50,7 +50,7 @@ namespace Intralism_Mapping_Assistant.Util
             => (IsNew ? CreateAddEvent() : AdjustTime()) + CreateParentEvent() +  CreatePositionEvent() + CreateRotationEvent()
                 + CreateScaleEvent();
 
-        private string CreateAddEvent()
+        protected virtual string CreateAddEvent()
             => SpawnTime >= 0 && Type != null
                 ? CreateEvent("AddEnvironmentObject", $"{(int)Type},{ID}") : "";
 
@@ -217,6 +217,6 @@ namespace Intralism_Mapping_Assistant.Util
     {
         Sun,
         Satellite,
-        ParticleEmitter
+        ParticleEmitter,
     }
 }

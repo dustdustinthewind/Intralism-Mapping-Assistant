@@ -60,6 +60,7 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
             this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
             this.AboutTab = new System.Windows.Forms.TabPage();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -166,6 +167,8 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewLabelESM = new System.Windows.Forms.Label();
             this.ConfigPreviewESMRTB = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.CreateButtonESA = new System.Windows.Forms.Button();
             this.FramesPerSecondCBESA = new System.Windows.Forms.CheckBox();
             this.FramesPerSecondNUDESA = new System.Windows.Forms.NumericUpDown();
             this.label39 = new System.Windows.Forms.Label();
@@ -292,9 +295,9 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.CreateButtonESA = new System.Windows.Forms.Button();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label40 = new System.Windows.Forms.Label();
+            this.MirrorXCB = new System.Windows.Forms.CheckBox();
+            this.MirrorYCB = new System.Windows.Forms.CheckBox();
+            this.MirrorZCB = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -644,6 +647,17 @@ namespace Intralism_Mapping_Assistant
             this.AboutTab.TabIndex = 4;
             this.AboutTab.Text = "About";
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(51, 102);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(87, 13);
+            this.linkLabel2.TabIndex = 5;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Buy me a coffee!";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -653,6 +667,7 @@ namespace Intralism_Mapping_Assistant
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Github";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // label9
             // 
@@ -678,7 +693,7 @@ namespace Intralism_Mapping_Assistant
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.8.0";
+            this.label7.Text = "Intralism Mapping Assistant v0.8.2";
             // 
             // MapSplitterTab
             // 
@@ -1979,6 +1994,25 @@ namespace Intralism_Mapping_Assistant
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "EnvSprite Animator";
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(7, 59);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(90, 13);
+            this.label40.TabIndex = 102;
+            this.label40.Text = "Image Resources";
+            // 
+            // CreateButtonESA
+            // 
+            this.CreateButtonESA.Location = new System.Drawing.Point(291, 408);
+            this.CreateButtonESA.Name = "CreateButtonESA";
+            this.CreateButtonESA.Size = new System.Drawing.Size(75, 23);
+            this.CreateButtonESA.TabIndex = 101;
+            this.CreateButtonESA.Text = "Create";
+            this.CreateButtonESA.UseVisualStyleBackColor = true;
+            this.CreateButtonESA.Click += new System.EventHandler(this.CreateButtonESA_Click);
+            // 
             // FramesPerSecondCBESA
             // 
             this.FramesPerSecondCBESA.AutoSize = true;
@@ -2186,6 +2220,9 @@ namespace Intralism_Mapping_Assistant
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.MirrorZCB);
+            this.EOCTab.Controls.Add(this.MirrorYCB);
+            this.EOCTab.Controls.Add(this.MirrorXCB);
             this.EOCTab.Controls.Add(this.CreateNewObjectsCB);
             this.EOCTab.Controls.Add(this.MakeMultipleCopiesCB);
             this.EOCTab.Controls.Add(this.MakeMultipleCopiesNUD);
@@ -2269,6 +2306,7 @@ namespace Intralism_Mapping_Assistant
             this.MakeMultipleCopiesNUD.Name = "MakeMultipleCopiesNUD";
             this.MakeMultipleCopiesNUD.Size = new System.Drawing.Size(80, 20);
             this.MakeMultipleCopiesNUD.TabIndex = 92;
+            this.MakeMultipleCopiesNUD.ValueChanged += new System.EventHandler(this.MakeMultipleCopiesNUD_ValueChanged);
             // 
             // CreateEnvObjButton
             // 
@@ -3694,7 +3732,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterRB
             // 
             this.ParticleEmitterRB.AutoSize = true;
-            this.ParticleEmitterRB.Location = new System.Drawing.Point(349, 104);
+            this.ParticleEmitterRB.Location = new System.Drawing.Point(463, 41);
             this.ParticleEmitterRB.Name = "ParticleEmitterRB";
             this.ParticleEmitterRB.Size = new System.Drawing.Size(93, 17);
             this.ParticleEmitterRB.TabIndex = 55;
@@ -3706,7 +3744,7 @@ namespace Intralism_Mapping_Assistant
             // SatelliteRB
             // 
             this.SatelliteRB.AutoSize = true;
-            this.SatelliteRB.Location = new System.Drawing.Point(349, 81);
+            this.SatelliteRB.Location = new System.Drawing.Point(463, 25);
             this.SatelliteRB.Name = "SatelliteRB";
             this.SatelliteRB.Size = new System.Drawing.Size(60, 17);
             this.SatelliteRB.TabIndex = 54;
@@ -3718,7 +3756,7 @@ namespace Intralism_Mapping_Assistant
             // SunRB
             // 
             this.SunRB.AutoSize = true;
-            this.SunRB.Location = new System.Drawing.Point(349, 58);
+            this.SunRB.Location = new System.Drawing.Point(463, 10);
             this.SunRB.Name = "SunRB";
             this.SunRB.Size = new System.Drawing.Size(42, 17);
             this.SunRB.TabIndex = 53;
@@ -3791,35 +3829,35 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
             // 
-            // CreateButtonESA
+            // MirrorXCB
             // 
-            this.CreateButtonESA.Location = new System.Drawing.Point(291, 408);
-            this.CreateButtonESA.Name = "CreateButtonESA";
-            this.CreateButtonESA.Size = new System.Drawing.Size(75, 23);
-            this.CreateButtonESA.TabIndex = 101;
-            this.CreateButtonESA.Text = "Create";
-            this.CreateButtonESA.UseVisualStyleBackColor = true;
-            this.CreateButtonESA.Click += new System.EventHandler(this.CreateButtonESA_Click);
+            this.MirrorXCB.AutoSize = true;
+            this.MirrorXCB.Enabled = false;
+            this.MirrorXCB.Location = new System.Drawing.Point(338, 63);
+            this.MirrorXCB.Name = "MirrorXCB";
+            this.MirrorXCB.Size = new System.Drawing.Size(98, 17);
+            this.MirrorXCB.TabIndex = 95;
+            this.MirrorXCB.Text = "Mirror on X-axis";
             // 
-            // linkLabel2
+            // MirrorYCB
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(51, 102);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(87, 13);
-            this.linkLabel2.TabIndex = 5;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Buy me a coffee!";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.MirrorYCB.AutoSize = true;
+            this.MirrorYCB.Enabled = false;
+            this.MirrorYCB.Location = new System.Drawing.Point(338, 89);
+            this.MirrorYCB.Name = "MirrorYCB";
+            this.MirrorYCB.Size = new System.Drawing.Size(98, 17);
+            this.MirrorYCB.TabIndex = 96;
+            this.MirrorYCB.Text = "Mirror on Y-axis";
             // 
-            // label40
+            // MirrorZCB
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(7, 59);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(90, 13);
-            this.label40.TabIndex = 102;
-            this.label40.Text = "Image Resources";
+            this.MirrorZCB.AutoSize = true;
+            this.MirrorZCB.Enabled = false;
+            this.MirrorZCB.Location = new System.Drawing.Point(338, 115);
+            this.MirrorZCB.Name = "MirrorZCB";
+            this.MirrorZCB.Size = new System.Drawing.Size(98, 17);
+            this.MirrorZCB.TabIndex = 97;
+            this.MirrorZCB.Text = "Mirror on Z-axis";
             // 
             // MainForm
             // 
@@ -4214,5 +4252,8 @@ namespace Intralism_Mapping_Assistant
         private LinkLabel linkLabel2;
         private Button CreateButtonESA;
         private Label label40;
+        private CheckBox MirrorZCB;
+        private CheckBox MirrorYCB;
+        private CheckBox MirrorXCB;
     }
 }

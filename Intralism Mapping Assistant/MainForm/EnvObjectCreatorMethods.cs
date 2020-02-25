@@ -69,88 +69,144 @@ namespace Intralism_Mapping_Assistant
             return null;
         }
 
+        // Mirror is activated when the cb is enabled AND checked.
+        private bool MirrorX => MirrorXCB.Enabled && MirrorXCB.Checked;
+        private bool MirrorY => MirrorYCB.Enabled && MirrorYCB.Checked;
+        private bool MirrorZ => MirrorZCB.Enabled && MirrorZCB.Checked;
+
         private Sun CreateSunWithCurrentSettings(int copy = 0)
-        => new Sun()
         {
-            IsNew = CreateNewObjectsCB.Checked,
+            // Every even object turn on the mirror toggle.
+            float flip = 1;
+            if (copy % 2 == 0)
+                flip = -1;
 
-            ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-            ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+            // If the axis should be mirrorred, multiply it by flip (which will be inverted for
+            // every even copy)
+            float posX = (float)PositionXNUD.Value * (MirrorX ? flip : 1);
+            float posY = (float)PositionYNUD.Value * (MirrorY ? flip : 1);
+            float posZ = (float)PositionZNUD.Value * (MirrorZ ? flip : 1);
 
-            SpawnTime = (double?)SpawnTimeNUD.Value,
-            RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+            float rotX = (float)RotationXNUD.Value * (MirrorX ? flip : 1);
+            float rotY = (float)RotationYNUD.Value * (MirrorY ? flip : 1);
+            float rotZ = (float)RotationZNUD.Value * (MirrorZ ? flip : 1);
 
-            Position = PositionCB.Checked ? (Vector3?)new Vector3((float)PositionXNUD.Value, (float)PositionYNUD.Value, (float)PositionZNUD.Value) : null,
-            Rotation = RotationCB.Checked ? (Vector3?)new Vector3((float)RotationXNUD.Value, (float)RotationYNUD.Value, (float)RotationZNUD.Value) : null,
-            Scale = RotationCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+            return new Sun()
+            {
+                IsNew = CreateNewObjectsCB.Checked,
 
-            MaxLivesHex = MaxLivesCB.Checked ? MaxLivesColorTB.Text : "",
-            NoLivesHex = NoLivesColorCB.Checked ? NoLivesColorTB.Text : "",
+                ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
+                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
-            Emission = SunEmissionCB.Checked ? (double?)SunEmissionNUD.Value : null,
-            InputType = SunInputCB.Checked ? (int?)SunInputNUD.Value : null,
-            Speed = SunLerpSpeedCB.Checked ? (double?)SunLerpNUD.Value : null,
-            Sensitivity = SunSensivityCB.Checked ? (double?)SunSensitivityNUD.Value : null,
+                SpawnTime = (double?)SpawnTimeNUD.Value,
+                RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
 
-            MinSize = SunMinSizeCB.Checked ? (Vector3?)new Vector3((float)SunMinSizeXNUD.Value, (float)SunMinSizeYNUD.Value, (float)SunMinSizeZNUD.Value) : null,
-            MaxSize = SunMaxSizeCB.Checked ? (Vector3?)new Vector3((float)SunMaxSizeXNUD.Value, (float)SunMaxSizeYNUD.Value, (float)SunMaxSizeZNUD.Value) : null,
-            DirectionVector = SunDirectionVectorCB.Checked ? (Vector3?)new Vector3((float)DirectionVectorXNUD.Value, (float)DirectionVectorYNUD.Value, (float)DirectionVectorZNUD.Value) : null,
-        };
+                Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
+                Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
+                Scale = ScaleCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+
+                MaxLivesHex = MaxLivesCB.Checked ? MaxLivesColorTB.Text : "",
+                NoLivesHex = NoLivesColorCB.Checked ? NoLivesColorTB.Text : "",
+
+                Emission = SunEmissionCB.Checked ? (double?)SunEmissionNUD.Value : null,
+                InputType = SunInputCB.Checked ? (int?)SunInputNUD.Value : null,
+                Speed = SunLerpSpeedCB.Checked ? (double?)SunLerpNUD.Value : null,
+                Sensitivity = SunSensivityCB.Checked ? (double?)SunSensitivityNUD.Value : null,
+
+                MinSize = SunMinSizeCB.Checked ? (Vector3?)new Vector3((float)SunMinSizeXNUD.Value, (float)SunMinSizeYNUD.Value, (float)SunMinSizeZNUD.Value) : null,
+                MaxSize = SunMaxSizeCB.Checked ? (Vector3?)new Vector3((float)SunMaxSizeXNUD.Value, (float)SunMaxSizeYNUD.Value, (float)SunMaxSizeZNUD.Value) : null,
+                DirectionVector = SunDirectionVectorCB.Checked ? (Vector3?)new Vector3((float)DirectionVectorXNUD.Value, (float)DirectionVectorYNUD.Value, (float)DirectionVectorZNUD.Value) : null,
+            };
+        }
 
         private Satellite CreateSatelliteWithCurrentSettings(int copy = 0)
-        => new Satellite()
         {
-            IsNew = CreateNewObjectsCB.Checked,
+            // Every even object turn on the mirror toggle.
+            float flip = 1;
+            if (copy % 2 == 0)
+                flip = -1;
 
-            ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-            ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+            // If the axis should be mirrorred, multiply it by flip (which will be inverted for
+            // every even copy)
+            float posX = (float)PositionXNUD.Value * (MirrorX ? flip : 1);
+            float posY = (float)PositionYNUD.Value * (MirrorY ? flip : 1);
+            float posZ = (float)PositionZNUD.Value * (MirrorZ ? flip : 1);
 
-            SpawnTime = (double?)SpawnTimeNUD.Value,
-            RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+            float rotX = (float)RotationXNUD.Value * (MirrorX ? flip : 1);
+            float rotY = (float)RotationYNUD.Value * (MirrorY ? flip : 1);
+            float rotZ = (float)RotationZNUD.Value * (MirrorZ ? flip : 1);
 
-            Position = PositionCB.Checked ? (Vector3?)new Vector3((float)PositionXNUD.Value, (float)PositionYNUD.Value, (float)PositionZNUD.Value) : null,
-            Rotation = RotationCB.Checked ? (Vector3?)new Vector3((float)RotationXNUD.Value, (float)RotationYNUD.Value, (float)RotationZNUD.Value) : null,
-            Scale = RotationCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+            return new Satellite()
+            {
+                IsNew = CreateNewObjectsCB.Checked,
 
-            ColorHex = SatelliteColorCB.Checked ? SatelliteColorTB.Text : "",
+                ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
+                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
-            Emission = SatelliteEmissionCB.Checked ? (double?)SatelliteEmissionNUD.Value : null,
-            InputType = SatelliteTypeCB.Checked ? (int?)SatelliteInputNUD.Value : null,
-            Speed = SatelliteLerpSpeedCB.Checked ? (double?)SatelliteLerpSpeedNUD.Value : null,
-            Sensitivity = SatelliteSensitivityCB.Checked ? (double?)SatelliteSensitivityNUD.Value : null,
+                SpawnTime = (double?)SpawnTimeNUD.Value,
+                RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
 
-            RotationSpeed = SatelliteRotationCB.Checked ? (double?)SatelliteRotationSpeedNUD.Value : null,
-            Radius = SatelliteRadiusCB.Checked ? (double?)SatelliteRadiusNUD.Value : null,
-            TrailFadeTime = SatelliteTrailFadeTimeCB.Checked ? (double?)SatelliteTrailTimeNUD.Value : null,
-            TrailWidth = SatellieTrailWidthCB.Checked ? (double?)SatelliteTrailWidthNUD.Value : null,
-            MinimumVertexDistance = SatelliteMinimumVertexCB.Checked ? (double?)SatelliteMinimumVertexDistanceNUD.Value : null,
-        };
+                Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
+                Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
+                Scale = ScaleCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+
+                ColorHex = SatelliteColorCB.Checked ? SatelliteColorTB.Text : "",
+
+                Emission = SatelliteEmissionCB.Checked ? (double?)SatelliteEmissionNUD.Value : null,
+                InputType = SatelliteTypeCB.Checked ? (int?)SatelliteInputNUD.Value : null,
+                Speed = SatelliteLerpSpeedCB.Checked ? (double?)SatelliteLerpSpeedNUD.Value : null,
+                Sensitivity = SatelliteSensitivityCB.Checked ? (double?)SatelliteSensitivityNUD.Value : null,
+
+                RotationSpeed = SatelliteRotationCB.Checked ? (double?)SatelliteRotationSpeedNUD.Value : null,
+                Radius = SatelliteRadiusCB.Checked ? (double?)SatelliteRadiusNUD.Value : null,
+                TrailFadeTime = SatelliteTrailFadeTimeCB.Checked ? (double?)SatelliteTrailTimeNUD.Value : null,
+                TrailWidth = SatellieTrailWidthCB.Checked ? (double?)SatelliteTrailWidthNUD.Value : null,
+                MinimumVertexDistance = SatelliteMinimumVertexCB.Checked ? (double?)SatelliteMinimumVertexDistanceNUD.Value : null,
+            };
+        }
 
         private ParticleEmitter CreateParticleEmitterWithCurrentSettings(int copy = 0)
-        => new ParticleEmitter()
         {
-            IsNew = CreateNewObjectsCB.Checked,
+            // Every even object turn on the mirror toggle.
+            float flip = 1;
+            if (copy % 2 == 0)
+                flip = -1;
 
-            ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-            ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+            // If the axis should be mirrorred, multiply it by flip (which will be inverted for
+            // every even copy)
+            float posX = (float)PositionXNUD.Value * (MirrorX ? flip : 1);
+            float posY = (float)PositionYNUD.Value * (MirrorY ? flip : 1);
+            float posZ = (float)PositionZNUD.Value * (MirrorZ ? flip : 1);
 
-            SpawnTime = (double?)SpawnTimeNUD.Value,
-            RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+            float rotX = (float)RotationXNUD.Value * (MirrorX ? flip : 1);
+            float rotY = (float)RotationYNUD.Value * (MirrorY ? flip : 1);
+            float rotZ = (float)RotationZNUD.Value * (MirrorZ ? flip : 1);
 
-            Position = PositionCB.Checked ? (Vector3?)new Vector3((float)PositionXNUD.Value, (float)PositionYNUD.Value, (float)PositionZNUD.Value) : null,
-            Rotation = RotationCB.Checked ? (Vector3?)new Vector3((float)RotationXNUD.Value, (float)RotationYNUD.Value, (float)RotationZNUD.Value) : null,
-            Scale = RotationCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+            return new ParticleEmitter()
+            {
+                IsNew = CreateNewObjectsCB.Checked,
 
-            ColorHex = ParticleEmitterColorCB.Checked ? ParticleEmitterColorTB.Text : "",
+                ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
+                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
 
-            Emission = ParticleEmitterEmissionCB.Checked ? (double?)ParticleEmitterEmissionNUD.Value : null,
-            InputType = ParticleEmitterTypeCB.Checked ? (int?)ParticleEmitterInputNUD.Value : null,
-            Speed = ParticleEmitterSpeedCB.Checked ? (double?)ParticleEmitterSpeedNUD.Value : null,
+                SpawnTime = (double?)SpawnTimeNUD.Value,
+                RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
 
-            Gravity = ParticleEmitterGravityCB.Checked ? (double?)ParticleEmitterGravityNUD.Value : null,
-            ParticlesPerBeat = ParticleEmitterPPBCB.Checked ? (double?)ParticleEmitterPPBNUD.Value : null,
-            Size = ParticleEmitterSizeCB.Checked ? (double?)ParticleEmitterSizeNUD.Value : null,
-        };
+                Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
+                Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
+                Scale = ScaleCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+
+                ColorHex = ParticleEmitterColorCB.Checked ? ParticleEmitterColorTB.Text : "",
+
+                Emission = ParticleEmitterEmissionCB.Checked ? (double?)ParticleEmitterEmissionNUD.Value : null,
+                InputType = ParticleEmitterTypeCB.Checked ? (int?)ParticleEmitterInputNUD.Value : null,
+                Speed = ParticleEmitterSpeedCB.Checked ? (double?)ParticleEmitterSpeedNUD.Value : null,
+
+                Gravity = ParticleEmitterGravityCB.Checked ? (double?)ParticleEmitterGravityNUD.Value : null,
+                ParticlesPerBeat = ParticleEmitterPPBCB.Checked ? (double?)ParticleEmitterPPBNUD.Value : null,
+                Size = ParticleEmitterSizeCB.Checked ? (double?)ParticleEmitterSizeNUD.Value : null,
+            };
+        }
 
         private void ReactivatePropertyBoxes(EnvironmentObjectType envObj)
         {

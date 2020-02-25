@@ -330,7 +330,16 @@ namespace Intralism_Mapping_Assistant
             => DeleteNonZooms();
 
         private void MakeMultipleCopiesCB_CheckedChanged(object sender, EventArgs e)
-            => MakeMultipleCopiesNUD.Enabled = MakeMultipleCopiesCB.Checked;
+        { 
+            MakeMultipleCopiesNUD.Enabled = MakeMultipleCopiesCB.Checked;
+
+            if (!MakeMultipleCopiesCB.Checked)
+            {
+                MirrorXCB.Enabled = false;
+                MirrorYCB.Enabled = false;
+                MirrorZCB.Enabled = false;
+            }
+        }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("https://ko-fi.com/flyingrabidunicornpig");
@@ -355,5 +364,25 @@ namespace Intralism_Mapping_Assistant
 
         private void button2_Click(object sender, EventArgs e)
             => Copy(PreviewRTBESA.Text);
+
+        private void MakeMultipleCopiesNUD_ValueChanged(object sender, EventArgs e)
+        {
+            if (MakeMultipleCopiesNUD.Value != 0 && MakeMultipleCopiesNUD.Value % 2 == 0)
+            {
+                MirrorXCB.Enabled = true;
+                MirrorYCB.Enabled = true;
+                MirrorZCB.Enabled = true;
+            }
+            else
+            {
+                MirrorXCB.Enabled = false;
+                MirrorYCB.Enabled = false;
+                MirrorZCB.Enabled = false;
+            }
+        }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
+
     }
 }
