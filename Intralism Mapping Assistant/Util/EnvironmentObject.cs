@@ -72,7 +72,7 @@ namespace Intralism_Mapping_Assistant.Util
 
         protected string CreateColorEvent(string colorHex, string eventName)
             => !string.IsNullOrEmpty(colorHex) && !string.IsNullOrEmpty(eventName)
-                ? CreateEvent(eventName, colorHex) : "";
+                ? CreateEvent(eventName, $"{ID},{colorHex}") : "";
 
         protected string CreateEmissionEvent(string eventName)
             => Emission != null
