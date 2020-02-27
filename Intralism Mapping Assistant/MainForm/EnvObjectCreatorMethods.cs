@@ -1,4 +1,5 @@
 ﻿using Intralism_Mapping_Assistant.Util;
+using System;
 using System.Drawing;
 using System.Numerics;
 using System.Windows.Forms;
@@ -38,6 +39,8 @@ namespace Intralism_Mapping_Assistant
                         return ((Satellite)envObj).ToString();
                     case EnvironmentObjectType.ParticleEmitter:
                         return ((ParticleEmitter)envObj).ToString();
+                    case EnvironmentObjectType.EnvironmentSprite:
+                        return ((EnvironmentSprite)envObj).ToString();
                     default:
                         return defaultTextBoxMessage;
                 }
@@ -63,6 +66,8 @@ namespace Intralism_Mapping_Assistant
                 return CreateSatelliteWithCurrentSettings(i);
             else if (ParticleEmitterRB.Checked)
                 return CreateParticleEmitterWithCurrentSettings(i);
+            else if (EnvSpriteRB.Checked)
+                return CreateEnvironmentSpriteWithCurrentSettings(i);
             else if (!calledErrorAlready)
                 ErrorMessage("Select \"Sun\", \"Satellite\", or \"Particle Emitter\"!");
 
@@ -208,6 +213,42 @@ namespace Intralism_Mapping_Assistant
             };
         }
 
+        private EnvironmentSprite CreateEnvironmentSpriteWithCurrentSettings(int copy = 0)
+        {
+            // Every even object turn on the mirror toggle.
+            float flip = 1;
+            if (copy % 2 == 0)
+                flip = -1;
+
+            // If the axis should be mirrorred, multiply it by flip (which will be inverted for
+            // every even copy)
+            float posX = (float)PositionXNUD.Value * (MirrorX ? flip : 1);
+            float posY = (float)PositionYNUD.Value * (MirrorY ? flip : 1);
+            float posZ = (float)PositionZNUD.Value * (MirrorZ ? flip : 1);
+
+            float rotX = (float)RotationXNUD.Value * (MirrorX ? flip : 1);
+            float rotY = (float)RotationYNUD.Value * (MirrorY ? flip : 1);
+            float rotZ = (float)RotationZNUD.Value * (MirrorZ ? flip : 1);
+
+            return new EnvironmentSprite()
+            {
+                IsNew = CreateNewObjectsCB.Checked,
+
+                ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
+                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+
+                SpawnTime = (double?)SpawnTimeNUD.Value,
+                RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+
+                Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
+                Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
+                Scale = ScaleCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
+
+                ColorHex = EnvSpriteColorTB.Text,
+                Speed = (double?)EnvSpriteSpeedNUD.Value
+            };
+        }
+
         private void ReactivatePropertyBoxes(EnvironmentObjectType envObj)
         {
             DisableAllPropertyBoxes();
@@ -216,12 +257,24 @@ namespace Intralism_Mapping_Assistant
             {
                 case EnvironmentObjectType.Sun:
                     SunGroupBox.Enabled = true;
+                    ParentIDCB.Text = "Parent ID";
+                    ParentIDCB.Enabled = true;
                     break;
                 case EnvironmentObjectType.Satellite:
                     SatelliteGroupBox.Enabled = true;
+                    ParentIDCB.Text = "Parent ID";
+                    ParentIDCB.Enabled = true;
                     break;
                 case EnvironmentObjectType.ParticleEmitter:
                     ParticleEmitterGroupBox.Enabled = true;
+                    ParentIDCB.Text = "Parent ID";
+                    ParentIDCB.Enabled = true;
+                    break;
+                case EnvironmentObjectType.EnvironmentSprite:
+                    groupBox1.Enabled = true;
+                    ParentIDCB.Enabled = false;
+                    ParentIDCB.Checked = true;
+                    ParentIDCB.Text = "Image Resource";
                     break;
                 default:
                     ErrorMessage("You *REALLY* shouldn't be seeing this...");
@@ -250,6 +303,12 @@ namespace Intralism_Mapping_Assistant
         {
             for (int i = 0; i < controls.Length; i++)
                 controls[i].Enabled = status;
+        }
+
+        private void RefreshEnvSpriteTB()
+        {
+            EnvSpriteColorTB.Text = RGBColorToHex(ColorDialog.Color);
+            EnvSpriteColorTB.Text += trackBar1.Value.ToString("X2");
         }
     }
 }

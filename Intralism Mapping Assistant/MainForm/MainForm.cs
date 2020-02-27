@@ -384,5 +384,21 @@ namespace Intralism_Mapping_Assistant
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+            => RefreshEnvSpriteTB();
+
+        private void EnvSpriteRB_CheckedChanged(object sender, EventArgs e)
+            => ReactivatePropertyBoxes(EnvironmentObjectType.EnvironmentSprite);
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ColorDialog.ShowDialog();
+            RefreshEnvSpriteTB();
+        }
     }
 }

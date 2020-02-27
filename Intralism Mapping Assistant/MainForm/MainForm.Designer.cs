@@ -189,6 +189,17 @@ namespace Intralism_Mapping_Assistant
             this.label33 = new System.Windows.Forms.Label();
             this.PreviewRTBESA = new System.Windows.Forms.RichTextBox();
             this.EOCTab = new System.Windows.Forms.TabPage();
+            this.EnvSpriteRB = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Speed = new System.Windows.Forms.Label();
+            this.EnvSpriteSpeedNUD = new System.Windows.Forms.NumericUpDown();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label41 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.EnvSpriteColorTB = new System.Windows.Forms.TextBox();
+            this.MirrorZCB = new System.Windows.Forms.CheckBox();
+            this.MirrorYCB = new System.Windows.Forms.CheckBox();
+            this.MirrorXCB = new System.Windows.Forms.CheckBox();
             this.CreateNewObjectsCB = new System.Windows.Forms.CheckBox();
             this.MakeMultipleCopiesCB = new System.Windows.Forms.CheckBox();
             this.MakeMultipleCopiesNUD = new System.Windows.Forms.NumericUpDown();
@@ -295,9 +306,6 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.MirrorXCB = new System.Windows.Forms.CheckBox();
-            this.MirrorYCB = new System.Windows.Forms.CheckBox();
-            this.MirrorZCB = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -349,6 +357,9 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EndTimeNUDESA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartTimeNUDESA)).BeginInit();
             this.EOCTab.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteSpeedNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpawnTimeNUD)).BeginInit();
@@ -2220,6 +2231,8 @@ namespace Intralism_Mapping_Assistant
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.EnvSpriteRB);
+            this.EOCTab.Controls.Add(this.groupBox1);
             this.EOCTab.Controls.Add(this.MirrorZCB);
             this.EOCTab.Controls.Add(this.MirrorYCB);
             this.EOCTab.Controls.Add(this.MirrorXCB);
@@ -2272,6 +2285,140 @@ namespace Intralism_Mapping_Assistant
             this.EOCTab.Size = new System.Drawing.Size(927, 440);
             this.EOCTab.TabIndex = 7;
             this.EOCTab.Text = "Env Object Creator";
+            // 
+            // EnvSpriteRB
+            // 
+            this.EnvSpriteRB.AutoSize = true;
+            this.EnvSpriteRB.Location = new System.Drawing.Point(463, 52);
+            this.EnvSpriteRB.Name = "EnvSpriteRB";
+            this.EnvSpriteRB.Size = new System.Drawing.Size(111, 17);
+            this.EnvSpriteRB.TabIndex = 99;
+            this.EnvSpriteRB.TabStop = true;
+            this.EnvSpriteRB.Text = "environment sprite";
+            this.EnvSpriteRB.UseVisualStyleBackColor = true;
+            this.EnvSpriteRB.CheckedChanged += new System.EventHandler(this.EnvSpriteRB_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Speed);
+            this.groupBox1.Controls.Add(this.EnvSpriteSpeedNUD);
+            this.groupBox1.Controls.Add(this.trackBar1);
+            this.groupBox1.Controls.Add(this.label41);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.EnvSpriteColorTB);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Location = new System.Drawing.Point(424, 340);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 97);
+            this.groupBox1.TabIndex = 98;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Environment Sprite Color Options";
+            // 
+            // Speed
+            // 
+            this.Speed.AutoSize = true;
+            this.Speed.Location = new System.Drawing.Point(7, 76);
+            this.Speed.Name = "Speed";
+            this.Speed.Size = new System.Drawing.Size(38, 13);
+            this.Speed.TabIndex = 152;
+            this.Speed.Text = "Speed";
+            // 
+            // EnvSpriteSpeedNUD
+            // 
+            this.EnvSpriteSpeedNUD.DecimalPlaces = 3;
+            this.EnvSpriteSpeedNUD.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.EnvSpriteSpeedNUD.Location = new System.Drawing.Point(59, 74);
+            this.EnvSpriteSpeedNUD.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.EnvSpriteSpeedNUD.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.EnvSpriteSpeedNUD.Name = "EnvSpriteSpeedNUD";
+            this.EnvSpriteSpeedNUD.Size = new System.Drawing.Size(79, 20);
+            this.EnvSpriteSpeedNUD.TabIndex = 112;
+            this.EnvSpriteSpeedNUD.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 15;
+            this.trackBar1.Location = new System.Drawing.Point(52, 42);
+            this.trackBar1.Maximum = 255;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(142, 32);
+            this.trackBar1.SmallChange = 5;
+            this.trackBar1.TabIndex = 151;
+            this.trackBar1.Value = 255;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(6, 51);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(43, 13);
+            this.label41.TabIndex = 150;
+            this.label41.Text = "Opacity";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(112, 17);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 23);
+            this.button3.TabIndex = 149;
+            this.button3.Text = "Pick Color";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // EnvSpriteColorTB
+            // 
+            this.EnvSpriteColorTB.Location = new System.Drawing.Point(6, 19);
+            this.EnvSpriteColorTB.Name = "EnvSpriteColorTB";
+            this.EnvSpriteColorTB.Size = new System.Drawing.Size(100, 20);
+            this.EnvSpriteColorTB.TabIndex = 148;
+            this.EnvSpriteColorTB.Text = "#FFFFFFFF";
+            // 
+            // MirrorZCB
+            // 
+            this.MirrorZCB.AutoSize = true;
+            this.MirrorZCB.Enabled = false;
+            this.MirrorZCB.Location = new System.Drawing.Point(338, 115);
+            this.MirrorZCB.Name = "MirrorZCB";
+            this.MirrorZCB.Size = new System.Drawing.Size(98, 17);
+            this.MirrorZCB.TabIndex = 97;
+            this.MirrorZCB.Text = "Mirror on Z-axis";
+            // 
+            // MirrorYCB
+            // 
+            this.MirrorYCB.AutoSize = true;
+            this.MirrorYCB.Enabled = false;
+            this.MirrorYCB.Location = new System.Drawing.Point(338, 89);
+            this.MirrorYCB.Name = "MirrorYCB";
+            this.MirrorYCB.Size = new System.Drawing.Size(98, 17);
+            this.MirrorYCB.TabIndex = 96;
+            this.MirrorYCB.Text = "Mirror on Y-axis";
+            // 
+            // MirrorXCB
+            // 
+            this.MirrorXCB.AutoSize = true;
+            this.MirrorXCB.Enabled = false;
+            this.MirrorXCB.Location = new System.Drawing.Point(338, 63);
+            this.MirrorXCB.Name = "MirrorXCB";
+            this.MirrorXCB.Size = new System.Drawing.Size(98, 17);
+            this.MirrorXCB.TabIndex = 95;
+            this.MirrorXCB.Text = "Mirror on X-axis";
             // 
             // CreateNewObjectsCB
             // 
@@ -2478,7 +2625,7 @@ namespace Intralism_Mapping_Assistant
             this.ParticleEmitterGroupBox.Enabled = false;
             this.ParticleEmitterGroupBox.Location = new System.Drawing.Point(424, 140);
             this.ParticleEmitterGroupBox.Name = "ParticleEmitterGroupBox";
-            this.ParticleEmitterGroupBox.Size = new System.Drawing.Size(202, 297);
+            this.ParticleEmitterGroupBox.Size = new System.Drawing.Size(202, 195);
             this.ParticleEmitterGroupBox.TabIndex = 81;
             this.ParticleEmitterGroupBox.TabStop = false;
             this.ParticleEmitterGroupBox.Text = "Particle Emitter Options";
@@ -2525,7 +2672,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterSizeCB
             // 
             this.ParticleEmitterSizeCB.AutoSize = true;
-            this.ParticleEmitterSizeCB.Location = new System.Drawing.Point(4, 189);
+            this.ParticleEmitterSizeCB.Location = new System.Drawing.Point(115, 145);
             this.ParticleEmitterSizeCB.Name = "ParticleEmitterSizeCB";
             this.ParticleEmitterSizeCB.Size = new System.Drawing.Size(46, 17);
             this.ParticleEmitterSizeCB.TabIndex = 144;
@@ -2569,7 +2716,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.ParticleEmitterSizeNUD.DecimalPlaces = 2;
             this.ParticleEmitterSizeNUD.Enabled = false;
-            this.ParticleEmitterSizeNUD.Location = new System.Drawing.Point(7, 205);
+            this.ParticleEmitterSizeNUD.Location = new System.Drawing.Point(118, 161);
             this.ParticleEmitterSizeNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -3732,7 +3879,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterRB
             // 
             this.ParticleEmitterRB.AutoSize = true;
-            this.ParticleEmitterRB.Location = new System.Drawing.Point(463, 41);
+            this.ParticleEmitterRB.Location = new System.Drawing.Point(463, 37);
             this.ParticleEmitterRB.Name = "ParticleEmitterRB";
             this.ParticleEmitterRB.Size = new System.Drawing.Size(93, 17);
             this.ParticleEmitterRB.TabIndex = 55;
@@ -3744,7 +3891,7 @@ namespace Intralism_Mapping_Assistant
             // SatelliteRB
             // 
             this.SatelliteRB.AutoSize = true;
-            this.SatelliteRB.Location = new System.Drawing.Point(463, 25);
+            this.SatelliteRB.Location = new System.Drawing.Point(463, 21);
             this.SatelliteRB.Name = "SatelliteRB";
             this.SatelliteRB.Size = new System.Drawing.Size(60, 17);
             this.SatelliteRB.TabIndex = 54;
@@ -3756,7 +3903,7 @@ namespace Intralism_Mapping_Assistant
             // SunRB
             // 
             this.SunRB.AutoSize = true;
-            this.SunRB.Location = new System.Drawing.Point(463, 10);
+            this.SunRB.Location = new System.Drawing.Point(463, 6);
             this.SunRB.Name = "SunRB";
             this.SunRB.Size = new System.Drawing.Size(42, 17);
             this.SunRB.TabIndex = 53;
@@ -3828,36 +3975,6 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.AnyColor = true;
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
-            // 
-            // MirrorXCB
-            // 
-            this.MirrorXCB.AutoSize = true;
-            this.MirrorXCB.Enabled = false;
-            this.MirrorXCB.Location = new System.Drawing.Point(338, 63);
-            this.MirrorXCB.Name = "MirrorXCB";
-            this.MirrorXCB.Size = new System.Drawing.Size(98, 17);
-            this.MirrorXCB.TabIndex = 95;
-            this.MirrorXCB.Text = "Mirror on X-axis";
-            // 
-            // MirrorYCB
-            // 
-            this.MirrorYCB.AutoSize = true;
-            this.MirrorYCB.Enabled = false;
-            this.MirrorYCB.Location = new System.Drawing.Point(338, 89);
-            this.MirrorYCB.Name = "MirrorYCB";
-            this.MirrorYCB.Size = new System.Drawing.Size(98, 17);
-            this.MirrorYCB.TabIndex = 96;
-            this.MirrorYCB.Text = "Mirror on Y-axis";
-            // 
-            // MirrorZCB
-            // 
-            this.MirrorZCB.AutoSize = true;
-            this.MirrorZCB.Enabled = false;
-            this.MirrorZCB.Location = new System.Drawing.Point(338, 115);
-            this.MirrorZCB.Name = "MirrorZCB";
-            this.MirrorZCB.Size = new System.Drawing.Size(98, 17);
-            this.MirrorZCB.TabIndex = 97;
-            this.MirrorZCB.Text = "Mirror on Z-axis";
             // 
             // MainForm
             // 
@@ -3938,6 +4055,10 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.StartTimeNUDESA)).EndInit();
             this.EOCTab.ResumeLayout(false);
             this.EOCTab.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteSpeedNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakeMultipleCopiesNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveTimeNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpawnTimeNUD)).EndInit();
@@ -4255,5 +4376,13 @@ namespace Intralism_Mapping_Assistant
         private CheckBox MirrorZCB;
         private CheckBox MirrorYCB;
         private CheckBox MirrorXCB;
+        private GroupBox groupBox1;
+        private TrackBar trackBar1;
+        private Label label41;
+        private Button button3;
+        private TextBox EnvSpriteColorTB;
+        private RadioButton EnvSpriteRB;
+        private NumericUpDown EnvSpriteSpeedNUD;
+        private Label Speed;
     }
 }

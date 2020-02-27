@@ -213,10 +213,29 @@ namespace Intralism_Mapping_Assistant.Util
                 ? CreateEvent("SetParticlesParticleSize", $"{ID},{Size}") : "";
     }
 
+    public class EnvironmentSprite : EnvironmentObject
+    {
+        public EnvironmentSprite() => Type = EnvironmentObjectType.EnvironmentSprite;
+
+        protected override string CreateAddEvent()
+            => SpawnTime >= 0 && !string.IsNullOrEmpty(ParentID) && !string.IsNullOrEmpty(ColorHex) && Speed != null
+                ? CreateEvent("AddEnvironmentSprite", $"{ID},{ParentID},{Speed},{ColorHex}") : "";
+
+        public override string ToString()
+            => (IsNew ? CreateAddEvent()
+                : AdjustTime() + CreateSetImageEvent() + CreateColorEvent($"{ColorHex},{Speed}", "SetEnvSpriteColor"))
+                + CreateRemoveEvent();
+
+        private string CreateSetImageEvent()
+            => !string.IsNullOrEmpty(ParentID)
+                ? CreateEvent("SetEnvSpriteImage", $"{ID},{ParentID}") : "";
+    }
+
     public enum EnvironmentObjectType
     {
         Sun,
         Satellite,
         ParticleEmitter,
+        EnvironmentSprite,
     }
 }
