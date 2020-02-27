@@ -704,7 +704,7 @@ namespace Intralism_Mapping_Assistant
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.8.2";
+            this.label7.Text = "Intralism Mapping Assistant v0.8.4";
             // 
             // MapSplitterTab
             // 

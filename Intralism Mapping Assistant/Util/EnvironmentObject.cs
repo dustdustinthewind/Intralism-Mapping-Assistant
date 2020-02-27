@@ -57,13 +57,13 @@ namespace Intralism_Mapping_Assistant.Util
         private string CreateParentEvent()
             => !string.IsNullOrEmpty(ParentID) ? CreateEvent("SetParent", $"{ID},{ParentID}") : "";
 
-        private string CreatePositionEvent()
+        protected string CreatePositionEvent()
             => CreateVector3Event(Position, "SetPosition");
 
-        private string CreateRotationEvent()
+        protected string CreateRotationEvent()
             => CreateVector3Event(Rotation, "SetRotation");
 
-        private string CreateScaleEvent()
+        protected string CreateScaleEvent()
             => CreateVector3Event(Scale, "SetScale");
 
         protected string CreateVector3Event(Vector3? vector, string eventName)
@@ -224,7 +224,8 @@ namespace Intralism_Mapping_Assistant.Util
         public override string ToString()
             => (IsNew ? CreateAddEvent()
                 : AdjustTime() + CreateSetImageEvent() + CreateColorEvent($"{ColorHex},{Speed}", "SetEnvSpriteColor"))
-                + CreateRemoveEvent();
+                + CreatePositionEvent() + CreateRotationEvent()
+                + CreateScaleEvent() + CreateRemoveEvent();
 
         private string CreateSetImageEvent()
             => !string.IsNullOrEmpty(ParentID)
