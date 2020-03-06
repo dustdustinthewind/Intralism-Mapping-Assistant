@@ -166,7 +166,7 @@ namespace Intralism_Mapping_Assistant.Util
                 ? CreateEvent("SetSatelliteSensitivity", $"{ID},{Sensitivity}") : "";
 
         private string CreateRotationSpeedEvent()
-            => Rotation != null
+            => RotationSpeed != null
                 ? CreateEvent("SetSatelliteRotationSpeed", $"{ID},{RotationSpeed}") : "";
 
         private string CreateRadiusEvent()
