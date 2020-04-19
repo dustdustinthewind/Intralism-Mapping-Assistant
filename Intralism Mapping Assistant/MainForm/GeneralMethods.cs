@@ -9,8 +9,7 @@ namespace Intralism_Mapping_Assistant
 {
     partial class MainForm : Form
     {
-        private void Copy(string text)
-            => Clipboard.SetText(text);
+        private void Copy(string text) => Clipboard.SetText(text);
 
         private void UpdateAllRTBs()
         {

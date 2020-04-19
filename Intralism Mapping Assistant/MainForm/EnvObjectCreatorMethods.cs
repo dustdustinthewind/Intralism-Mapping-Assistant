@@ -16,15 +16,70 @@ namespace Intralism_Mapping_Assistant
         {
             ConfigPreviewEOC.Text = "";
 
+            // Find start index and "fix" the ID if it has numbers at the end
+            string oldText = EnvObjTB.Text;
+            string adjustedText = oldText;
+            int startIndex = FindStartIndex(ref adjustedText);
+
+            EnvObjTB.Text = adjustedText;
+
             if (MakeMultipleCopiesNUD.Value > 0)
-                for (int i = 0; i < MakeMultipleCopiesNUD.Value && !calledErrorAlready; i++)
+            {
+                for (int i = startIndex - 1;
+                    i < MakeMultipleCopiesNUD.Value + startIndex && !calledErrorAlready;
+                    i++)
+                {
                     ConfigPreviewEOC.Text +=
                        ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(i + 1));
+                }
+            }
             else
+            {
                 ConfigPreviewEOC.Text +=
                    ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(0));
+            }
+
+            // restore the user submitted ID
+            EnvObjTB.Text = oldText;
 
             calledErrorAlready = false;
+        }
+
+        private int FindStartIndex(ref string adjustedText)
+        {
+            // Get the last char of a string
+            string lastDigit = adjustedText.Substring(adjustedText.Length - 1);
+            
+            // The digit at the end
+            int result;
+
+            // Check if it's a digit, if not, return 0
+            try
+            {
+                if (!int.TryParse(adjustedText.Substring(adjustedText.Length - 1), out result))
+                {
+                    return 0;
+                }
+                // If it is a digit, see if there is another digit and add them together as a string
+                // and then convert said string into an int again.
+                else
+                {
+                    adjustedText = adjustedText.Substring(0, adjustedText.Length - 1);
+
+                    return int.Parse
+                    (
+                        FindStartIndex(ref adjustedText).ToString() + result.ToString()
+                    );
+                }
+            }
+            catch
+            {
+                ErrorMessage("Please do not use an ID with all numbers, it's breaks the program and it's not a good way of naming your objects anyway.");
+
+                adjustedText = string.Empty;
+
+                return 0;
+            }
         }
 
         private string ChangeEnvObjToString(EnvironmentObject envObj)
