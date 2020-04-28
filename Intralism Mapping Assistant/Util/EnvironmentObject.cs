@@ -51,11 +51,12 @@ namespace Intralism_Mapping_Assistant.Util
                 + CreateScaleEvent();
 
         protected virtual string CreateAddEvent()
-            => SpawnTime >= 0 && Type != null
+            => SpawnTime >= -(TIME_BETWEEN_EVENTS * 2) && Type != null
                 ? CreateEvent("AddEnvironmentObject", $"{(int)Type},{ID}") : "";
 
         private string CreateParentEvent()
-            => !string.IsNullOrEmpty(ParentID) ? CreateEvent("SetParent", $"{ID},{ParentID}") : "";
+            => !string.IsNullOrEmpty(ParentID)
+                ? CreateEvent("SetParent", $"{ID},{ParentID}") : "";
 
         protected string CreatePositionEvent()
             => CreateVector3Event(Position, "SetPosition");
