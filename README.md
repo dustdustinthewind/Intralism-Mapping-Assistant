@@ -7,6 +7,9 @@ Download the newest release from the [Release Page](https://github.com/FlyingRab
 
 Due to the nature of this project, the most recent release almost always matches the current state of the repo, so unless you want to make a PR, there's no need to clone the repo to run.
 
+# Extra Info
+- **Zoom Stop Effect tutorial:** https://youtu.be/kKtEWA8QSec
+
 ## Dependencies used
 - **Newtonsoft.Json**  
   Copyright: James Newton-King  
