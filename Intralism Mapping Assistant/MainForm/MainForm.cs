@@ -3,11 +3,15 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace Intralism_Mapping_Assistant
 {
     public partial class MainForm : Form
     {
+        private string FullVersion => Assembly.GetEntryAssembly().GetName().Version.ToString();
+        private string Version => FullVersion.Substring(0, FullVersion.LastIndexOf('.'));
+
         private string LoadedMapFolderLocation;
 
         // TODO: Make a "LoadedMap" for loading from config and a "CurrentMap" for whatever is
@@ -22,6 +26,7 @@ namespace Intralism_Mapping_Assistant
         public MainForm()
         {
             InitializeComponent();
+            label7.Text += Version;
         }
 
         private void CalcFED_CheckedChanged(object sender, EventArgs e)
@@ -66,8 +71,29 @@ namespace Intralism_Mapping_Assistant
                 FindSET();
         }
 
-        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://ko-fi.com/flyingrabidunicornpig");
+
+        private void label43_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("http://steamcommunity.com/profiles/76561198112790598");
+
+        private void label44_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://steamcommunity.com/profiles/76561198403090794");
+
+        private void label45_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("http://steamcommunity.com/profiles/76561198815634731");
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://steamcommunity.com/profiles/76561198113890125");
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://steamcommunity.com/profiles/76561198173832361");
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("http://steamcommunity.com/profiles/76561198350337391");
 
         private void AdvancedFrameRateCalc_CheckedChanged(object sender, EventArgs e)
             => CustomFrameRate.Enabled = AdvancedFrameRateCalc.Checked;
@@ -341,9 +367,6 @@ namespace Intralism_Mapping_Assistant
             }
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => Process.Start("https://ko-fi.com/flyingrabidunicornpig");
-
         private void EndTimeCBESA_CheckedChanged(object sender, EventArgs e)
             => LoopAmountCBESA.Checked = !EndTimeCBESA.Checked;
 
@@ -380,9 +403,6 @@ namespace Intralism_Mapping_Assistant
                 MirrorZCB.Enabled = false;
             }
         }
-
-        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-            => Process.Start("https://github.com/FlyingRabidUnicornPig/Intralism-Mapping-Assistant");
 
         private void button4_Click(object sender, EventArgs e)
         {

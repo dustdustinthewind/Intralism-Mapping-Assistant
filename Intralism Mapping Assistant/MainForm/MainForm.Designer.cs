@@ -60,6 +60,10 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
             this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
             this.AboutTab = new System.Windows.Forms.TabPage();
+            this.label45 = new System.Windows.Forms.LinkLabel();
+            this.label44 = new System.Windows.Forms.LinkLabel();
+            this.label43 = new System.Windows.Forms.LinkLabel();
+            this.label42 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
@@ -306,6 +310,10 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.label46 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -646,6 +654,14 @@ namespace Intralism_Mapping_Assistant
             // 
             // AboutTab
             // 
+            this.AboutTab.Controls.Add(this.label46);
+            this.AboutTab.Controls.Add(this.linkLabel5);
+            this.AboutTab.Controls.Add(this.linkLabel4);
+            this.AboutTab.Controls.Add(this.linkLabel3);
+            this.AboutTab.Controls.Add(this.label45);
+            this.AboutTab.Controls.Add(this.label44);
+            this.AboutTab.Controls.Add(this.label43);
+            this.AboutTab.Controls.Add(this.label42);
             this.AboutTab.Controls.Add(this.linkLabel2);
             this.AboutTab.Controls.Add(this.linkLabel1);
             this.AboutTab.Controls.Add(this.label9);
@@ -657,6 +673,48 @@ namespace Intralism_Mapping_Assistant
             this.AboutTab.Size = new System.Drawing.Size(927, 440);
             this.AboutTab.TabIndex = 4;
             this.AboutTab.Text = "About";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(641, 61);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(21, 13);
+            this.label45.TabIndex = 9;
+            this.label45.TabStop = true;
+            this.label45.Text = "Kiri";
+            this.label45.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label45_LinkClicked);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(641, 48);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(231, 13);
+            this.label44.TabIndex = 8;
+            this.label44.TabStop = true;
+            this.label44.Text = "Rayan/Akari/Purloin/Whatever He\'s called atm";
+            this.label44.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label44_LinkClicked);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(641, 35);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(50, 13);
+            this.label43.TabIndex = 7;
+            this.label43.TabStop = true;
+            this.label43.Text = "Yokkako";
+            this.label43.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label43_LinkClicked);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(641, 12);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(96, 13);
+            this.label42.TabIndex = 6;
+            this.label42.Text = "Special Thanks to:";
             // 
             // linkLabel2
             // 
@@ -678,7 +736,7 @@ namespace Intralism_Mapping_Assistant
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Github";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label9
             // 
@@ -702,9 +760,9 @@ namespace Intralism_Mapping_Assistant
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(167, 13);
+            this.label7.Size = new System.Drawing.Size(143, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Intralism Mapping Assistant v0.8.4";
+            this.label7.Text = "Intralism Mapping Assistant v";
             // 
             // MapSplitterTab
             // 
@@ -3976,6 +4034,48 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
             // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(641, 74);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(60, 13);
+            this.linkLabel3.TabIndex = 10;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "BryhanFine";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(641, 87);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(67, 13);
+            this.linkLabel4.TabIndex = 11;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Pe4enushko";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Location = new System.Drawing.Point(641, 100);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(41, 13);
+            this.linkLabel5.TabIndex = 12;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Dontas";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(641, 126);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(274, 13);
+            this.label46.TabIndex = 13;
+            this.label46.Text = "For reporting bugs, giving feature suggestions, and more!";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4384,5 +4484,13 @@ namespace Intralism_Mapping_Assistant
         private RadioButton EnvSpriteRB;
         private NumericUpDown EnvSpriteSpeedNUD;
         private Label Speed;
+        private Label label42;
+        private LinkLabel label45;
+        private LinkLabel label44;
+        private LinkLabel label43;
+        private LinkLabel linkLabel3;
+        private LinkLabel linkLabel4;
+        private LinkLabel linkLabel5;
+        private Label label46;
     }
 }
