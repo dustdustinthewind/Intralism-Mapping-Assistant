@@ -134,9 +134,7 @@ namespace Intralism_Mapping_Assistant
         }
 
         private bool IsAddressBoxLegal()
-        {
-            return Directory.Exists(AddressBox.Text) && File.Exists(AddressBox.Text + @"\config.txt");
-        }
+            => Directory.Exists(AddressBox.Text) && File.Exists(AddressBox.Text + @"\config.txt");
 
         private void ErrorMessage(string text)
             => MessageBox.Show(text, "You Dingus!");
@@ -254,6 +252,9 @@ namespace Intralism_Mapping_Assistant
                 textBox.Focus();
         }
 
+        private string GetSelectedText(RichTextBox textBox)
+            => textBox.Text.Substring(textBox.SelectionStart, textBox.SelectionLength);
+
         private void ChangeReadOnly(CheckBox readOnly, RichTextBox textBox)
             => textBox.ReadOnly = !readOnly.Checked;
 
@@ -261,7 +262,8 @@ namespace Intralism_Mapping_Assistant
         {
             if (evnt.GetTypeString() != "SetPlayerDistance")
             {
-                ErrorMessage("Tried to modify a non-zoom event!\nYou shouldn't be seeing this error!");
+                ErrorMessage("Tried to modify a non-zoom event!" +
+                    "You shouldn't be seeing this error!");
                 return;
             }
 

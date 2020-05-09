@@ -100,6 +100,20 @@ namespace Intralism_Mapping_Assistant
             this.SplitConfigPart2 = new System.Windows.Forms.RichTextBox();
             this.EventModifier = new System.Windows.Forms.TabPage();
             this.EventModifierPanel = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ZEMAddLZToConfig = new System.Windows.Forms.Button();
+            this.ZEMLZEventsPerSec = new System.Windows.Forms.Label();
+            this.ZEMLZDesiredEventsPerSecNUD = new System.Windows.Forms.NumericUpDown();
+            this.ZEMLZUseSelectForEnd = new System.Windows.Forms.Button();
+            this.ZEMLZUseSelectForStart = new System.Windows.Forms.Button();
+            this.label49 = new System.Windows.Forms.Label();
+            this.ZEMLZEndZoomNUD = new System.Windows.Forms.NumericUpDown();
+            this.label50 = new System.Windows.Forms.Label();
+            this.ZEMLZStartZoomNUD = new System.Windows.Forms.NumericUpDown();
+            this.label48 = new System.Windows.Forms.Label();
+            this.ZEMLZEndTimeNUD = new System.Windows.Forms.NumericUpDown();
+            this.label47 = new System.Windows.Forms.Label();
+            this.ZEMLZStartTimeNUD = new System.Windows.Forms.NumericUpDown();
             this.ZEMContainer = new System.Windows.Forms.SplitContainer();
             this.DestructiveZEMGroup = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -334,6 +348,12 @@ namespace Intralism_Mapping_Assistant
             this.SplitPreviews.SuspendLayout();
             this.EventModifier.SuspendLayout();
             this.EventModifierPanel.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZDesiredEventsPerSecNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZEndZoomNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZStartZoomNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZEndTimeNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZStartTimeNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZEMContainer)).BeginInit();
             this.ZEMContainer.Panel1.SuspendLayout();
             this.ZEMContainer.Panel2.SuspendLayout();
@@ -683,7 +703,7 @@ namespace Intralism_Mapping_Assistant
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(641, 136);
+            this.label46.Location = new System.Drawing.Point(641, 126);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(274, 13);
             this.label46.TabIndex = 13;
@@ -1109,12 +1129,173 @@ namespace Intralism_Mapping_Assistant
             // 
             // EventModifierPanel
             // 
+            this.EventModifierPanel.Controls.Add(this.groupBox3);
             this.EventModifierPanel.Controls.Add(this.ZEMContainer);
             this.EventModifierPanel.Controls.Add(this.ZoomModifierDescription);
             this.EventModifierPanel.Location = new System.Drawing.Point(7, 6);
             this.EventModifierPanel.Name = "EventModifierPanel";
             this.EventModifierPanel.Size = new System.Drawing.Size(914, 477);
             this.EventModifierPanel.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.ZEMAddLZToConfig);
+            this.groupBox3.Controls.Add(this.ZEMLZEventsPerSec);
+            this.groupBox3.Controls.Add(this.ZEMLZDesiredEventsPerSecNUD);
+            this.groupBox3.Controls.Add(this.ZEMLZUseSelectForEnd);
+            this.groupBox3.Controls.Add(this.ZEMLZUseSelectForStart);
+            this.groupBox3.Controls.Add(this.label49);
+            this.groupBox3.Controls.Add(this.ZEMLZEndZoomNUD);
+            this.groupBox3.Controls.Add(this.label50);
+            this.groupBox3.Controls.Add(this.ZEMLZStartZoomNUD);
+            this.groupBox3.Controls.Add(this.label48);
+            this.groupBox3.Controls.Add(this.ZEMLZEndTimeNUD);
+            this.groupBox3.Controls.Add(this.label47);
+            this.groupBox3.Controls.Add(this.ZEMLZStartTimeNUD);
+            this.groupBox3.Location = new System.Drawing.Point(3, 23);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(609, 107);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Long Zoom Creator";
+            // 
+            // ZEMAddLZToConfig
+            // 
+            this.ZEMAddLZToConfig.Location = new System.Drawing.Point(513, 74);
+            this.ZEMAddLZToConfig.Name = "ZEMAddLZToConfig";
+            this.ZEMAddLZToConfig.Size = new System.Drawing.Size(90, 23);
+            this.ZEMAddLZToConfig.TabIndex = 15;
+            this.ZEMAddLZToConfig.Text = "Add To Config";
+            this.ZEMAddLZToConfig.UseVisualStyleBackColor = true;
+            this.ZEMAddLZToConfig.Click += new System.EventHandler(this.ZEMAddLZToConfig_Click);
+            // 
+            // ZEMLZEventsPerSec
+            // 
+            this.ZEMLZEventsPerSec.AutoSize = true;
+            this.ZEMLZEventsPerSec.Location = new System.Drawing.Point(417, 19);
+            this.ZEMLZEventsPerSec.Name = "ZEMLZEventsPerSec";
+            this.ZEMLZEventsPerSec.Size = new System.Drawing.Size(129, 13);
+            this.ZEMLZEventsPerSec.TabIndex = 14;
+            this.ZEMLZEventsPerSec.Text = "Zoom Events Per Second";
+            // 
+            // ZEMLZDesiredEventsPerSecNUD
+            // 
+            this.ZEMLZDesiredEventsPerSecNUD.DecimalPlaces = 3;
+            this.ZEMLZDesiredEventsPerSecNUD.Location = new System.Drawing.Point(420, 35);
+            this.ZEMLZDesiredEventsPerSecNUD.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.ZEMLZDesiredEventsPerSecNUD.Name = "ZEMLZDesiredEventsPerSecNUD";
+            this.ZEMLZDesiredEventsPerSecNUD.Size = new System.Drawing.Size(120, 20);
+            this.ZEMLZDesiredEventsPerSecNUD.TabIndex = 13;
+            // 
+            // ZEMLZUseSelectForEnd
+            // 
+            this.ZEMLZUseSelectForEnd.Location = new System.Drawing.Point(258, 74);
+            this.ZEMLZUseSelectForEnd.Name = "ZEMLZUseSelectForEnd";
+            this.ZEMLZUseSelectForEnd.Size = new System.Drawing.Size(156, 23);
+            this.ZEMLZUseSelectForEnd.TabIndex = 12;
+            this.ZEMLZUseSelectForEnd.Text = "Use Selected Zoom for End";
+            this.ZEMLZUseSelectForEnd.UseVisualStyleBackColor = true;
+            // 
+            // ZEMLZUseSelectForStart
+            // 
+            this.ZEMLZUseSelectForStart.Location = new System.Drawing.Point(258, 35);
+            this.ZEMLZUseSelectForStart.Name = "ZEMLZUseSelectForStart";
+            this.ZEMLZUseSelectForStart.Size = new System.Drawing.Size(156, 23);
+            this.ZEMLZUseSelectForStart.TabIndex = 11;
+            this.ZEMLZUseSelectForStart.Text = "Use Selected Zoom for Start";
+            this.ZEMLZUseSelectForStart.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(127, 61);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(56, 13);
+            this.label49.TabIndex = 10;
+            this.label49.Text = "End Zoom";
+            // 
+            // ZEMLZEndZoomNUD
+            // 
+            this.ZEMLZEndZoomNUD.DecimalPlaces = 6;
+            this.ZEMLZEndZoomNUD.Location = new System.Drawing.Point(130, 77);
+            this.ZEMLZEndZoomNUD.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.ZEMLZEndZoomNUD.Name = "ZEMLZEndZoomNUD";
+            this.ZEMLZEndZoomNUD.Size = new System.Drawing.Size(120, 20);
+            this.ZEMLZEndZoomNUD.TabIndex = 9;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(127, 19);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(59, 13);
+            this.label50.TabIndex = 8;
+            this.label50.Text = "Start Zoom";
+            // 
+            // ZEMLZStartZoomNUD
+            // 
+            this.ZEMLZStartZoomNUD.DecimalPlaces = 6;
+            this.ZEMLZStartZoomNUD.Location = new System.Drawing.Point(130, 35);
+            this.ZEMLZStartZoomNUD.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.ZEMLZStartZoomNUD.Name = "ZEMLZStartZoomNUD";
+            this.ZEMLZStartZoomNUD.Size = new System.Drawing.Size(120, 20);
+            this.ZEMLZStartZoomNUD.TabIndex = 7;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(1, 61);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(52, 13);
+            this.label48.TabIndex = 6;
+            this.label48.Text = "End Time";
+            // 
+            // ZEMLZEndTimeNUD
+            // 
+            this.ZEMLZEndTimeNUD.DecimalPlaces = 6;
+            this.ZEMLZEndTimeNUD.Location = new System.Drawing.Point(4, 77);
+            this.ZEMLZEndTimeNUD.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.ZEMLZEndTimeNUD.Name = "ZEMLZEndTimeNUD";
+            this.ZEMLZEndTimeNUD.Size = new System.Drawing.Size(120, 20);
+            this.ZEMLZEndTimeNUD.TabIndex = 5;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(1, 19);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(55, 13);
+            this.label47.TabIndex = 4;
+            this.label47.Text = "Start Time";
+            // 
+            // ZEMLZStartTimeNUD
+            // 
+            this.ZEMLZStartTimeNUD.DecimalPlaces = 6;
+            this.ZEMLZStartTimeNUD.Location = new System.Drawing.Point(4, 35);
+            this.ZEMLZStartTimeNUD.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.ZEMLZStartTimeNUD.Name = "ZEMLZStartTimeNUD";
+            this.ZEMLZStartTimeNUD.Size = new System.Drawing.Size(120, 20);
+            this.ZEMLZStartTimeNUD.TabIndex = 0;
             // 
             // ZEMContainer
             // 
@@ -4180,6 +4361,13 @@ namespace Intralism_Mapping_Assistant
             this.EventModifier.ResumeLayout(false);
             this.EventModifierPanel.ResumeLayout(false);
             this.EventModifierPanel.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZDesiredEventsPerSecNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZEndZoomNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZStartZoomNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZEndTimeNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZEMLZStartTimeNUD)).EndInit();
             this.ZEMContainer.Panel1.ResumeLayout(false);
             this.ZEMContainer.Panel2.ResumeLayout(false);
             this.ZEMContainer.Panel2.PerformLayout();
@@ -4566,5 +4754,19 @@ namespace Intralism_Mapping_Assistant
         private CheckBox TrailZoomSpeedCB;
         private CheckBox ColorsCB;
         private LinkLabel linkLabel6;
+        private GroupBox groupBox3;
+        private Button ZEMAddLZToConfig;
+        private Label ZEMLZEventsPerSec;
+        private NumericUpDown ZEMLZDesiredEventsPerSecNUD;
+        private Button ZEMLZUseSelectForEnd;
+        private Button ZEMLZUseSelectForStart;
+        private Label label49;
+        private NumericUpDown ZEMLZEndZoomNUD;
+        private Label label50;
+        private NumericUpDown ZEMLZStartZoomNUD;
+        private Label label48;
+        private NumericUpDown ZEMLZEndTimeNUD;
+        private Label label47;
+        private NumericUpDown ZEMLZStartTimeNUD;
     }
 }

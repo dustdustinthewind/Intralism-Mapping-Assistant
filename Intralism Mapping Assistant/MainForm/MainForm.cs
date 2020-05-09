@@ -423,5 +423,8 @@ namespace Intralism_Mapping_Assistant
 
         private void TrailZoomSpeedCB_CheckedChanged(object sender, EventArgs e)
             => TrailZoomSpeedNUD.Enabled = TrailZoomSpeedCB.Checked;
+
+        private void ZEMAddLZToConfig_Click(object sender, EventArgs e)
+            => AddLongZoomToConfig();
     }
 }
