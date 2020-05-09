@@ -70,6 +70,45 @@ namespace Intralism_Mapping_Assistant.Util
         public double time;
         public string[] data = new string[2];
 
+        public Event() { }
+
+        // Makes an event out of an Intrlaism-formatted event string
+        // Format: {"time":[time],"data":[[data]]}
+        public Event(string configString)
+        {
+                // Make sure there's "time" and "data"
+            if ((configString.Contains("time") && configString.Contains("data")
+                // Make sure there's only one occurence of both.
+                && configString.IndexOf("time") != configString.LastIndexOf("time")
+                && configString.IndexOf("data") != configString.LastIndexOf("data"))
+                // Make sure there's two :, one { and }, and one or two of [ and ]
+                || configString.Count(f => f == ':') != 2
+                || configString.Count(f => f == '{') != 1 || configString.Count(f => f == '}') != 1
+                || configString.Count(f => f == '[') < 1 || configString.Count(f => f == ']') < 1
+                || configString.Count(f => f == '[') > 2 || configString.Count(f => f == ']') > 2)
+            {
+                // If anything was incorrect, throw an ivalid data exception
+                throw new InvalidDataException();
+            }
+
+            // Get the value for time
+            int timeStartIndex = configString.IndexOf(':') + 1;
+            int timeEndIndex = configString.IndexOf(',', timeStartIndex);
+
+            time = double.Parse(configString.Substring(timeStartIndex, timeEndIndex - timeStartIndex));
+
+            // Get the value(s) for data
+            int dataStartIndex = configString.IndexOf('[') + 1;
+            int dataEndIndex = configString.LastIndexOf(']');
+            data = 
+                // Get the inside of the data []
+                configString.Substring(dataStartIndex, dataEndIndex - dataStartIndex)
+                // Remove quotes
+                .Replace("\"", "")
+                // Split by the comma
+                .Split(',');
+        }
+
         public override bool Equals(object compareTo)
         {
             return ToString() == compareTo.ToString();
@@ -97,7 +136,7 @@ namespace Intralism_Mapping_Assistant.Util
                 compiledData += data[i] + "\"";
             }
 
-            return "{\"time\":" + time + ",\"data\":[" + compiledData + "]}";
+            return $"{{\"time\":{time},\"data\":[\"{compiledData}\"]}}";
         }
     }
 
@@ -106,5 +145,9 @@ namespace Intralism_Mapping_Assistant.Util
         public string name;
         public string type;
         public string path;
+
+        public override string ToString()
+            => $"{{\"name\":\"{name}\",\"type\":\"{type}\",\"path\":\"{path}\"}}";
+
     }
 }
