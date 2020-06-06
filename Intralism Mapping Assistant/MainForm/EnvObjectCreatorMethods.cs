@@ -134,7 +134,7 @@ namespace Intralism_Mapping_Assistant
             else if (EnvSpriteRB.Checked)
                 return CreateEnvironmentSpriteWithCurrentSettings(i);
             else if (!calledErrorAlready)
-                ErrorMessage("Select \"Sun\", \"Satellite\", or \"Particle Emitter\"!");
+                ErrorMessage("Select \"Sun\", \"Satellite\", \"Particle Emitter\", or \"Environment Sprite\"!");
 
             return null;
         }
@@ -170,6 +170,8 @@ namespace Intralism_Mapping_Assistant
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+
+                TrailZoomSpeed = TrailZoomSpeedCB.Checked ? (double?)TrailZoomSpeedNUD.Value : null,
 
                 Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
                 Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
@@ -215,6 +217,8 @@ namespace Intralism_Mapping_Assistant
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+
+                TrailZoomSpeed = TrailZoomSpeedCB.Checked ? (double?)TrailZoomSpeedNUD.Value : null,
 
                 Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
                 Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
@@ -262,6 +266,8 @@ namespace Intralism_Mapping_Assistant
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
 
+                TrailZoomSpeed = TrailZoomSpeedCB.Checked ? (double?)TrailZoomSpeedNUD.Value : null,
+
                 Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
                 Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
                 Scale = ScaleCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
@@ -280,6 +286,12 @@ namespace Intralism_Mapping_Assistant
 
         private EnvironmentSprite CreateEnvironmentSpriteWithCurrentSettings(int copy = 0)
         {
+            if (string.IsNullOrEmpty(ParentIDTB.Text))
+            {
+                ErrorMessage("Please provide an image resource for this Sprite!");
+                return null;
+            }
+
             // Every even object turn on the mirror toggle.
             float flip = 1;
             if (copy % 2 == 0)
@@ -304,6 +316,8 @@ namespace Intralism_Mapping_Assistant
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
+
+                TrailZoomSpeed = TrailZoomSpeedCB.Checked ? (double?)TrailZoomSpeedNUD.Value : null,
 
                 Position = PositionCB.Checked ? (Vector3?)new Vector3(posX, posY, posZ) : null,
                 Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,

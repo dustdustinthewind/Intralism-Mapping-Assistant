@@ -60,6 +60,10 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
             this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
             this.AboutTab = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.label45 = new System.Windows.Forms.LinkLabel();
             this.label44 = new System.Windows.Forms.LinkLabel();
             this.label43 = new System.Windows.Forms.LinkLabel();
@@ -261,6 +265,7 @@ namespace Intralism_Mapping_Assistant
             this.SatelliteInputNUD = new System.Windows.Forms.NumericUpDown();
             this.PositionYNUD = new System.Windows.Forms.NumericUpDown();
             this.SunGroupBox = new System.Windows.Forms.GroupBox();
+            this.ColorsCB = new System.Windows.Forms.CheckBox();
             this.SunDirectionVectorCB = new System.Windows.Forms.CheckBox();
             this.DirectionVectorZNUD = new System.Windows.Forms.NumericUpDown();
             this.DirectionVectorYNUD = new System.Windows.Forms.NumericUpDown();
@@ -312,11 +317,7 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.label46 = new System.Windows.Forms.Label();
-            this.ColorsCB = new System.Windows.Forms.CheckBox();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -658,6 +659,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // AboutTab
             // 
+            this.AboutTab.Controls.Add(this.linkLabel6);
             this.AboutTab.Controls.Add(this.label46);
             this.AboutTab.Controls.Add(this.linkLabel5);
             this.AboutTab.Controls.Add(this.linkLabel4);
@@ -677,6 +679,48 @@ namespace Intralism_Mapping_Assistant
             this.AboutTab.Size = new System.Drawing.Size(927, 440);
             this.AboutTab.TabIndex = 4;
             this.AboutTab.Text = "About";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(641, 136);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(274, 13);
+            this.label46.TabIndex = 13;
+            this.label46.Text = "For reporting bugs, giving feature suggestions, and more!";
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Location = new System.Drawing.Point(641, 100);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(41, 13);
+            this.linkLabel5.TabIndex = 12;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Dontas";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(641, 87);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(67, 13);
+            this.linkLabel4.TabIndex = 11;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Pe4enushko";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(641, 74);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(60, 13);
+            this.linkLabel3.TabIndex = 10;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "BryhanFine";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // label45
             // 
@@ -3414,6 +3458,17 @@ namespace Intralism_Mapping_Assistant
             this.SunGroupBox.TabStop = false;
             this.SunGroupBox.Text = "Sun Options";
             // 
+            // ColorsCB
+            // 
+            this.ColorsCB.AutoSize = true;
+            this.ColorsCB.Location = new System.Drawing.Point(112, 15);
+            this.ColorsCB.Name = "ColorsCB";
+            this.ColorsCB.Size = new System.Drawing.Size(77, 17);
+            this.ColorsCB.TabIndex = 112;
+            this.ColorsCB.Text = "Sun Colors";
+            this.ColorsCB.UseVisualStyleBackColor = true;
+            this.ColorsCB.CheckedChanged += new System.EventHandler(this.ColorsCB_CheckedChanged);
+            // 
             // SunDirectionVectorCB
             // 
             this.SunDirectionVectorCB.AutoSize = true;
@@ -4079,58 +4134,16 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
             // 
-            // linkLabel3
+            // linkLabel6
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(641, 74);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(60, 13);
-            this.linkLabel3.TabIndex = 10;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "BryhanFine";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // linkLabel4
-            // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(641, 87);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(67, 13);
-            this.linkLabel4.TabIndex = 11;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Pe4enushko";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
-            // 
-            // linkLabel5
-            // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(641, 100);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(41, 13);
-            this.linkLabel5.TabIndex = 12;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "Dontas";
-            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(641, 126);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(274, 13);
-            this.label46.TabIndex = 13;
-            this.label46.Text = "For reporting bugs, giving feature suggestions, and more!";
-            // 
-            // ColorsCB
-            // 
-            this.ColorsCB.AutoSize = true;
-            this.ColorsCB.Location = new System.Drawing.Point(112, 15);
-            this.ColorsCB.Name = "ColorsCB";
-            this.ColorsCB.Size = new System.Drawing.Size(77, 17);
-            this.ColorsCB.TabIndex = 112;
-            this.ColorsCB.Text = "Sun Colors";
-            this.ColorsCB.UseVisualStyleBackColor = true;
-            this.ColorsCB.CheckedChanged += new System.EventHandler(this.ColorsCB_CheckedChanged);
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Location = new System.Drawing.Point(641, 113);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(60, 13);
+            this.linkLabel6.TabIndex = 14;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Slenderlord";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // MainForm
             // 
@@ -4552,5 +4565,6 @@ namespace Intralism_Mapping_Assistant
         private NumericUpDown TrailZoomSpeedNUD;
         private CheckBox TrailZoomSpeedCB;
         private CheckBox ColorsCB;
+        private LinkLabel linkLabel6;
     }
 }

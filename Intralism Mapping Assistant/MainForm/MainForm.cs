@@ -95,6 +95,9 @@ namespace Intralism_Mapping_Assistant
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("http://steamcommunity.com/profiles/76561198350337391");
 
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start("https://steamcommunity.com/profiles/76561198865036761");
+
         private void AdvancedFrameRateCalc_CheckedChanged(object sender, EventArgs e)
             => CustomFrameRate.Enabled = AdvancedFrameRateCalc.Checked;
 
