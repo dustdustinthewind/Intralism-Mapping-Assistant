@@ -45,6 +45,7 @@ namespace Intralism_Mapping_Assistant.Util
         public double? Emission = null;
         public int? InputType = null;
         public double? Speed = null;
+        public double? TrailZoomSpeed = null;
 
         public override string ToString()
             => (IsNew ? CreateAddEvent() : AdjustTime()) + CreateParentEvent() +  CreatePositionEvent() + CreateRotationEvent()
@@ -96,6 +97,10 @@ namespace Intralism_Mapping_Assistant.Util
                 }.ToString() + ","
                 : "";
 
+        protected string CreateTrailZoomSpeedEvent()
+            => TrailZoomSpeed != null
+                ? CreateEvent("SetTrailZoomSpeed", $"{TrailZoomSpeed}") : "";
+
         protected string CreateEvent(string eventName, string eventData)
             => SpawnTime != null && !string.IsNullOrEmpty(eventName) && !string.IsNullOrEmpty(eventData)
                 ? new Event()
@@ -123,7 +128,7 @@ namespace Intralism_Mapping_Assistant.Util
             => base.ToString() + CreateColorsEvent() + CreateEmissionEvent("SetSunEmission")
                 + CreateInputTypeEvent("SetSunInput") + CreateSpeedEvent("SetSunLerpSpeed")
                 + CreateSensitivityEvent() + CreateMinSizeEvent() + CreateMaxSizeEvent()
-                + CreateDirectionVectorEvent() + CreateRemoveEvent();
+                + CreateDirectionVectorEvent() + CreateTrailZoomSpeedEvent() + CreateRemoveEvent();
 
         private string CreateColorsEvent()
             => !string.IsNullOrEmpty(MaxLivesHex) && !string.IsNullOrEmpty(NoLivesHex)
@@ -160,7 +165,8 @@ namespace Intralism_Mapping_Assistant.Util
                 + CreateEmissionEvent("SetSatelliteEmission") + CreateInputTypeEvent("SetSatelliteInput")
                 + CreateSpeedEvent("SetSatelliteLerpSpeed") + CreateSensitivityEvent()
                 + CreateRotationSpeedEvent() + CreateRadiusEvent() + CreateTrailFadeTimeEvent()
-                + CreateTrailWidthEvent() + CreateMinimumVertextDistance() + CreateRemoveEvent();
+                + CreateTrailWidthEvent() + CreateMinimumVertextDistance() + CreateTrailZoomSpeedEvent()
+                + CreateRemoveEvent();
 
         private string CreateSensitivityEvent()
             => Sensitivity != null
@@ -199,7 +205,7 @@ namespace Intralism_Mapping_Assistant.Util
             => base.ToString() + CreateColorEvent(ColorHex, "SetParticlesColor")
             + CreateEmissionEvent("SetParticlesEmission") + CreateInputTypeEvent("SetParticlesInput")
             + CreateGravityEvent() + CreateSpeedEvent("SetParticlesParticleSpeed") + CreatePPBEvent()
-            + CreateSizeEvent() + CreateRemoveEvent();
+            + CreateSizeEvent() + CreateTrailZoomSpeedEvent() + CreateRemoveEvent();
 
         private string CreateGravityEvent()
             => Gravity != null
@@ -226,7 +232,7 @@ namespace Intralism_Mapping_Assistant.Util
             => (IsNew ? CreateAddEvent()
                 : AdjustTime() + CreateSetImageEvent() + CreateColorEvent($"{ColorHex},{Speed}", "SetEnvSpriteColor"))
                 + CreatePositionEvent() + CreateRotationEvent()
-                + CreateScaleEvent() + CreateRemoveEvent();
+                + CreateScaleEvent() + CreateTrailZoomSpeedEvent() + CreateRemoveEvent();
 
         private string CreateSetImageEvent()
             => !string.IsNullOrEmpty(ParentID)

@@ -21,6 +21,9 @@ namespace Intralism_Mapping_Assistant
             string adjustedText = oldText;
             int startIndex = FindStartIndex(ref adjustedText);
 
+            // If we received an error in FindStartIndex return
+            if (startIndex < 0) { return; }
+
             EnvObjTB.Text = adjustedText;
 
             if (MakeMultipleCopiesNUD.Value > 0)
@@ -47,6 +50,13 @@ namespace Intralism_Mapping_Assistant
 
         private int FindStartIndex(ref string adjustedText)
         {
+            // Make sure adjustText has anything in it oops
+            if (string.IsNullOrEmpty(adjustedText))
+            {
+                ErrorMessage("Please give an object ID!");
+                return -1;
+            }
+
             // Get the last char of a string
             string lastDigit = adjustedText.Substring(adjustedText.Length - 1);
             
@@ -78,7 +88,7 @@ namespace Intralism_Mapping_Assistant
 
                 adjustedText = string.Empty;
 
-                return 0;
+                return -1;
             }
         }
 
@@ -165,8 +175,8 @@ namespace Intralism_Mapping_Assistant
                 Rotation = RotationCB.Checked ? (Vector3?)new Vector3(rotX, rotY, rotZ) : null,
                 Scale = ScaleCB.Checked ? (Vector3?)new Vector3((float)ScaleXNUD.Value, (float)ScaleYNUD.Value, (float)ScaleZNUD.Value) : null,
 
-                MaxLivesHex = MaxLivesCB.Checked ? MaxLivesColorTB.Text : "",
-                NoLivesHex = NoLivesColorCB.Checked ? NoLivesColorTB.Text : "",
+                MaxLivesHex = ColorsCB.Checked ? MaxLivesColorTB.Text : "",
+                NoLivesHex = ColorsCB.Checked ? NoLivesColorTB.Text : "",
 
                 Emission = SunEmissionCB.Checked ? (double?)SunEmissionNUD.Value : null,
                 InputType = SunInputCB.Checked ? (int?)SunInputNUD.Value : null,

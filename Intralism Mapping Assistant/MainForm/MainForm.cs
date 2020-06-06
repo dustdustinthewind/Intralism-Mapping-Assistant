@@ -268,11 +268,8 @@ namespace Intralism_Mapping_Assistant
         private void ScaleCB_CheckedChanged(object sender, EventArgs e)
             => ChangeEnabledStatus(new Control[] { ScaleXNUD, ScaleYNUD, ScaleZNUD }, ScaleCB.Checked);
 
-        private void MaxLivesCB_CheckedChanged(object sender, EventArgs e)
-            => ChangeEnabledStatus(new Control[] { MaxLivesColorTB, ColorPickSunMaxLives }, MaxLivesCB.Checked);
-
-        private void NoLivesColorCB_CheckedChanged(object sender, EventArgs e)
-            => ChangeEnabledStatus(new Control[] { NoLivesColorTB, ColorPickSunNoLives }, NoLivesColorCB.Checked);
+        private void ColorsCB_CheckedChanged(object sender, EventArgs e)
+            => ChangeEnabledStatus(new Control[] { MaxLivesColorTB, ColorPickSunMaxLives, NoLivesColorTB, ColorPickSunNoLives }, ColorsCB.Checked);
 
         private void SunEmissionCB_CheckedChanged(object sender, EventArgs e)
             => SunEmissionNUD.Enabled = SunEmissionCB.Checked;
@@ -420,5 +417,8 @@ namespace Intralism_Mapping_Assistant
             ColorDialog.ShowDialog();
             RefreshEnvSpriteTB();
         }
+
+        private void TrailZoomSpeedCB_CheckedChanged(object sender, EventArgs e)
+            => TrailZoomSpeedNUD.Enabled = TrailZoomSpeedCB.Checked;
     }
 }

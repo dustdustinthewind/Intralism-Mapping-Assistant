@@ -193,6 +193,8 @@ namespace Intralism_Mapping_Assistant
             this.label33 = new System.Windows.Forms.Label();
             this.PreviewRTBESA = new System.Windows.Forms.RichTextBox();
             this.EOCTab = new System.Windows.Forms.TabPage();
+            this.TrailZoomSpeedNUD = new System.Windows.Forms.NumericUpDown();
+            this.TrailZoomSpeedCB = new System.Windows.Forms.CheckBox();
             this.EnvSpriteRB = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Speed = new System.Windows.Forms.Label();
@@ -280,10 +282,10 @@ namespace Intralism_Mapping_Assistant
             this.SunEmissionCB = new System.Windows.Forms.CheckBox();
             this.SunEmissionNUD = new System.Windows.Forms.NumericUpDown();
             this.ColorPickSunNoLives = new System.Windows.Forms.Button();
-            this.NoLivesColorCB = new System.Windows.Forms.CheckBox();
+            this.NoLivesColorCB = new System.Windows.Forms.Label();
             this.NoLivesColorTB = new System.Windows.Forms.TextBox();
             this.ColorPickSunMaxLives = new System.Windows.Forms.Button();
-            this.MaxLivesCB = new System.Windows.Forms.CheckBox();
+            this.MaxLivesCB = new System.Windows.Forms.Label();
             this.MaxLivesColorTB = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -314,6 +316,7 @@ namespace Intralism_Mapping_Assistant
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.label46 = new System.Windows.Forms.Label();
+            this.ColorsCB = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -365,6 +368,7 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.EndTimeNUDESA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartTimeNUDESA)).BeginInit();
             this.EOCTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TrailZoomSpeedNUD)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteSpeedNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -2289,6 +2293,8 @@ namespace Intralism_Mapping_Assistant
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.TrailZoomSpeedNUD);
+            this.EOCTab.Controls.Add(this.TrailZoomSpeedCB);
             this.EOCTab.Controls.Add(this.EnvSpriteRB);
             this.EOCTab.Controls.Add(this.groupBox1);
             this.EOCTab.Controls.Add(this.MirrorZCB);
@@ -2344,10 +2350,50 @@ namespace Intralism_Mapping_Assistant
             this.EOCTab.TabIndex = 7;
             this.EOCTab.Text = "Env Object Creator";
             // 
+            // TrailZoomSpeedNUD
+            // 
+            this.TrailZoomSpeedNUD.DecimalPlaces = 2;
+            this.TrailZoomSpeedNUD.Enabled = false;
+            this.TrailZoomSpeedNUD.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.TrailZoomSpeedNUD.InterceptArrowKeys = false;
+            this.TrailZoomSpeedNUD.Location = new System.Drawing.Point(399, 25);
+            this.TrailZoomSpeedNUD.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.TrailZoomSpeedNUD.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.TrailZoomSpeedNUD.Name = "TrailZoomSpeedNUD";
+            this.TrailZoomSpeedNUD.Size = new System.Drawing.Size(79, 20);
+            this.TrailZoomSpeedNUD.TabIndex = 133;
+            this.TrailZoomSpeedNUD.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            65536});
+            // 
+            // TrailZoomSpeedCB
+            // 
+            this.TrailZoomSpeedCB.AutoSize = true;
+            this.TrailZoomSpeedCB.Location = new System.Drawing.Point(399, 8);
+            this.TrailZoomSpeedCB.Name = "TrailZoomSpeedCB";
+            this.TrailZoomSpeedCB.Size = new System.Drawing.Size(98, 17);
+            this.TrailZoomSpeedCB.TabIndex = 132;
+            this.TrailZoomSpeedCB.Text = "Trail Zoom Spd";
+            this.TrailZoomSpeedCB.CheckedChanged += new System.EventHandler(this.TrailZoomSpeedCB_CheckedChanged);
+            // 
             // EnvSpriteRB
             // 
             this.EnvSpriteRB.AutoSize = true;
-            this.EnvSpriteRB.Location = new System.Drawing.Point(463, 52);
+            this.EnvSpriteRB.Location = new System.Drawing.Point(497, 47);
             this.EnvSpriteRB.Name = "EnvSpriteRB";
             this.EnvSpriteRB.Size = new System.Drawing.Size(111, 17);
             this.EnvSpriteRB.TabIndex = 99;
@@ -2483,7 +2529,7 @@ namespace Intralism_Mapping_Assistant
             this.CreateNewObjectsCB.AutoSize = true;
             this.CreateNewObjectsCB.Checked = true;
             this.CreateNewObjectsCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CreateNewObjectsCB.Location = new System.Drawing.Point(464, 72);
+            this.CreateNewObjectsCB.Location = new System.Drawing.Point(498, 67);
             this.CreateNewObjectsCB.Name = "CreateNewObjectsCB";
             this.CreateNewObjectsCB.Size = new System.Drawing.Size(127, 17);
             this.CreateNewObjectsCB.TabIndex = 94;
@@ -2492,7 +2538,7 @@ namespace Intralism_Mapping_Assistant
             // MakeMultipleCopiesCB
             // 
             this.MakeMultipleCopiesCB.AutoSize = true;
-            this.MakeMultipleCopiesCB.Location = new System.Drawing.Point(464, 95);
+            this.MakeMultipleCopiesCB.Location = new System.Drawing.Point(498, 90);
             this.MakeMultipleCopiesCB.Name = "MakeMultipleCopiesCB";
             this.MakeMultipleCopiesCB.Size = new System.Drawing.Size(98, 17);
             this.MakeMultipleCopiesCB.TabIndex = 93;
@@ -2526,7 +2572,7 @@ namespace Intralism_Mapping_Assistant
             // ParentIDCB
             // 
             this.ParentIDCB.AutoSize = true;
-            this.ParentIDCB.Location = new System.Drawing.Point(135, 7);
+            this.ParentIDCB.Location = new System.Drawing.Point(112, 7);
             this.ParentIDCB.Name = "ParentIDCB";
             this.ParentIDCB.Size = new System.Drawing.Size(71, 17);
             this.ParentIDCB.TabIndex = 90;
@@ -2536,7 +2582,7 @@ namespace Intralism_Mapping_Assistant
             // ParentIDTB
             // 
             this.ParentIDTB.Enabled = false;
-            this.ParentIDTB.Location = new System.Drawing.Point(135, 25);
+            this.ParentIDTB.Location = new System.Drawing.Point(112, 25);
             this.ParentIDTB.Name = "ParentIDTB";
             this.ParentIDTB.Size = new System.Drawing.Size(100, 20);
             this.ParentIDTB.TabIndex = 89;
@@ -2544,7 +2590,7 @@ namespace Intralism_Mapping_Assistant
             // RemoveTimeCB
             // 
             this.RemoveTimeCB.AutoSize = true;
-            this.RemoveTimeCB.Location = new System.Drawing.Point(369, 8);
+            this.RemoveTimeCB.Location = new System.Drawing.Point(304, 8);
             this.RemoveTimeCB.Name = "RemoveTimeCB";
             this.RemoveTimeCB.Size = new System.Drawing.Size(92, 17);
             this.RemoveTimeCB.TabIndex = 88;
@@ -2554,7 +2600,7 @@ namespace Intralism_Mapping_Assistant
             // SpawnTimeCB
             // 
             this.SpawnTimeCB.AutoSize = true;
-            this.SpawnTimeCB.Location = new System.Drawing.Point(269, 9);
+            this.SpawnTimeCB.Location = new System.Drawing.Point(215, 9);
             this.SpawnTimeCB.Name = "SpawnTimeCB";
             this.SpawnTimeCB.Size = new System.Drawing.Size(61, 13);
             this.SpawnTimeCB.TabIndex = 87;
@@ -2564,7 +2610,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.RemoveTimeNUD.DecimalPlaces = 5;
             this.RemoveTimeNUD.Enabled = false;
-            this.RemoveTimeNUD.Location = new System.Drawing.Point(369, 26);
+            this.RemoveTimeNUD.Location = new System.Drawing.Point(304, 26);
             this.RemoveTimeNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -2577,7 +2623,7 @@ namespace Intralism_Mapping_Assistant
             // SpawnTimeNUD
             // 
             this.SpawnTimeNUD.DecimalPlaces = 5;
-            this.SpawnTimeNUD.Location = new System.Drawing.Point(272, 26);
+            this.SpawnTimeNUD.Location = new System.Drawing.Point(218, 26);
             this.SpawnTimeNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -2691,7 +2737,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterTypeCB
             // 
             this.ParticleEmitterTypeCB.AutoSize = true;
-            this.ParticleEmitterTypeCB.Location = new System.Drawing.Point(100, 56);
+            this.ParticleEmitterTypeCB.Location = new System.Drawing.Point(116, 56);
             this.ParticleEmitterTypeCB.Name = "ParticleEmitterTypeCB";
             this.ParticleEmitterTypeCB.Size = new System.Drawing.Size(77, 17);
             this.ParticleEmitterTypeCB.TabIndex = 146;
@@ -2740,7 +2786,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterInputNUD
             // 
             this.ParticleEmitterInputNUD.Enabled = false;
-            this.ParticleEmitterInputNUD.Location = new System.Drawing.Point(102, 73);
+            this.ParticleEmitterInputNUD.Location = new System.Drawing.Point(118, 73);
             this.ParticleEmitterInputNUD.Maximum = new decimal(new int[] {
             7,
             0,
@@ -2797,7 +2843,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterSpeedCB
             // 
             this.ParticleEmitterSpeedCB.AutoSize = true;
-            this.ParticleEmitterSpeedCB.Location = new System.Drawing.Point(99, 101);
+            this.ParticleEmitterSpeedCB.Location = new System.Drawing.Point(115, 101);
             this.ParticleEmitterSpeedCB.Name = "ParticleEmitterSpeedCB";
             this.ParticleEmitterSpeedCB.Size = new System.Drawing.Size(57, 17);
             this.ParticleEmitterSpeedCB.TabIndex = 140;
@@ -2867,7 +2913,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.ParticleEmitterSpeedNUD.DecimalPlaces = 2;
             this.ParticleEmitterSpeedNUD.Enabled = false;
-            this.ParticleEmitterSpeedNUD.Location = new System.Drawing.Point(102, 117);
+            this.ParticleEmitterSpeedNUD.Location = new System.Drawing.Point(118, 117);
             this.ParticleEmitterSpeedNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -3333,6 +3379,7 @@ namespace Intralism_Mapping_Assistant
             // 
             // SunGroupBox
             // 
+            this.SunGroupBox.Controls.Add(this.ColorsCB);
             this.SunGroupBox.Controls.Add(this.SunDirectionVectorCB);
             this.SunGroupBox.Controls.Add(this.DirectionVectorZNUD);
             this.SunGroupBox.Controls.Add(this.DirectionVectorYNUD);
@@ -3724,10 +3771,9 @@ namespace Intralism_Mapping_Assistant
             this.NoLivesColorCB.AutoSize = true;
             this.NoLivesColorCB.Location = new System.Drawing.Point(6, 58);
             this.NoLivesColorCB.Name = "NoLivesColorCB";
-            this.NoLivesColorCB.Size = new System.Drawing.Size(95, 17);
+            this.NoLivesColorCB.Size = new System.Drawing.Size(76, 13);
             this.NoLivesColorCB.TabIndex = 93;
             this.NoLivesColorCB.Text = "No Lives Color";
-            this.NoLivesColorCB.CheckedChanged += new System.EventHandler(this.NoLivesColorCB_CheckedChanged);
             // 
             // NoLivesColorTB
             // 
@@ -3753,10 +3799,9 @@ namespace Intralism_Mapping_Assistant
             this.MaxLivesCB.AutoSize = true;
             this.MaxLivesCB.Location = new System.Drawing.Point(6, 19);
             this.MaxLivesCB.Name = "MaxLivesCB";
-            this.MaxLivesCB.Size = new System.Drawing.Size(101, 17);
+            this.MaxLivesCB.Size = new System.Drawing.Size(82, 13);
             this.MaxLivesCB.TabIndex = 91;
             this.MaxLivesCB.Text = "Max Lives Color";
-            this.MaxLivesCB.CheckedChanged += new System.EventHandler(this.MaxLivesCB_CheckedChanged);
             // 
             // MaxLivesColorTB
             // 
@@ -3937,7 +3982,7 @@ namespace Intralism_Mapping_Assistant
             // ParticleEmitterRB
             // 
             this.ParticleEmitterRB.AutoSize = true;
-            this.ParticleEmitterRB.Location = new System.Drawing.Point(463, 37);
+            this.ParticleEmitterRB.Location = new System.Drawing.Point(497, 32);
             this.ParticleEmitterRB.Name = "ParticleEmitterRB";
             this.ParticleEmitterRB.Size = new System.Drawing.Size(93, 17);
             this.ParticleEmitterRB.TabIndex = 55;
@@ -3949,7 +3994,7 @@ namespace Intralism_Mapping_Assistant
             // SatelliteRB
             // 
             this.SatelliteRB.AutoSize = true;
-            this.SatelliteRB.Location = new System.Drawing.Point(463, 21);
+            this.SatelliteRB.Location = new System.Drawing.Point(497, 16);
             this.SatelliteRB.Name = "SatelliteRB";
             this.SatelliteRB.Size = new System.Drawing.Size(60, 17);
             this.SatelliteRB.TabIndex = 54;
@@ -3961,7 +4006,7 @@ namespace Intralism_Mapping_Assistant
             // SunRB
             // 
             this.SunRB.AutoSize = true;
-            this.SunRB.Location = new System.Drawing.Point(463, 6);
+            this.SunRB.Location = new System.Drawing.Point(497, 0);
             this.SunRB.Name = "SunRB";
             this.SunRB.Size = new System.Drawing.Size(42, 17);
             this.SunRB.TabIndex = 53;
@@ -4076,6 +4121,17 @@ namespace Intralism_Mapping_Assistant
             this.label46.TabIndex = 13;
             this.label46.Text = "For reporting bugs, giving feature suggestions, and more!";
             // 
+            // ColorsCB
+            // 
+            this.ColorsCB.AutoSize = true;
+            this.ColorsCB.Location = new System.Drawing.Point(112, 15);
+            this.ColorsCB.Name = "ColorsCB";
+            this.ColorsCB.Size = new System.Drawing.Size(77, 17);
+            this.ColorsCB.TabIndex = 112;
+            this.ColorsCB.Text = "Sun Colors";
+            this.ColorsCB.UseVisualStyleBackColor = true;
+            this.ColorsCB.CheckedChanged += new System.EventHandler(this.ColorsCB_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4155,6 +4211,7 @@ namespace Intralism_Mapping_Assistant
             ((System.ComponentModel.ISupportInitialize)(this.StartTimeNUDESA)).EndInit();
             this.EOCTab.ResumeLayout(false);
             this.EOCTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TrailZoomSpeedNUD)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnvSpriteSpeedNUD)).EndInit();
@@ -4382,10 +4439,10 @@ namespace Intralism_Mapping_Assistant
         private CheckBox PositionCB;
         private NumericUpDown PositionXNUD;
         private ColorDialog ColorDialog;
-        private CheckBox MaxLivesCB;
+        private Label MaxLivesCB;
         private TextBox MaxLivesColorTB;
         private Button ColorPickSunNoLives;
-        private CheckBox NoLivesColorCB;
+        private Label NoLivesColorCB;
         private TextBox NoLivesColorTB;
         private Button ColorPickSunMaxLives;
         private NumericUpDown SunEmissionNUD;
@@ -4492,5 +4549,8 @@ namespace Intralism_Mapping_Assistant
         private LinkLabel linkLabel4;
         private LinkLabel linkLabel5;
         private Label label46;
+        private NumericUpDown TrailZoomSpeedNUD;
+        private CheckBox TrailZoomSpeedCB;
+        private CheckBox ColorsCB;
     }
 }
