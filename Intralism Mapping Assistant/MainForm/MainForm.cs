@@ -257,7 +257,10 @@ namespace Intralism_Mapping_Assistant
             => FillTextBoxWithSelectedColorCode(ParticleEmitterColorTB);
 
         private void ParentIDCB_CheckedChanged(object sender, EventArgs e)
-            => ParentIDTB.Enabled = ParentIDCB.Checked;
+        {
+            ParentIDTB.Enabled = ParentIDCB.Checked;
+            MultipleParentsCB.Enabled = ParentIDCB.Checked && MakeMultipleCopiesCB.Checked;
+        }
 
         private void RemoveTimeCB_CheckedChanged(object sender, EventArgs e)
             => RemoveTimeNUD.Enabled = RemoveTimeCB.Checked;
@@ -356,7 +359,8 @@ namespace Intralism_Mapping_Assistant
             => DeleteNonZooms();
 
         private void MakeMultipleCopiesCB_CheckedChanged(object sender, EventArgs e)
-        { 
+        {
+            MultipleParentsCB.Enabled = MakeMultipleCopiesCB.Checked && ParentIDCB.Checked;
             MakeMultipleCopiesNUD.Enabled = MakeMultipleCopiesCB.Checked;
 
             if (!MakeMultipleCopiesCB.Checked)

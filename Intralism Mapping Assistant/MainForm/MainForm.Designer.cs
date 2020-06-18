@@ -34,6 +34,7 @@ namespace Intralism_Mapping_Assistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CustomFRToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.AdvancedFrameRateCalc = new System.Windows.Forms.CheckBox();
+            this.MultipleParentsCB = new System.Windows.Forms.CheckBox();
             this.CustomRangeToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.AdvancedCustomRangeCalc = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -60,6 +61,7 @@ namespace Intralism_Mapping_Assistant
             this.ConfigPreviewHSLabel = new System.Windows.Forms.Label();
             this.ConfigPreviewRTBHS = new System.Windows.Forms.RichTextBox();
             this.AboutTab = new System.Windows.Forms.TabPage();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.label46 = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
@@ -331,7 +333,6 @@ namespace Intralism_Mapping_Assistant
             this.label24 = new System.Windows.Forms.Label();
             this.ConfigPreviewEOC = new System.Windows.Forms.RichTextBox();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.HandSwitchTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
@@ -451,6 +452,19 @@ namespace Intralism_Mapping_Assistant
         "your machine, input your average frame rate.\nDefault Frame Rate is 1000.");
             this.AdvancedFrameRateCalc.UseVisualStyleBackColor = true;
             this.AdvancedFrameRateCalc.CheckedChanged += new System.EventHandler(this.AdvancedFrameRateCalc_CheckedChanged);
+            // 
+            // MultipleParentsCB
+            // 
+            this.MultipleParentsCB.AutoSize = true;
+            this.MultipleParentsCB.Enabled = false;
+            this.MultipleParentsCB.Location = new System.Drawing.Point(111, 48);
+            this.MultipleParentsCB.Name = "MultipleParentsCB";
+            this.MultipleParentsCB.Size = new System.Drawing.Size(101, 17);
+            this.MultipleParentsCB.TabIndex = 134;
+            this.MultipleParentsCB.Text = "Multiple Parents";
+            this.CustomFRToolTip.SetToolTip(this.MultipleParentsCB, "If this is selected, each created object will have their own parent, rather than " +
+        "all copies following the same one.");
+            this.MultipleParentsCB.UseVisualStyleBackColor = true;
             // 
             // AdvancedCustomRangeCalc
             // 
@@ -699,6 +713,17 @@ namespace Intralism_Mapping_Assistant
             this.AboutTab.Size = new System.Drawing.Size(927, 440);
             this.AboutTab.TabIndex = 4;
             this.AboutTab.Text = "About";
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Location = new System.Drawing.Point(641, 113);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(60, 13);
+            this.linkLabel6.TabIndex = 14;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Slenderlord";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // label46
             // 
@@ -1152,12 +1177,13 @@ namespace Intralism_Mapping_Assistant
             this.groupBox3.Controls.Add(this.ZEMLZEndTimeNUD);
             this.groupBox3.Controls.Add(this.label47);
             this.groupBox3.Controls.Add(this.ZEMLZStartTimeNUD);
+            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(3, 23);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(609, 107);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Long Zoom Creator";
+            this.groupBox3.Text = "Long Zoom Creator (WIP, not ready yet)";
             // 
             // ZEMAddLZToConfig
             // 
@@ -2518,6 +2544,7 @@ namespace Intralism_Mapping_Assistant
             // EOCTab
             // 
             this.EOCTab.BackColor = System.Drawing.SystemColors.Control;
+            this.EOCTab.Controls.Add(this.MultipleParentsCB);
             this.EOCTab.Controls.Add(this.TrailZoomSpeedNUD);
             this.EOCTab.Controls.Add(this.TrailZoomSpeedCB);
             this.EOCTab.Controls.Add(this.EnvSpriteRB);
@@ -2723,7 +2750,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.MirrorZCB.AutoSize = true;
             this.MirrorZCB.Enabled = false;
-            this.MirrorZCB.Location = new System.Drawing.Point(338, 115);
+            this.MirrorZCB.Location = new System.Drawing.Point(338, 120);
             this.MirrorZCB.Name = "MirrorZCB";
             this.MirrorZCB.Size = new System.Drawing.Size(98, 17);
             this.MirrorZCB.TabIndex = 97;
@@ -2733,7 +2760,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.MirrorYCB.AutoSize = true;
             this.MirrorYCB.Enabled = false;
-            this.MirrorYCB.Location = new System.Drawing.Point(338, 89);
+            this.MirrorYCB.Location = new System.Drawing.Point(338, 94);
             this.MirrorYCB.Name = "MirrorYCB";
             this.MirrorYCB.Size = new System.Drawing.Size(98, 17);
             this.MirrorYCB.TabIndex = 96;
@@ -2743,7 +2770,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.MirrorXCB.AutoSize = true;
             this.MirrorXCB.Enabled = false;
-            this.MirrorXCB.Location = new System.Drawing.Point(338, 63);
+            this.MirrorXCB.Location = new System.Drawing.Point(338, 68);
             this.MirrorXCB.Name = "MirrorXCB";
             this.MirrorXCB.Size = new System.Drawing.Size(98, 17);
             this.MirrorXCB.TabIndex = 95;
@@ -2862,7 +2889,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.ScaleZNUD.DecimalPlaces = 2;
             this.ScaleZNUD.Enabled = false;
-            this.ScaleZNUD.Location = new System.Drawing.Point(274, 114);
+            this.ScaleZNUD.Location = new System.Drawing.Point(274, 119);
             this.ScaleZNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -2881,7 +2908,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.RotationZNUD.DecimalPlaces = 2;
             this.RotationZNUD.Enabled = false;
-            this.RotationZNUD.Location = new System.Drawing.Point(274, 88);
+            this.RotationZNUD.Location = new System.Drawing.Point(274, 93);
             this.RotationZNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -2900,7 +2927,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.PositionZNUD.DecimalPlaces = 2;
             this.PositionZNUD.Enabled = false;
-            this.PositionZNUD.Location = new System.Drawing.Point(274, 62);
+            this.PositionZNUD.Location = new System.Drawing.Point(274, 67);
             this.PositionZNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -2919,7 +2946,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.ScaleYNUD.DecimalPlaces = 2;
             this.ScaleYNUD.Enabled = false;
-            this.ScaleYNUD.Location = new System.Drawing.Point(185, 113);
+            this.ScaleYNUD.Location = new System.Drawing.Point(185, 118);
             this.ScaleYNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -3175,7 +3202,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.RotationYNUD.DecimalPlaces = 2;
             this.RotationYNUD.Enabled = false;
-            this.RotationYNUD.Location = new System.Drawing.Point(185, 87);
+            this.RotationYNUD.Location = new System.Drawing.Point(185, 92);
             this.RotationYNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -3587,7 +3614,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.PositionYNUD.DecimalPlaces = 2;
             this.PositionYNUD.Enabled = false;
-            this.PositionYNUD.Location = new System.Drawing.Point(185, 61);
+            this.PositionYNUD.Location = new System.Drawing.Point(185, 66);
             this.PositionYNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -4050,7 +4077,7 @@ namespace Intralism_Mapping_Assistant
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(252, 116);
+            this.label34.Location = new System.Drawing.Point(252, 121);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(17, 13);
             this.label34.TabIndex = 78;
@@ -4059,7 +4086,7 @@ namespace Intralism_Mapping_Assistant
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(162, 115);
+            this.label35.Location = new System.Drawing.Point(162, 120);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(17, 13);
             this.label35.TabIndex = 76;
@@ -4068,7 +4095,7 @@ namespace Intralism_Mapping_Assistant
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(68, 115);
+            this.label36.Location = new System.Drawing.Point(68, 120);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(17, 13);
             this.label36.TabIndex = 74;
@@ -4077,7 +4104,7 @@ namespace Intralism_Mapping_Assistant
             // ScaleCB
             // 
             this.ScaleCB.AutoSize = true;
-            this.ScaleCB.Location = new System.Drawing.Point(3, 114);
+            this.ScaleCB.Location = new System.Drawing.Point(3, 119);
             this.ScaleCB.Name = "ScaleCB";
             this.ScaleCB.Size = new System.Drawing.Size(56, 17);
             this.ScaleCB.TabIndex = 73;
@@ -4088,7 +4115,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.ScaleXNUD.DecimalPlaces = 2;
             this.ScaleXNUD.Enabled = false;
-            this.ScaleXNUD.Location = new System.Drawing.Point(91, 113);
+            this.ScaleXNUD.Location = new System.Drawing.Point(91, 118);
             this.ScaleXNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -4106,7 +4133,7 @@ namespace Intralism_Mapping_Assistant
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(252, 90);
+            this.label30.Location = new System.Drawing.Point(252, 95);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 13);
             this.label30.TabIndex = 71;
@@ -4115,7 +4142,7 @@ namespace Intralism_Mapping_Assistant
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(162, 89);
+            this.label31.Location = new System.Drawing.Point(162, 94);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(17, 13);
             this.label31.TabIndex = 69;
@@ -4133,7 +4160,7 @@ namespace Intralism_Mapping_Assistant
             // RotationCB
             // 
             this.RotationCB.AutoSize = true;
-            this.RotationCB.Location = new System.Drawing.Point(3, 88);
+            this.RotationCB.Location = new System.Drawing.Point(3, 93);
             this.RotationCB.Name = "RotationCB";
             this.RotationCB.Size = new System.Drawing.Size(69, 17);
             this.RotationCB.TabIndex = 66;
@@ -4144,7 +4171,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.RotationXNUD.DecimalPlaces = 2;
             this.RotationXNUD.Enabled = false;
-            this.RotationXNUD.Location = new System.Drawing.Point(91, 87);
+            this.RotationXNUD.Location = new System.Drawing.Point(91, 92);
             this.RotationXNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -4162,7 +4189,7 @@ namespace Intralism_Mapping_Assistant
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(252, 64);
+            this.label29.Location = new System.Drawing.Point(252, 69);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(17, 13);
             this.label29.TabIndex = 64;
@@ -4180,7 +4207,7 @@ namespace Intralism_Mapping_Assistant
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(68, 63);
+            this.label27.Location = new System.Drawing.Point(68, 68);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(17, 13);
             this.label27.TabIndex = 60;
@@ -4189,7 +4216,7 @@ namespace Intralism_Mapping_Assistant
             // PositionCB
             // 
             this.PositionCB.AutoSize = true;
-            this.PositionCB.Location = new System.Drawing.Point(3, 62);
+            this.PositionCB.Location = new System.Drawing.Point(3, 67);
             this.PositionCB.Name = "PositionCB";
             this.PositionCB.Size = new System.Drawing.Size(66, 17);
             this.PositionCB.TabIndex = 59;
@@ -4200,7 +4227,7 @@ namespace Intralism_Mapping_Assistant
             // 
             this.PositionXNUD.DecimalPlaces = 2;
             this.PositionXNUD.Enabled = false;
-            this.PositionXNUD.Location = new System.Drawing.Point(91, 61);
+            this.PositionXNUD.Location = new System.Drawing.Point(91, 66);
             this.PositionXNUD.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -4314,17 +4341,6 @@ namespace Intralism_Mapping_Assistant
             this.ColorDialog.AnyColor = true;
             this.ColorDialog.FullOpen = true;
             this.ColorDialog.ShowHelp = true;
-            // 
-            // linkLabel6
-            // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Location = new System.Drawing.Point(641, 113);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(60, 13);
-            this.linkLabel6.TabIndex = 14;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "Slenderlord";
-            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // MainForm
             // 
@@ -4768,5 +4784,6 @@ namespace Intralism_Mapping_Assistant
         private NumericUpDown ZEMLZEndTimeNUD;
         private Label label47;
         private NumericUpDown ZEMLZStartTimeNUD;
+        private CheckBox MultipleParentsCB;
     }
 }

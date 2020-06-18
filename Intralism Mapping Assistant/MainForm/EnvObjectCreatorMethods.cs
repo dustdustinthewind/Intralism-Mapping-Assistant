@@ -17,43 +17,59 @@ namespace Intralism_Mapping_Assistant
             ConfigPreviewEOC.Text = "";
 
             // Find start index and "fix" the ID if it has numbers at the end
-            string oldText = EnvObjTB.Text;
-            string adjustedText = oldText;
-            int startIndex = FindStartIndex(ref adjustedText);
+            string nameOldText = EnvObjTB.Text;
+            string nameAdjustedText = nameOldText;
+            int nameStartIndex = FindStartIndex(ref nameAdjustedText, true);
+
+            string parentOldText = ParentIDTB.Text;
+            bool careAboutParent = MultipleParentsCB.Checked && !string.IsNullOrEmpty(parentOldText);
+            string parentAdjustedText = parentOldText;
+            int parentStartIndex = 0;
+            // Parent could be null
+            if (careAboutParent)
+            {
+                parentStartIndex = FindStartIndex(ref parentAdjustedText, true, true);
+            }
 
             // If we received an error in FindStartIndex return
-            if (startIndex < 0) { return; }
+            if (nameStartIndex < 0 || (careAboutParent && parentStartIndex < 0)) { return; }
 
-            EnvObjTB.Text = adjustedText;
+            EnvObjTB.Text = nameAdjustedText;
+            ParentIDTB.Text = parentAdjustedText;
 
             if (MakeMultipleCopiesNUD.Value > 0)
             {
-                for (int i = startIndex - 1;
-                    i < MakeMultipleCopiesNUD.Value + startIndex && !calledErrorAlready;
+                int currentStep = 0;
+                for (int i = nameStartIndex - 1;
+                    i < MakeMultipleCopiesNUD.Value + nameStartIndex && !calledErrorAlready;
                     i++)
                 {
                     ConfigPreviewEOC.Text +=
-                       ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(i + 1));
+                       ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(i + 1, (careAboutParent, currentStep + parentStartIndex)));
+
+
+                    currentStep++;
                 }
             }
             else
             {
                 ConfigPreviewEOC.Text +=
-                   ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(0));
+                   ChangeEnvObjToString(CreateEnvironmentObjectWithCurrentSettings(0, (false, 0)));
             }
 
             // restore the user submitted ID
-            EnvObjTB.Text = oldText;
+            EnvObjTB.Text = nameOldText;
+            ParentIDTB.Text = parentOldText;
 
             calledErrorAlready = false;
         }
 
-        private int FindStartIndex(ref string adjustedText)
+        private int FindStartIndex(ref string adjustedText, bool first = false, bool parent = false)
         {
             // Make sure adjustText has anything in it oops
-            if (string.IsNullOrEmpty(adjustedText))
+            if (first && string.IsNullOrEmpty(adjustedText))
             {
-                ErrorMessage("Please give an object ID!");
+                ErrorMessage($"Please give {(parent ? "a parent" : "an object")} ID!");
                 return -1;
             }
 
@@ -78,13 +94,15 @@ namespace Intralism_Mapping_Assistant
 
                     return int.Parse
                     (
-                        FindStartIndex(ref adjustedText).ToString() + result.ToString()
+                        FindStartIndex(ref adjustedText, false, parent).ToString() + result.ToString()
                     );
                 }
             }
             catch
             {
-                ErrorMessage("Please do not use an ID with all numbers, it's breaks the program and it's not a good way of naming your objects anyway.");
+                ErrorMessage($"Please do not use {(parent ? "a parent" : "an object")} ID " +
+                    $"with all numbers, it'd break the program and it's not a good way of " +
+                    $"naming your objects anyway.");
 
                 adjustedText = string.Empty;
 
@@ -121,18 +139,18 @@ namespace Intralism_Mapping_Assistant
             }
         }
 
-        private EnvironmentObject CreateEnvironmentObjectWithCurrentSettings(int i)
+        private EnvironmentObject CreateEnvironmentObjectWithCurrentSettings(int index, (bool, int) parentTuple)
         {
             if (string.IsNullOrEmpty(EnvObjTB.Text)) return null;
 
             if (SunRB.Checked)
-                return CreateSunWithCurrentSettings(i);
+                return CreateSunWithCurrentSettings(parentTuple, index);
             else if (SatelliteRB.Checked)
-                return CreateSatelliteWithCurrentSettings(i);
+                return CreateSatelliteWithCurrentSettings(parentTuple, index);
             else if (ParticleEmitterRB.Checked)
-                return CreateParticleEmitterWithCurrentSettings(i);
+                return CreateParticleEmitterWithCurrentSettings(parentTuple, index);
             else if (EnvSpriteRB.Checked)
-                return CreateEnvironmentSpriteWithCurrentSettings(i);
+                return CreateEnvironmentSpriteWithCurrentSettings(parentTuple, index);
             else if (!calledErrorAlready)
                 ErrorMessage("Select \"Sun\", \"Satellite\", \"Particle Emitter\", or \"Environment Sprite\"!");
 
@@ -144,7 +162,7 @@ namespace Intralism_Mapping_Assistant
         private bool MirrorY => MirrorYCB.Enabled && MirrorYCB.Checked;
         private bool MirrorZ => MirrorZCB.Enabled && MirrorZCB.Checked;
 
-        private Sun CreateSunWithCurrentSettings(int copy = 0)
+        private Sun CreateSunWithCurrentSettings((bool, int) parentTuple, int copy = 0)
         {
             // Every even object turn on the mirror toggle.
             float flip = 1;
@@ -166,7 +184,12 @@ namespace Intralism_Mapping_Assistant
                 IsNew = CreateNewObjectsCB.Checked,
 
                 ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+                ParentID =  ParentIDCB.Checked ?
+                            (
+                                parentTuple.Item1 ?
+                                    ParentIDTB.Text + (parentTuple.Item2 != 0 ? $"{parentTuple.Item2}" : "") :
+                                    ParentIDTB.Text
+                            ) : null,
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
@@ -191,7 +214,7 @@ namespace Intralism_Mapping_Assistant
             };
         }
 
-        private Satellite CreateSatelliteWithCurrentSettings(int copy = 0)
+        private Satellite CreateSatelliteWithCurrentSettings((bool, int) parentTuple, int copy = 0)
         {
             // Every even object turn on the mirror toggle.
             float flip = 1;
@@ -213,7 +236,12 @@ namespace Intralism_Mapping_Assistant
                 IsNew = CreateNewObjectsCB.Checked,
 
                 ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+                ParentID = ParentIDCB.Checked ?
+                            (
+                                parentTuple.Item1 ?
+                                    ParentIDTB.Text + (parentTuple.Item2 != 0 ? $"{parentTuple.Item2}" : "") :
+                                    ParentIDTB.Text
+                            ) : null,
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
@@ -239,7 +267,7 @@ namespace Intralism_Mapping_Assistant
             };
         }
 
-        private ParticleEmitter CreateParticleEmitterWithCurrentSettings(int copy = 0)
+        private ParticleEmitter CreateParticleEmitterWithCurrentSettings((bool, int) parentTuple, int copy = 0)
         {
             // Every even object turn on the mirror toggle.
             float flip = 1;
@@ -261,7 +289,12 @@ namespace Intralism_Mapping_Assistant
                 IsNew = CreateNewObjectsCB.Checked,
 
                 ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+                ParentID = ParentIDCB.Checked ?
+                            (
+                                parentTuple.Item1 ?
+                                    ParentIDTB.Text + (parentTuple.Item2 != 0 ? $"{parentTuple.Item2}" : "") :
+                                    ParentIDTB.Text
+                            ) : null,
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
@@ -284,7 +317,7 @@ namespace Intralism_Mapping_Assistant
             };
         }
 
-        private EnvironmentSprite CreateEnvironmentSpriteWithCurrentSettings(int copy = 0)
+        private EnvironmentSprite CreateEnvironmentSpriteWithCurrentSettings((bool, int) parentTuple, int copy = 0)
         {
             if (string.IsNullOrEmpty(ParentIDTB.Text))
             {
@@ -312,7 +345,12 @@ namespace Intralism_Mapping_Assistant
                 IsNew = CreateNewObjectsCB.Checked,
 
                 ID = EnvObjTB.Text + (copy != 0 ? $"{copy}" : ""),
-                ParentID = ParentIDCB.Checked ? ParentIDTB.Text : null,
+                ParentID = ParentIDCB.Checked ?
+                            (
+                                parentTuple.Item1 ?
+                                    ParentIDTB.Text + (parentTuple.Item2 != 0 ? $"{parentTuple.Item2}" : "") :
+                                    ParentIDTB.Text
+                            ) : null,
 
                 SpawnTime = (double?)SpawnTimeNUD.Value,
                 RemoveTime = RemoveTimeCB.Checked ? (double?)RemoveTimeNUD.Value : null,
