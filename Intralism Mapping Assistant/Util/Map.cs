@@ -136,7 +136,7 @@ namespace Intralism_Mapping_Assistant.Util
                 compiledData += data[i] + "\"";
             }
 
-            return $"{{\"time\":{time},\"data\":[\"{compiledData}\"]}}";
+            return $"{{\"time\":{time},\"data\":[{compiledData}]}}";
         }
     }
 
