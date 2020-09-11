@@ -37,7 +37,8 @@ namespace Intralism_Mapping_Assistant
             EnvObjTB.Text = nameAdjustedText;
             ParentIDTB.Text = parentAdjustedText;
 
-            if (MakeMultipleCopiesNUD.Value > 0)
+            // Make multiple or make one
+            if (MakeMultipleCopiesCB.Checked && MakeMultipleCopiesNUD.Value > 0)
             {
                 int currentStep = 0;
                 for (int i = nameStartIndex - 1;
